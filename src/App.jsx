@@ -1,4 +1,5 @@
 import DhanushOSTerminal from './components/DhanushOSTerminal';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import PineappleOS from './pineappleos/PineappleOS';
 import CybersecurityAnalystProfile from './components/CybersecurityAnalystProfile';
 import { useState } from 'react';
@@ -217,7 +218,10 @@ function App() {
   }
 
   if (!selectedProfile) {
-    return <ProfileSelection onProfileSelect={setSelectedProfile} />;
+    return <>
+      <ProfileSelection onProfileSelect={setSelectedProfile} />
+      <SpeedInsights />
+    </>;
   }
 
   if (selectedProfile === 'cybersecurity') {
@@ -249,91 +253,101 @@ function App() {
           &#8592; Back to Profile
         </button>
         <DhanushOSTerminal />
+        <SpeedInsights />
       </div>
     );
   }
 
   if (selectedProfile === 'developer') {
     return (
-      <PineappleOS
-        projects={projects}
-        skills={skills}
-        experiences={experiences}
-        certifications={certifications}
-        contactInfo={contactInfo}
-        menuBarProps={{
-          onBackToProfile: () => {
-            setSelectedProfile(null);
-            setShowIntro(false);
-            setIntroPlayed(true);
-          }
-        }}
-      />
+      <>
+        <PineappleOS
+          projects={projects}
+          skills={skills}
+          experiences={experiences}
+          certifications={certifications}
+          contactInfo={contactInfo}
+          menuBarProps={{
+            onBackToProfile: () => {
+              setSelectedProfile(null);
+              setShowIntro(false);
+              setIntroPlayed(true);
+            }
+          }}
+        />
+        <SpeedInsights />
+      </>
     );
   }
 
   if (selectedProfile === 'recruiter') {
     return (
-      <div className="app" style={{ height: '100vh', overflowY: 'auto' }}>
-        <Navbar
-          onBackToProfile={() => {
-            setSelectedProfile(null);
-            setShowIntro(false);
-            setIntroPlayed(true);
-          }}
-        />
-        <HeroSection aboutContent={aboutContent} contactInfo={contactInfo} />
-        <MyList />
-        <SkillsLibrary skills={skills} />
-        <TrendingNow experiences={experiences} />
-        <ContinueWatching projects={projects} />
-        <Certifications certifications={certifications} />
-        <Gallery />
-        <Languages />
-        <Awards />
-        <div id="contactfooter">
-          <ContactFooter contactInfo={contactInfo} />
+      <>
+        <div className="app" style={{ height: '100vh', overflowY: 'auto', background: '#141414' }}>
+          <Navbar
+            onBackToProfile={() => {
+              setSelectedProfile(null);
+              setShowIntro(false);
+              setIntroPlayed(true);
+            }}
+          />
+          <HeroSection aboutContent={aboutContent} contactInfo={contactInfo} />
+          <MyList />
+          <SkillsLibrary skills={skills} />
+          <TrendingNow experiences={experiences} />
+          <ContinueWatching projects={projects} />
+          <Certifications certifications={certifications} />
+          <Gallery />
+          <Languages />
+          <Awards />
+          <div id="contactfooter">
+            <ContactFooter contactInfo={contactInfo} />
+          </div>
         </div>
-      </div>
+        <SpeedInsights />
+      </>
     );
   }
 
   // Placeholder for other profiles
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: '#141414',
-      color: '#fff',
-      fontSize: '2rem'
-    }}>
-      <p>Profile view for "{selectedProfile}" is coming soon.</p>
-      <button
-        onClick={() => {
-          setSelectedProfile(null);
-          setShowIntro(false);
-          setIntroPlayed(true);
-        }}
-        style={{
-          marginTop: '2rem',
-          background: '#E50914',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '8px',
-          padding: '0.75rem 1.5rem',
-          fontSize: '1.1rem',
-          fontFamily: 'inherit',
-          cursor: 'pointer',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-          transition: 'background 0.2s',
-        }}
-      >
-        &#8592; Back to Profile
-      </button>
-    </div>
+    <>
+      <div style={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#141414',
+        color: '#fff',
+        fontSize: '2rem'
+      }}>
+        <p>Profile view for "{selectedProfile}" is coming soon.</p>
+        <button
+          onClick={() => {
+            setSelectedProfile(null);
+            setShowIntro(false);
+            setIntroPlayed(true);
+          }}
+          style={{
+            marginTop: '2rem',
+            background: '#E50914',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '0.75rem 1.5rem',
+            fontSize: '1.1rem',
+            fontFamily: 'inherit',
+            cursor: 'pointer',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            transition: 'background 0.2s',
+          }}
+        >
+          &#8592; Back to Profile
+        </button>
+      </div>
+      <SpeedInsights />
+    </>
   );
 }
 
