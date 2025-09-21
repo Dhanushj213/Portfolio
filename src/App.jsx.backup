@@ -1,0 +1,214 @@
+import { useState } from 'react';
+import './App.css';
+import ProfileSelection from './components/ProfileSelection';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import MyList from './components/MyList';
+import TrendingNow from './components/TrendingNow';
+import ContinueWatching from './components/ContinueWatching';
+import SkillsLibrary from './components/SkillsLibrary';
+import Certifications from './components/AwardsCertifications';
+import Gallery from './components/Gallery';
+import Languages from './components/Languages';
+import Awards from './components/Awards';
+import ContactFooter from './components/ContactFooter';
+
+const contactInfo = {
+  email: 'jdhanush213@gmail.com',
+  phone: '+918217471928',
+  location: 'Bengaluru, Karnataka, India',
+  linkedin: 'https://www.linkedin.com/in/dhanush-j-a976ab26b',
+  github: 'https://github.com/dhanushj213',
+  dob: 'January 2nd, 2003'
+};
+
+const aboutContent = {
+  title: 'About Me',
+  description: 'Computer Science Engineering student specializing in Cybersecurity with a passion for developing secure and innovative solutions.',
+};
+
+const skills = [
+  {
+    id: 1,
+    title: 'Programming Languages',
+    skills: ['C', 'C++', 'Java', 'Python', 'Swift', 'PHP', 'Shell Scripting', 'SQL']
+  },
+  {
+    id: 2,
+    title: 'Web Development',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'PHP', 'Django', 'Flask', 'MERN Stack', 'LAMP Stack', 'RESTful API & GraphQL Development']
+  },
+  {
+    id: 3,
+    title: 'Frameworks & Libraries',
+    skills: ['React.js', 'Vue.js', 'Bootstrap', 'Tailwind CSS', 'Laravel']
+  },
+  {
+    id: 4,
+    title: 'Tools & Technologies',
+    skills: ['Git', 'GitHub', 'VS Code', 'Docker', 'Figma', 'Power BI']
+  },
+  {
+    id: 5,
+    title: 'Databases',
+    skills: ['MySQL', 'MongoDB']
+  },
+  {
+    id: 6,
+    title: 'Cloud & DevOps',
+    skills: ['AWS (EC2, S3, Lambda)', 'Docker']
+  },
+  {
+    id: 7,
+    title: 'Operating Systems',
+    skills: ['Linux (Ubuntu, Kali Linux)', 'Metasploit', 'Windows', 'macOS']
+  },
+  {
+    id: 8,
+    title: 'Cybersecurity & Networking',
+    skills: ['Penetration Testing', 'Network Security & Protocols', 'Cryptography', 'Firewalls & Intrusion Detection Systems']
+  },
+  {
+    id: 9,
+    title: 'Embedded Systems & IoT',
+    skills: ['Arduino', 'Raspberry Pi']
+  },
+  {
+    id: 10,
+    title: 'Mobile App Development',
+    skills: ['Android (Flutter)', 'iOS (Swift)']
+  },
+  {
+    id: 11,
+    title: 'Soft Skills',
+    skills: ['Problem-Solving & Algorithmic Thinking', 'Leadership & Team Management', 'UI/UX Design', 'Public Speaking']
+  }
+];
+
+const certifications = [
+  {
+    id: 1,
+    title: 'Google Cloud Career Launchpad - Cybersecurity Track',
+    organization: 'Google Cloud',
+    date: 'May 21, 2025',
+    verificationLink: 'https://www.credly.com/badges/1b40e2a7-1bce-4786-89ac-9fb4e0126b64'
+  },
+  {
+    id: 2,
+    title: 'Machine Learning Fundamentals',
+    organization: 'Infosys Springboard',
+    date: 'May 9, 2025',
+    verificationLink: 'https://verify.onwingspan.com/'
+  },
+  {
+    id: 3,
+    title: 'AWS Academy Graduate - AWS Academy Cloud Foundations',
+    organization: 'AWS Academy',
+    date: 'May 6, 2025',
+    verificationLink: 'https://www.credly.com/badges/ac7c4a9a-012d-4c61-8cb7-40ffa64b1f71/print'
+  },
+  {
+    id: 4,
+    title: 'Spark SQL & Hadoop (For Data Science)',
+    organization: 'Udemy',
+    date: 'December 2024 - February 2025',
+    verificationLink: 'https://www.udemy.com/certificate/UC-e184a0c3-1ded-42fa-89a9-267f87aa39b9/'
+  }
+];
+
+const experiences = [
+  {
+    company: 'Octanet Services Pvt. Ltd.',
+    role: 'Full-Stack Web Developer Intern',
+    period: 'September 2024 - November 2024',
+    description: 'Developed full-stack web applications using HTML, CSS, JavaScript, Node.js, Express.js. Managed databases with MongoDB, MySQL and optimized API integration. Focused on responsive web design, debugging, and version control (Git, GitHub).',
+    verificationLink: 'https://drive.google.com/drive/mobile/folders/1u0x4hys1l09uhQo21TH5taeOtpqjiga4'
+  },
+  {
+    company: 'Oasis Infobyte - AICTE OIB-SIP',
+    role: 'Web Development & UI/UX Design Intern',
+    period: 'September 2024 - October 2024',
+    description: 'Specialized in Web Development & UI/UX Design. Gained experience in front-end & back-end technologies, project management, and problem-solving. Recognized as a Star Performer for contributions to web development projects.',
+    verificationLink: 'https://drive.google.com/drive/mobile/folders/1CmX70Nlgosanr-AP3fpW-cXm247lqSB9'
+  },
+  {
+    company: 'CodeVertex',
+    role: 'Cybersecurity Intern',
+    period: 'June 2024 - August 2024',
+    description: 'Developed secure web applications and implemented UI/UX optimizations. Conducted penetration testing, vulnerability assessments, and cybersecurity implementations. Worked on data security strategies, encryption, and access control.',
+    verificationLink: 'https://drive.google.com/drive/mobile/folders/1_RJmyf5eZAxOc3_n3tOG9fT_T5-n65-2'
+  }
+];
+
+const projects = [
+  {
+    id: 1,
+    title: 'CryptaNet: Privacy-Preserving Explainable AI for Supply Chain Anomaly Detection on a Permissioned Blockchain',
+    image: '/P1.png',
+    description: 'Developed secure supply chain monitoring system using Hyperledger Fabric permissioned blockchain. Implemented Isolation Forest ML algorithm achieving real-time anomaly detection and automated threat identification. Created SHAP-based explainable AI layer providing transparent, human-readable explanations for detected anomalies. Ensured data privacy through AES and SHA-256 cryptographic operations. Built full-stack solution with React.js dashboard and Python/Flask backend. Developed Go smart contracts enabling immutable transaction logging. Facilitated collaborative threat intelligence sharing across supply chain partners.',
+    period: 'April 2025 - July 2025'
+  },
+  {
+    id: 2,
+    title: 'HoneyChain: IoT Honeypot with Blockchain-Verified Threat Intelligence',
+    image: '/P2.png',
+    description: 'Built distributed IoT honeypot network using ESP32 devices to emulate vulnerable IoT devices. Captured real-time attack vectors with 85% classification accuracy. Implemented blockchain-based immutable logging system for tamper-proof threat intelligence sharing. Enhanced data integrity across organizations through blockchain verification. Developed AI/ML models using Python and TensorFlow for automated threat pattern analysis. Created predictive attack detection system on blockchain-verified data.',
+    period: 'March 2025 - May 2025'
+  },
+  {
+    id: 3,
+    title: 'Intelligent Driver Monitoring System',
+    image: '/P3.png',
+    description: 'Built real-time web application using computer vision and machine learning. Monitored driver alertness through eye-tracking and head position analysis. Implemented solution using Python, OpenCV, and TensorFlow. Developed real-time alertness detection algorithms. Created user-friendly interface for monitoring results.',
+    period: '2024 - 2025'
+  },
+  {
+    id: 4,
+    title: 'Innovative Web Compiler (TypeScript & React.js)',
+    image: '/P4.png',
+    description: 'Designed online code compiler supporting multiple programming constructs. Developed lexical analysis and syntax parsing components. Implemented AST generation and runtime interpretation. Integrated real-time error detection and feedback system. Enhanced coding experience through intuitive user interface. Built using TypeScript and React.js for robust performance.',
+    period: '2024 - 2025'
+  }
+];
+
+function App() {
+  const [selectedProfile, setSelectedProfile] = useState(null);
+
+  if (!selectedProfile) {
+    return <ProfileSelection onProfileSelect={setSelectedProfile} />;
+  }
+
+  return (
+    <div className="app" style={{ backgroundColor: '#141414', minHeight: '100vh' }}>
+      {/* Background Video */}
+      <div className="video-background">
+        <video className="background-video" autoPlay muted loop>
+          <source src="/background-video.mp4" type="video/mp4" />
+          {/* Fallback to a subtle animated background if video is not available */}
+          <div className="video-fallback" style={{
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(45deg, #141414, #1a1a1a, #141414)',
+            backgroundSize: '400% 400%',
+            animation: 'gradientShift 8s ease infinite'
+          }}></div>
+        </video>
+        <div className="video-overlay"></div>
+      </div>
+
+      <Navbar />
+      <HeroSection aboutContent={aboutContent} />
+      <MyList />
+      <TrendingNow experiences={experiences} />
+      <ContinueWatching projects={projects} />
+      <SkillsLibrary skills={skills} />
+      <Certifications certifications={certifications} />
+      <Gallery />
+      <Awards />
+      <Languages />
+      <ContactFooter contactInfo={contactInfo} />
+    </div>
+  );
+}
+
+export default App;
