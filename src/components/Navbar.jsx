@@ -25,7 +25,7 @@ const Navbar = (props) => {
       top: 0,
       width: '100%',
       zIndex: 1000,
-      padding: '0.5rem 3%',
+      padding: '1rem 4%',
       background: scrolled
         ? 'linear-gradient(to bottom, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.9) 100%)'
         : 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)',
