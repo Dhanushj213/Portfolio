@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import DhanushOSTerminal from './components/DhanushOSTerminal';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import PineappleOS from './pineappleos/PineappleOS';
