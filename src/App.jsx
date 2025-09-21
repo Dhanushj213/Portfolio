@@ -1,5 +1,5 @@
 import DhanushOSTerminal from './components/DhanushOSTerminal';
-import { SpeedInsights } from "@vercel/speed-insights/react";
+// import { SpeedInsights } from "@vercel/speed-insights/react";
 import PineappleOS from './pineappleos/PineappleOS';
 import CybersecurityAnalystProfile from './components/CybersecurityAnalystProfile';
 import { useState } from 'react';
