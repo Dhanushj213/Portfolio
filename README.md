@@ -1,17 +1,132 @@
-<<<<<<< HEAD
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# PineappleOS Developer Portfolio
 
-Currently, two official plugins are available:
+A macOS-inspired developer portfolio built with React and Vite, featuring a custom windowing system, Dock, Finder, and interactive developer tools. Showcases your skills, projects, and apps in a unique desktop-like experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+[portfolio-tawny-nine-1d4s9pnkdr.vercel.app](https://portfolio-tawny-nine-1d4s9pnkdr.vercel.app/?_vercel_share=JzVF0Rnc5vPbQZCBhntGfS4k2nDqnIb7)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Portfolio
-A creative technologist building high-performance, interactive 3D experiences. I specialize in transforming complex algorithmic challenges into intuitive, user-centric applications using JavaScript and Three.js. My focus is on scalable architecture , accessibility, and creating engaging digital solutions.
->>>>>>> 0ff386e57f7f453c741745c86aac85d46d89a501
+---
+
+## 📦 Features
+
+- macOS-inspired UI: Menu bar, Dock, draggable/resizable windows, traffic light controls
+- Custom apps: Finder, System Settings, TextEdit, Terminal, Xcode, Keychain Access, JSON Formatter
+- Live developer tools: CodePad, API Playground, Cybersecurity Toolkit, JSON Formatter
+- Frosted glass effects, magnifying Dock icons, Pineapple branding
+- Responsive design for desktop and mobile
+- Vercel Speed Insights analytics integration
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/Dhanushj213/Portfolio.git
+cd Portfolio
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 🐳 Docker Usage
+
+Build and run the app in a container:
+
+```bash
+docker build -t portfolio-app .
+docker run -p 4173:4173 portfolio-app
+```
+
+App will be available at [http://localhost:4173](http://localhost:4173).
+
+---
+
+## ☁️ Deployment
+
+### Vercel
+
+1. Push your code to GitHub.
+2. Import the repo in Vercel.
+3. Set build command: `npm run build`
+4. Set output directory: `dist`
+5. Deploy!
+
+### Netlify
+
+1. Push your code to GitHub.
+2. Import the repo in Netlify.
+3. Set build command: `npm run build`
+4. Set publish directory: `dist`
+5. Deploy!
+
+---
+
+## 🗂️ Project Structure
+
+```
+src/
+	components/         # UI components and apps
+	pineappleos/        # PineappleOS core (Dock, MenuBar, WindowManager)
+	assets/             # Images, icons, videos
+	App.jsx             # Main app logic
+	main.jsx            # Entry point
+public/               # Static files
+Dockerfile            # Container setup
+vite.config.js        # Vite config
+tailwind.config.js    # Tailwind CSS config
+```
+
+---
+
+## ⚙️ Tech Stack
+
+- React
+- Vite
+- Tailwind CSS
+- Docker
+- Vercel Speed Insights
+
+---
+
+## 🧩 Apps Included
+
+- **Finder**: Projects browser with GitHub links
+- **System Settings**: Skills and categories
+- **TextEdit**: README.md summary
+- **Terminal**: API Playground
+- **Xcode**: Mini web compiler (JS editor)
+- **Keychain Access**: Cybersecurity toolkit (hashing, encoding, password analyzer)
+- **JSON Formatter**: Format and view JSON data
+
+---
+
+## 📊 Analytics
+
+[Vercel Speed Insights](https://vercel.com/docs/speed-insights) integrated for performance analytics.
+
+---
+
+## 🎓 Education
+
+**B.E in Computer Science & Engineering with specialization in Cybersecurity, 2022-2026**  
+M.S.Ramaiah Institute of Technology, Bengaluru
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
