@@ -74,44 +74,58 @@ const HeroSection = ({ aboutContent }) => {
         </div>
       </div>
 
-      {/* About Me Section - Restored to clean layout (No Card) */}
-      <div className="mt-12 w-full px-4 md:px-0">
-        <h2 className="font-heading text-3xl md:text-4xl mb-6 text-white border-l-4 border-[#E50914] pl-4">
-          ABOUT ME
-        </h2>
+      {/* About Me Section - Glass Card Layout */}
+      <div className="mt-20 w-full max-w-6xl mx-auto px-4 md:px-8 pb-20">
+        <motion.div
+          className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl bg-white/5 p-8 md:p-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {/* Glass Highlight Effect */}
+          <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#E50914]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-16">
-          {/* Profile Image - Slides from Left */}
-          <motion.div
-            className="shrink-0 w-64 h-80 relative group"
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <img
-              src="/profile-picture.png"
-              alt="Profile Picture"
-              className="w-full h-full object-cover rounded-lg border-2 border-[#E50914] shadow-[0_0_20px_rgba(229,9,20,0.4)] transition-transform duration-300 group-hover:scale-105"
-            />
-          </motion.div>
+          {/* Centered Title */}
+          <h2 className="font-heading text-4xl md:text-5xl mb-12 text-center text-white/90 tracking-wide drop-shadow-lg">
+            ABOUT ME
+          </h2>
 
-          {/* Description - Slides from Right */}
-          <motion.div
-            className="flex-1 text-center md:text-left"
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="font-heading text-4xl md:text-6xl text-[#E50914] mb-6 drop-shadow-[0_0_10px_rgba(229,9,20,0.5)]">
-              THE DEVELOPER
-            </h2>
-            <p className="text-base md:text-xl leading-relaxed text-[#e5e5e5] text-justify font-light">
-              Computer Science Engineering student specializing in Cybersecurity with hands-on experience in full-stack web development, cloud computing (AWS), machine learning, and secure software design. Proficient in C, C++, Python, Java, JavaScript, React.js, Node.js, MongoDB, MySQL, and Docker. Completed internships focusing on web application security, penetration testing, and UI/UX development. Proven ability to build scalable, secure applications using modern frameworks and tools. Strong foundation in data structures, operating systems, and network security. Seeking to apply technical skills and project experience in dynamic software or cybersecurity engineering roles. Passionate about leveraging AI and blockchain to develop innovative, real-world solutions. Recognized for leadership, adaptability, and consistently delivering high-impact results in collaborative environments.
-            </p>
-          </motion.div>
-        </div>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Profile Image - Slides from Left */}
+            <motion.div
+              className="shrink-0 w-72 h-96 relative group"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="absolute inset-0 bg-[#E50914] rounded-2xl rotate-6 opacity-20 group-hover:rotate-3 transition-transform duration-300"></div>
+              <img
+                src="/profile-picture.png"
+                alt="Profile Picture"
+                className="relative z-10 w-full h-full object-cover rounded-2xl border border-white/20 shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+            </motion.div>
+
+            {/* Description - Slides from Right */}
+            <motion.div
+              className="flex-1 text-center lg:text-left"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="font-heading text-3xl md:text-4xl text-[#E50914] mb-6 drop-shadow-md">
+                THE DEVELOPER
+              </h3>
+              <p className="text-lg md:text-xl leading-relaxed text-[#e5e5e5] text-justify font-light min-h-[300px] flex items-center">
+                Computer Science Engineering student specializing in Cybersecurity with hands-on experience in full-stack web development, cloud computing (AWS), machine learning, and secure software design. Proficient in C, C++, Python, Java, JavaScript, React.js, Node.js, MongoDB, MySQL, and Docker. Completed internships focusing on web application security, penetration testing, and UI/UX development. Proven ability to build scalable, secure applications using modern frameworks and tools. Strong foundation in data structures, operating systems, and network security. Seeking to apply technical skills and project experience in dynamic software or cybersecurity engineering roles. Passionate about leveraging AI and blockchain to develop innovative, real-world solutions. Recognized for leadership, adaptability, and consistently delivering high-impact results in collaborative environments.
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
