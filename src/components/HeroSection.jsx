@@ -74,56 +74,83 @@ const HeroSection = ({ aboutContent }) => {
         </div>
       </div>
 
-      {/* About Me Section - Glass Card Layout */}
-      <div className="mt-20 w-full max-w-6xl mx-auto px-4 md:px-8 pb-20">
+      {/* About Me Section - Premium 3D Glass Layout */}
+      <div className="mt-24 w-full max-w-7xl mx-auto px-4 md:px-8 pb-24perspective-1000">
         <motion.div
-          className="relative overflow-hidden rounded-3xl border border-white/10 shadow-2xl backdrop-blur-xl bg-white/5 p-8 md:p-12"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-2xl p-8 md:p-16 isolate transform-gpu"
+          initial={{ opacity: 0, y: 100, rotateX: 10 }}
+          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: true, margin: "-100px" }}
+          whileHover={{ scale: 1.005, transition: { duration: 0.5 } }}
         >
-          {/* Glass Highlight Effect */}
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#E50914]/10 rounded-full blur-3xl pointer-events-none"></div>
+          {/* Liquid/Glass Reflection Layers */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 opacity-50 pointer-events-none"></div>
+          <div className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] bg-gradient-to-br from-transparent via-white/5 to-transparent rotate-45 animate-pulse opacity-30 pointer-events-none"></div>
 
-          {/* Centered Title */}
-          <h2 className="font-heading text-4xl md:text-5xl mb-12 text-center text-white/90 tracking-wide drop-shadow-lg">
-            ABOUT ME
-          </h2>
+          {/* Subtle Shimmer Animation */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12"
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{ repeat: Infinity, duration: 8, ease: "linear", repeatDelay: 2 }}
+          />
 
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Profile Image - Slides from Left */}
-            <motion.div
-              className="shrink-0 w-72 h-96 relative group"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute inset-0 bg-[#E50914] rounded-2xl rotate-6 opacity-20 group-hover:rotate-3 transition-transform duration-300"></div>
-              <img
-                src="/profile-picture.png"
-                alt="Profile Picture"
-                className="relative z-10 w-full h-full object-cover rounded-2xl border border-white/20 shadow-2xl transition-transform duration-300 group-hover:scale-[1.02]"
-              />
-            </motion.div>
+          {/* Decorative Glow Blobs */}
+          <div className="absolute -top-32 -left-32 w-80 h-80 bg-[#E50914]/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+          <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
 
-            {/* Description - Slides from Right */}
-            <motion.div
-              className="flex-1 text-center lg:text-left"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="font-heading text-3xl md:text-4xl text-[#E50914] mb-6 drop-shadow-md">
-                THE DEVELOPER
-              </h3>
-              <p className="text-lg md:text-xl leading-relaxed text-[#e5e5e5] text-justify font-light min-h-[300px] flex items-center">
-                Computer Science Engineering student specializing in Cybersecurity with hands-on experience in full-stack web development, cloud computing (AWS), machine learning, and secure software design. Proficient in C, C++, Python, Java, JavaScript, React.js, Node.js, MongoDB, MySQL, and Docker. Completed internships focusing on web application security, penetration testing, and UI/UX development. Proven ability to build scalable, secure applications using modern frameworks and tools. Strong foundation in data structures, operating systems, and network security. Seeking to apply technical skills and project experience in dynamic software or cybersecurity engineering roles. Passionate about leveraging AI and blockchain to develop innovative, real-world solutions. Recognized for leadership, adaptability, and consistently delivering high-impact results in collaborative environments.
-              </p>
-            </motion.div>
+          {/* Content Container */}
+          <div className="relative z-10 flex flex-col items-center">
+
+            {/* Section Title */}
+            <h2 className="font-heading text-5xl md:text-6xl mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400 tracking-wider drop-shadow-2xl">
+              ABOUT ME
+            </h2>
+
+            <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 w-full">
+
+              {/* Profile Image - 3D Float Effect */}
+              <motion.div
+                className="shrink-0 w-80 h-[26rem] relative group perspective-500"
+                initial={{ opacity: 0, x: -50, rotateY: 20 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                {/* Image Glow/Shadow */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#E50914]/30 to-transparent rounded-3xl blur-2xl -z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
+
+                {/* The Image Itself */}
+                <img
+                  src="/profile-picture.png"
+                  alt="Profile Picture"
+                  className="w-full h-full object-cover rounded-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-700 group-hover:scale-105 group-hover:rotate-y-6 group-hover:shadow-[0_30px_60px_rgba(229,9,20,0.3)]"
+                />
+
+                {/* Glass Reflection on Image */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
+              </motion.div>
+
+              {/* Description - Glassy Text Block */}
+              <motion.div
+                className="flex-1 text-center lg:text-left"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-8 inline-block">
+                  <h3 className="font-heading text-3xl md:text-4xl text-white mb-2 drop-shadow-lg">
+                    THE DEVELOPER
+                  </h3>
+                  <div className="h-1 w-24 bg-[#E50914] rounded-full mx-auto lg:mx-0 shadow-[0_0_10px_#E50914]"></div>
+                </div>
+
+                <p className="text-lg md:text-xl leading-loose text-gray-200 font-light text-justify tracking-wide drop-shadow-md">
+                  <span className="text-[#E50914] font-semibold">Computer Science Engineering</span> student specializing in <span className="text-white font-medium">Cybersecurity</span> with hands-on experience in full-stack web development, cloud computing (AWS), machine learning, and secure software design. Proficient in <span className="text-white/80">C, C++, Python, Java, JavaScript, React.js, Node.js, MongoDB, MySQL, and Docker</span>. Completed internships focusing on web application security, penetration testing, and UI/UX development. Proven ability to build scalable, secure applications using modern frameworks and tools. Strong foundation in data structures, operating systems, and network security. Seeking to apply technical skills and project experience in dynamic software or cybersecurity engineering roles. Passionate about leveraging <span className="text-[#E50914] font-semibold">AI and blockchain</span> to develop innovative, real-world solutions.
+                </p>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>
