@@ -2,85 +2,36 @@ import React from 'react';
 
 const HeroSection = ({ aboutContent }) => {
   return (
-    <section id="hero" className="hero" style={{
-      paddingTop: '28rem',
-      paddingBottom: '3rem',
-      paddingLeft: '4%',
-      paddingRight: '4%',
-      minHeight: '80vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      position: 'relative',
-      backgroundColor: '#141414',
-      overflow: 'hidden'
-    }}>
+    <section
+      id="hero"
+      className="relative min-h-[80vh] flex flex-col justify-center bg-[#141414] overflow-hidden px-4 md:px-12 pt-32 pb-12 lg:pt-[28rem]"
+    >
       {/* Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          zIndex: 0,
-          opacity: 0.25
-        }}
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25"
       >
         <source src="/background-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+
       {/* Hero Content */}
-      <div className="hero-content" style={{
-        maxWidth: '800px',
-        zIndex: 2,
-        position: 'relative'
-      }}>
-        <h1 className="hero-title" style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: '3.5rem',
-          marginBottom: '1rem',
-          color: '#FFFFFF',
-          lineHeight: '1.2'
-        }}>
+      <div className="relative z-10 max-w-4xl">
+        <h1 className="font-heading text-5xl md:text-7xl mb-4 text-white leading-tight">
           Dhanush J
         </h1>
-        <p className="hero-subtitle" style={{
-          fontSize: '1.3rem',
-          marginBottom: '2rem',
-          color: '#e5e5e5',
-          lineHeight: '1.6'
-        }}>
+        <p className="text-xl md:text-2xl mb-8 text-[#e5e5e5] leading-relaxed max-w-3xl">
           {aboutContent.description}
         </p>
-        <div className="hero-buttons" style={{
-          display: 'flex',
-          gap: '1rem',
-          flexWrap: 'wrap',
-          marginBottom: '3rem'
-        }}>
+        <div className="flex flex-wrap gap-4 mb-12">
           <a
             href="https://drive.google.com/file/d/1E6HM8pHJJhxsQgzSjMN0gL-IG6SREJA_/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
-            className="netflix-button primary-button"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '12px 24px',
-              borderRadius: '4px',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-              backgroundColor: '#E50914',
-              color: 'white'
-            }}
+            className="flex items-center justify-center px-6 py-3 rounded font-bold transition-all duration-300 bg-[#E50914] text-white hover:bg-red-700 hover:scale-105"
           >
             View Resume
           </a>
@@ -88,133 +39,44 @@ const HeroSection = ({ aboutContent }) => {
             href="https://www.linkedin.com/in/dhanush-j-a976ab26b"
             target="_blank"
             rel="noopener noreferrer"
-            className="netflix-button secondary-button"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '12px 24px',
-              borderRadius: '4px',
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              transition: 'all 0.3s ease',
-              backgroundColor: 'rgba(109, 109, 110, 0.7)',
-              color: 'white'
-            }}
+            className="flex items-center justify-center px-6 py-3 rounded font-bold transition-all duration-300 bg-gray-600/70 text-white hover:bg-gray-600/90 hover:scale-105"
           >
             LinkedIn
           </a>
-
-
         </div>
+      </div>
 
-  {/* About Me Section */}
-  </div>
-      <section className="content-row" style={{
-        padding: '2rem 3%',
-        backgroundColor: '#141414',
-        marginTop: '3rem',
-        width: '100%'
-      }}>
-        <h2 className="row-title" style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: '1.8rem',
-          marginBottom: '1rem',
-          color: '#FFFFFF',
-          marginLeft: '-4%'
-        }}>
+      {/* About Me Section */}
+      <div className="mt-12 w-full">
+        <h2 className="font-heading text-3xl md:text-4xl mb-6 text-white border-l-4 border-[#E50914] pl-4">
           ABOUT ME
         </h2>
 
-        {/* About Me Content */}
-  <div className="about-me-section" style={{
-          backgroundColor: 'rgba(20, 20, 20, 0.8)',
-          padding: '3rem 4%',
-          borderRadius: '8px',
-          position: 'relative',
-          display: 'flex',
-          gap: '2rem',
-          alignItems: 'flex-start',
-          width: '100%',
-          transition: 'all 0.3s ease',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(229, 9, 20, 0.1), 0 0 20px rgba(229, 9, 20, 0.05)',
-          border: '1px solid rgba(229, 9, 20, 0.2)',
-          cursor: 'pointer'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.02)';
-          e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(229, 9, 20, 0.2), 0 0 30px rgba(229, 9, 20, 0.1)';
-          e.currentTarget.style.border = '1px solid rgba(229, 9, 20, 0.4)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(229, 9, 20, 0.1), 0 0 20px rgba(229, 9, 20, 0.05)';
-          e.currentTarget.style.border = '1px solid rgba(229, 9, 20, 0.2)';
-        }}>
-          <div className="about-me-content" style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '2.5rem',
-            justifyContent: 'flex-start',
-          }}>
-            <div style={{
-              flexShrink: 0,
-              width: '260px',
-              height: '320px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              margin: 0,
-            }}>
+        <div className="bg-[#141414]/80 p-6 md:p-10 rounded-xl border border-[#E50914]/20 shadow-2xl transition-all duration-300 hover:scale-[1.01] hover:shadow-red-900/10 hover:border-[#E50914]/40 group">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+
+            {/* Profile Image */}
+            <div className="shrink-0 w-64 h-80 relative group-hover:scale-105 transition-transform duration-300">
               <img
                 src="/profile-picture.png"
                 alt="Profile Picture"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: '8px',
-                  border: '2px solid #E50914',
-                  boxShadow: '0 0 15px rgba(229, 9, 20, 0.3)',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  e.currentTarget.style.border = '2px solid #FFFFFF';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.border = '2px solid #E50914';
-                }}
+                className="w-full h-full object-cover rounded-lg border-2 border-[#E50914] shadow-[0_0_15px_rgba(229,9,20,0.3)] group-hover:border-white transition-colors duration-300"
               />
             </div>
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
-              <h2 className="about-title" style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: '2.5rem',
-                color: '#E50914',
-                textAlign: 'left',
-                marginBottom: '1.5rem',
-                textShadow: '0 0 10px rgba(229, 9, 20, 0.5)'
-              }}>
+
+            {/* Description */}
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="font-heading text-4xl md:text-5xl text-[#E50914] mb-6 drop-shadow-[0_0_10px_rgba(229,9,20,0.5)]">
                 THE DEVELOPER
               </h2>
-              <p className="about-description" style={{
-                fontSize: '1.1rem',
-                lineHeight: '1.7',
-                color: '#e5e5e5',
-                textAlign: 'justify',
-                margin: 0,
-                maxWidth: '100%',
-              }}>
+              <p className="text-base md:text-lg leading-relaxed text-[#e5e5e5] text-justify">
                 Computer Science Engineering student specializing in Cybersecurity with hands-on experience in full-stack web development, cloud computing (AWS), machine learning, and secure software design. Proficient in C, C++, Python, Java, JavaScript, React.js, Node.js, MongoDB, MySQL, and Docker. Completed internships focusing on web application security, penetration testing, and UI/UX development. Proven ability to build scalable, secure applications using modern frameworks and tools. Strong foundation in data structures, operating systems, and network security. Seeking to apply technical skills and project experience in dynamic software or cybersecurity engineering roles. Passionate about leveraging AI and blockchain to develop innovative, real-world solutions. Recognized for leadership, adaptability, and consistently delivering high-impact results in collaborative environments.
               </p>
             </div>
+
           </div>
         </div>
-      </section>
+      </div>
     </section>
   );
 };

@@ -259,7 +259,12 @@ body {
   overflow-x: auto;
   gap: 1rem;
   padding-bottom: 1rem;
-  scrollbar-width: thin;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .card {

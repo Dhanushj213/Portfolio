@@ -19,7 +19,7 @@ const appWindows = {
   'Contacts': ContactsWindow,
 };
 
-const WindowManager = ({ openApps, activeApp, closeApp, setActiveApp, projects, skills, experiences, certifications, contactInfo }) => {
+const WindowManager = ({ openApps, activeApp, closeApp, setActiveApp, projects, skills, experiences, certifications, contactInfo, isMobile }) => {
   return (
     <div className="window-manager">
       {openApps.map(appName => {
@@ -36,6 +36,7 @@ const WindowManager = ({ openApps, activeApp, closeApp, setActiveApp, projects, 
             experiences={experiences}
             certifications={certifications}
             contactInfo={contactInfo}
+            isMobile={isMobile}
           />
         ) : null;
       })}
