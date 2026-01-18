@@ -194,18 +194,25 @@ function App() {
   // Show intro video overlay before profile selection
   if (showIntro && !introPlayed) {
     return (
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
-        background: 'black',
-        zIndex: 9999,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'black',
+          zIndex: 9999,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer'
+        }}
+        onClick={() => {
+          setShowIntro(false);
+          setIntroPlayed(true);
+        }}
+      >
         <video
           src="/video.mp4"
           autoPlay
@@ -216,7 +223,39 @@ function App() {
             setShowIntro(false);
             setIntroPlayed(true);
           }}
+          onError={() => {
+            console.error("Video failed to play");
+            setShowIntro(false);
+            setIntroPlayed(true);
+          }}
         />
+        <button
+          style={{
+            position: 'absolute',
+            bottom: '2rem',
+            right: '2rem',
+            padding: '10px 24px',
+            background: 'rgba(229, 9, 20, 0.8)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '4px',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            cursor: 'pointer',
+            zIndex: 10000,
+            backdropFilter: 'blur(4px)',
+            transition: 'background 0.2s'
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowIntro(false);
+            setIntroPlayed(true);
+          }}
+          onMouseEnter={(e) => e.target.style.background = '#E50914'}
+          onMouseLeave={(e) => e.target.style.background = 'rgba(229, 9, 20, 0.8)'}
+        >
+          Skip Intro &rarr;
+        </button>
       </div>
     );
   }
@@ -306,7 +345,6 @@ function App() {
 
           <Awards />
 
-          <BlogSection />
           <BlogSection />
           <div id="contactfooter">
             <ContactFooter contactInfo={contactInfo} />
