@@ -121,10 +121,16 @@ const HeroSection = ({ aboutContent }) => {
                 <div className="absolute inset-0 bg-gradient-to-b from-[#E50914]/30 to-transparent rounded-3xl blur-2xl -z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-700"></div>
 
                 {/* The Image Itself */}
-                <img
+                <motion.img
                   src="/profile-picture.png"
                   alt="Profile Picture"
-                  className="w-full h-full object-cover rounded-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-all duration-700 group-hover:scale-105 group-hover:rotate-y-6 group-hover:shadow-[0_30px_60px_rgba(229,9,20,0.3)]"
+                  className="w-full h-full object-cover rounded-3xl border border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 6,
+                    boxShadow: "0 30px 60px rgba(229,9,20,0.3)"
+                  }}
+                  transition={{ duration: 0.7 }}
                 />
 
                 {/* Glass Reflection on Image */}
