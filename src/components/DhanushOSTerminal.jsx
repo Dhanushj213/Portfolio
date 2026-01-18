@@ -39,8 +39,8 @@ const experience = [
 ];
 
 const education = [
-'B.E in Computer Science & Engineering with specialization in Cybersecurity, 2022-2026',
-'M.S.Ramaiah Institute of Technology, Bengaluru',
+  'B.E in Computer Science & Engineering with specialization in Cybersecurity, 2022-2026',
+  'M.S.Ramaiah Institute of Technology, Bengaluru',
 ];
 
 const social = [
@@ -194,14 +194,12 @@ const DhanushOSTerminal = () => {
       padding: '0',
       fontSize: '1.35rem',
       letterSpacing: '0.5px',
-      overflow: 'auto',
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'flex-start',
-      alignItems: 'stretch',
+      overflow: 'visible', // Changed from auto to visible to allow full page scrolling
+      display: 'block',    // Changed from flex to block for standard flow
+      boxSizing: 'border-box',
     }}>
       {/* Header image removed */}
-      <div style={{ padding: '2rem 1rem 0 1rem', maxWidth: 900, margin: '0 auto', width: '100%' }}>
+      <div style={{ padding: '2rem 1rem 5rem 1rem', maxWidth: 900, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
         {lines.map((line, idx) => (
           <div key={idx} style={{ whiteSpace: 'pre', marginBottom: '0.2rem' }}>{line}</div>
         ))}
