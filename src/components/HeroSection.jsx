@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const HeroSection = ({ aboutContent }) => {
   return (
@@ -79,25 +80,37 @@ const HeroSection = ({ aboutContent }) => {
           ABOUT ME
         </h2>
 
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
-          {/* Profile Image */}
-          <div className="shrink-0 w-64 h-80 relative group">
+        <div className="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-16">
+          {/* Profile Image - Slides from Left */}
+          <motion.div
+            className="shrink-0 w-64 h-80 relative group"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <img
               src="/profile-picture.png"
               alt="Profile Picture"
-              className="w-full h-full object-cover rounded-lg border-2 border-[#E50914] shadow-[0_0_15px_rgba(229,9,20,0.3)] transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover rounded-lg border-2 border-[#E50914] shadow-[0_0_20px_rgba(229,9,20,0.4)] transition-transform duration-300 group-hover:scale-105"
             />
-          </div>
+          </motion.div>
 
-          {/* Description */}
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="font-heading text-4xl md:text-5xl text-[#E50914] mb-6 drop-shadow-[0_0_10px_rgba(229,9,20,0.5)]">
+          {/* Description - Slides from Right */}
+          <motion.div
+            className="flex-1 text-center md:text-left"
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="font-heading text-4xl md:text-6xl text-[#E50914] mb-6 drop-shadow-[0_0_10px_rgba(229,9,20,0.5)]">
               THE DEVELOPER
             </h2>
-            <p className="text-base md:text-lg leading-relaxed text-[#e5e5e5] text-justify">
+            <p className="text-base md:text-xl leading-relaxed text-[#e5e5e5] text-justify font-light">
               Computer Science Engineering student specializing in Cybersecurity with hands-on experience in full-stack web development, cloud computing (AWS), machine learning, and secure software design. Proficient in C, C++, Python, Java, JavaScript, React.js, Node.js, MongoDB, MySQL, and Docker. Completed internships focusing on web application security, penetration testing, and UI/UX development. Proven ability to build scalable, secure applications using modern frameworks and tools. Strong foundation in data structures, operating systems, and network security. Seeking to apply technical skills and project experience in dynamic software or cybersecurity engineering roles. Passionate about leveraging AI and blockchain to develop innovative, real-world solutions. Recognized for leadership, adaptability, and consistently delivering high-impact results in collaborative environments.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
