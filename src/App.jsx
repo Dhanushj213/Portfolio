@@ -18,7 +18,6 @@ import Awards from './components/Awards';
 import ContactFooter from './components/ContactFooter';
 
 import BlogSection from './components/BlogSection';
-import Testimonials from './components/Testimonials';
 
 const contactInfo = {
   email: 'jdhanush213@gmail.com',
@@ -308,7 +307,7 @@ function App() {
           <Awards />
 
           <BlogSection />
-          <Testimonials />
+          <BlogSection />
           <div id="contactfooter">
             <ContactFooter contactInfo={contactInfo} />
           </div>
