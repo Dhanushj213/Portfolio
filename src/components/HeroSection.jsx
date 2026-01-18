@@ -209,7 +209,7 @@ const HeroSection = ({ aboutContent }) => {
             />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };
