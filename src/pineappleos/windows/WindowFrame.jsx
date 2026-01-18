@@ -1,21 +1,50 @@
 import React, { useState, useRef } from 'react';
 
-// Force maximize behavior on mobile
-const effectiveMaximized = isMobile || maximized;
-
-// Drag logic - disabled on mobile
-const onHeaderMouseDown = (e) => {
-  if (isMobile) return;
-  dragging.current = true;
-  offset.current = {
-    x: e.clientX - pos.x,
-    y: e.clientY - pos.y
-  };
-  document.addEventListener('mousemove', onMouseMove);
-  document.addEventListener('mouseup', onMouseUp);
-};
-
 const WindowFrame = ({ appName, closeApp, setActiveApp, isActive, isMobile, children }) => {
+  const [maximized, setMaximized] = useState(false);
+  const [pos, setPos] = useState({ x: 120 + Math.random() * 60, y: 80 + Math.random() * 40 });
+  const dragging = useRef(false);
+  const offset = useRef({ x: 0, y: 0 });
+
+  const effectiveMaximized = isMobile || maximized;
+
+  const handleClose = () => {
+    closeApp(appName);
+  };
+  const handleMinimize = () => {
+    closeApp(appName);
+  };
+  const handleMaximize = () => {
+    setMaximized(!maximized);
+  };
+
+  // Drag logic
+  const onHeaderMouseDown = (e) => {
+    if (isMobile) return;
+    dragging.current = true;
+    offset.current = {
+      x: e.clientX - pos.x,
+      y: e.clientY - pos.y
+    };
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  };
+  const onMouseMove = (e) => {
+    if (dragging.current && !maximized) {
+      setPos({ x: e.clientX - offset.current.x, y: e.clientY - offset.current.y });
+    }
+  };
+  const onMouseUp = () => {
+    dragging.current = false;
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+  };
+
+  // Double-click header to expand/restore
+  const onHeaderDoubleClick = () => {
+    handleMaximize();
+  };
+
   return (
     <div
       className={`window-frame${isActive ? ' active' : ''}${effectiveMaximized ? ' maximized' : ''}`}
