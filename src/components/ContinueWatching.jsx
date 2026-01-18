@@ -7,20 +7,24 @@ const ContinueWatching = ({ projects }) => {
 
   const categories = ['All', 'Web', 'Cybersecurity', 'ML', 'Blockchain'];
 
-  // Basic keyword mapping for filtering (simplified logic)
-  const getCategory = (project) => {
+  // Keyword mapping allowing multiple categories per project
+  const getCategories = (project) => {
     const text = (project.title + project.description).toLowerCase();
-    if (text.includes('blockchain') || text.includes('crypto')) return 'Blockchain';
-    if (text.includes('security') || text.includes('honeypot') || text.includes('threat')) return 'Cybersecurity';
-    if (text.includes('machine learning') || text.includes('ai') || text.includes('computer vision')) return 'ML';
-    if (text.includes('react') || text.includes('web')) return 'Web';
-    return 'Other';
+    const cats = [];
+
+    // Explicit overrides for specific projects if needed, or robust keyword matching
+    if (text.includes('blockchain') || text.includes('crypto') || text.includes('hyperledger')) cats.push('Blockchain');
+    if (text.includes('security') || text.includes('honeypot') || text.includes('threat') || text.includes('cyber')) cats.push('Cybersecurity');
+    if (text.includes('machine learning') || text.includes('ai') || text.includes('computer vision') || text.includes('tensorflow')) cats.push('ML');
+    if (text.includes('react') || text.includes('web')) cats.push('Web');
+
+    return cats.length > 0 ? cats : ['Other'];
   };
 
   const filteredProjects = projects.filter(p => {
     if (filter === 'All') return true;
-    const cat = getCategory(p);
-    return cat === filter || (filter === 'Web' && cat === 'Other'); // Fallback
+    const projectCats = getCategories(p);
+    return projectCats.includes(filter);
   });
 
   const openModal = (project) => {
