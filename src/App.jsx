@@ -1,8 +1,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import DhanushOSTerminal from './components/DhanushOSTerminal';
-import { SpeedInsights } from "@vercel/speed-insights/react";
 import PineappleOS from './pineappleos/PineappleOS';
-import CybersecurityAnalystProfile from './components/CybersecurityAnalystProfile';
 import { useState } from 'react';
 import './App.css';
 import ProfileSelection from './components/ProfileSelection';
@@ -16,7 +14,11 @@ import Certifications from './components/AwardsCertifications';
 import Gallery from './components/Gallery';
 import Languages from './components/Languages';
 import Awards from './components/Awards';
+
 import ContactFooter from './components/ContactFooter';
+
+import BlogSection from './components/BlogSection';
+import Testimonials from './components/Testimonials';
 
 const contactInfo = {
   email: 'jdhanush213@gmail.com',
@@ -153,35 +155,37 @@ const projects = [
     description: 'Developed secure supply chain monitoring system using Hyperledger Fabric permissioned blockchain. Implemented Isolation Forest ML algorithm achieving real-time anomaly detection and automated threat identification. Created SHAP-based explainable AI layer providing transparent, human-readable explanations for detected anomalies. Ensured data privacy through AES and SHA-256 cryptographic operations. Built full-stack solution with React.js dashboard and Python/Flask backend. Developed Go smart contracts enabling immutable transaction logging. Facilitated collaborative threat intelligence sharing across supply chain partners.',
     period: 'April 2025 - July 2025'
   },
-    {
-      id: 2,
-      title: 'HoneyChain: IoT Honeypot with Blockchain-Verified Threat Intelligence',
-      image: '/P2.png',
-      description: 'Built distributed IoT honeypot network using ESP32 devices to emulate vulnerable IoT devices. Captured real-time attack vectors with 85% classification accuracy. Implemented blockchain-based immutable logging system for tamper-proof threat intelligence sharing. Enhanced data integrity across organizations through blockchain verification. Developed AI/ML models using Python and TensorFlow for automated threat pattern analysis. Created predictive attack detection system on blockchain-verified data.',
-      period: 'March 2025 - May 2025'
-    },
-    {
-      id: 3,
-      title: 'Intelligent Driver Monitoring System',
-      image: '/P3.png',
-      description: 'Built real-time web application using computer vision and machine learning. Monitored driver alertness through eye-tracking and head position analysis. Implemented solution using Python, OpenCV, and TensorFlow. Developed real-time alertness detection algorithms. Created user-friendly interface for monitoring results.',
-      period: '2024 - 2025'
-    },
-    {
-      id: 4,
-      title: 'Innovative Web Compiler (TypeScript & React.js)',
-      image: '/P4.png',
-      description: 'Designed online code compiler supporting multiple programming constructs. Developed lexical analysis and syntax parsing components. Implemented AST generation and runtime interpretation. Integrated real-time error detection and feedback system. Enhanced coding experience through intuitive user interface. Built using TypeScript and React.js for robust performance.',
-      period: '2024 - 2025'
-    },
-    {
-      id: 5,
-      title: 'Permutation Engine: A Scalable, Multi-Algorithm Solver with Interactive 3D Rendering',
-      image: '/P5.png',
-      description: 'This project is a 3D interactive Rubik\'s Cube solver created for the AeroHack\'25 hackathon. The main challenge was to design an algorithm that could solve any scrambled 3x3 cube. The solution is a sophisticated web application that not only solves the cube but also provides real-time analytics and a full 3D visualization. The solver supports multiple algorithms, including Kociemba, Two-Phase, and Layer-by-Layer, and can dynamically select the most efficient one based on the scramble\'s complexity. Key features include a scalable architecture to support different cube sizes (from 2x2 to 4x4), a mobile-responsive design, and extensive accessibility features like screen reader support and keyboard navigation. The system also boasts an advanced analytics dashboard that tracks metrics like solution time, move optimality, permutation cycles, and the status of solving stages like Cross and F2L pairs. The project stands out for its production-ready quality, educational value, technical excellence in combining advanced algorithms with modern web graphics, and a strong focus on user experience. Future plans include integrating machine learning, adding more puzzle types like Pyraminx and Megaminx, and developing a multiplayer mode.',
-      period: 'August 3rd, 2025'
-      }
-    ];
+  {
+    id: 2,
+    title: 'HoneyChain: IoT Honeypot with Blockchain-Verified Threat Intelligence',
+    image: '/P2.png',
+    description: 'Built distributed IoT honeypot network using ESP32 devices to emulate vulnerable IoT devices. Captured real-time attack vectors with 85% classification accuracy. Implemented blockchain-based immutable logging system for tamper-proof threat intelligence sharing. Enhanced data integrity across organizations through blockchain verification. Developed AI/ML models using Python and TensorFlow for automated threat pattern analysis. Created predictive attack detection system on blockchain-verified data.',
+    period: 'March 2025 - May 2025'
+  },
+  {
+    id: 3,
+    title: 'Intelligent Driver Monitoring System',
+    image: '/P3.png',
+    description: 'Built real-time web application using computer vision and machine learning. Monitored driver alertness through eye-tracking and head position analysis. Implemented solution using Python, OpenCV, and TensorFlow. Developed real-time alertness detection algorithms. Created user-friendly interface for monitoring results.',
+    period: '2024 - 2025'
+  },
+  {
+    id: 4,
+    title: 'Innovative Web Compiler (TypeScript & React.js)',
+    image: '/P4.png',
+    description: 'Designed online code compiler supporting multiple programming constructs. Developed lexical analysis and syntax parsing components. Implemented AST generation and runtime interpretation. Integrated real-time error detection and feedback system. Enhanced coding experience through intuitive user interface. Built using TypeScript and React.js for robust performance.',
+    period: '2024 - 2025'
+  },
+  {
+    id: 5,
+    title: 'Permutation Engine: A Scalable, Multi-Algorithm Solver with Interactive 3D Rendering',
+    image: '/P5.png',
+    description: 'This project is a 3D interactive Rubik\'s Cube solver created for the AeroHack\'25 hackathon. The main challenge was to design an algorithm that could solve any scrambled 3x3 cube. The solution is a sophisticated web application that not only solves the cube but also provides real-time analytics and a full 3D visualization. The solver supports multiple algorithms, including Kociemba, Two-Phase, and Layer-by-Layer, and can dynamically select the most efficient one based on the scramble\'s complexity. Key features include a scalable architecture to support different cube sizes (from 2x2 to 4x4), a mobile-responsive design, and extensive accessibility features like screen reader support and keyboard navigation. The system also boasts an advanced analytics dashboard that tracks metrics like solution time, move optimality, permutation cycles, and the status of solving stages like Cross and F2L pairs. The project stands out for its production-ready quality, educational value, technical excellence in combining advanced algorithms with modern web graphics, and a strong focus on user experience. Future plans include integrating machine learning, adding more puzzle types like Pyraminx and Megaminx, and developing a multiplayer mode.',
+    period: 'August 3rd, 2025',
+    githubUrl: 'https://github.com/Dhanushj213/PermutationEngine', // Added link
+    demoUrl: 'https://permutation-engine.vercel.app/' // Added link
+  }
+];
 
 function App() {
   const [selectedProfile, setSelectedProfile] = useState(null);
@@ -281,7 +285,7 @@ function App() {
     );
   }
 
-  if (selectedProfile === 'recruiter') {
+  if (['recruiter', 'manager', 'artist'].includes(selectedProfile)) {
     return (
       <>
         <div className="app" style={{ height: '100vh', overflowY: 'auto', background: '#141414' }}>
@@ -300,7 +304,11 @@ function App() {
           <Certifications certifications={certifications} />
           <Gallery />
           <Languages />
+
           <Awards />
+
+          <BlogSection />
+          <Testimonials />
           <div id="contactfooter">
             <ContactFooter contactInfo={contactInfo} />
           </div>

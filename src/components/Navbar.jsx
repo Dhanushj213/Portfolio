@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = (props) => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,11 @@ const Navbar = (props) => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -47,13 +54,22 @@ const Navbar = (props) => {
           }}
         />
       </div>
-      <div className="nav-links" style={{
+      <div className="nav-links desktop-menu" style={{
         display: 'flex',
         gap: '2rem',
         marginLeft: 'auto',
         marginRight: '2px',
         alignItems: 'center'
       }}>
+        <style>{`
+          @media (max-width: 768px) {
+            .desktop-menu { display: none !important; }
+            .mobile-menu-btn { display: block !important; }
+          }
+          @media (min-width: 769px) {
+            .mobile-menu-btn { display: none !important; }
+          }
+        `}</style>
         <button
           className="nav-link"
           onClick={() => scrollToSection('hero')}
@@ -125,6 +141,98 @@ const Navbar = (props) => {
           Contact
         </button>
       </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="mobile-menu-btn"
+        onClick={toggleMenu}
+        style={{
+          background: 'none',
+          border: 'none',
+          color: '#ffffff',
+          fontSize: '1.5rem',
+          cursor: 'pointer',
+          zIndex: 1001
+        }}
+        aria-label="Toggle navigation menu"
+      >
+        {isMenuOpen ? <FaTimes /> : <FaBars />}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100vh',
+          backgroundColor: 'rgba(0,0,0,0.95)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 999,
+          gap: '2rem'
+        }}>
+          <button
+            onClick={() => scrollToSection('hero')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#ffffff',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              fontFamily: 'Bebas Neue, sans-serif'
+            }}
+          >
+            Home
+          </button>
+          <button
+            onClick={props.onBackToProfile}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#E50914',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              fontFamily: 'Bebas Neue, sans-serif'
+            }}
+          >
+            &#8592; Back to Profile
+          </button>
+          {['Skills', 'Experience', 'Projects'].map((link) => (
+            <button
+              key={link}
+              onClick={() => scrollToSection(link.toLowerCase().replace(' ', ''))}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#e5e5e5',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+                fontFamily: 'Bebas Neue, sans-serif'
+              }}
+            >
+              {link}
+            </button>
+          ))}
+          <button
+            onClick={() => scrollToSection('contactfooter')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#e5e5e5',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              fontFamily: 'Bebas Neue, sans-serif'
+            }}
+          >
+            Contact
+          </button>
+        </div>
+      )}
     </nav>
   );
 };

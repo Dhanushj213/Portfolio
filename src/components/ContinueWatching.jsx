@@ -3,6 +3,25 @@ import React, { useState } from 'react';
 const ContinueWatching = ({ projects }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const [filter, setFilter] = useState('All');
+
+  const categories = ['All', 'Web', 'Cybersecurity', 'ML', 'Blockchain'];
+
+  // Basic keyword mapping for filtering (simplified logic)
+  const getCategory = (project) => {
+    const text = (project.title + project.description).toLowerCase();
+    if (text.includes('blockchain') || text.includes('crypto')) return 'Blockchain';
+    if (text.includes('security') || text.includes('honeypot') || text.includes('threat')) return 'Cybersecurity';
+    if (text.includes('machine learning') || text.includes('ai') || text.includes('computer vision')) return 'ML';
+    if (text.includes('react') || text.includes('web')) return 'Web';
+    return 'Other';
+  };
+
+  const filteredProjects = projects.filter(p => {
+    if (filter === 'All') return true;
+    const cat = getCategory(p);
+    return cat === filter || (filter === 'Web' && cat === 'Other'); // Fallback
+  });
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -27,6 +46,28 @@ const ContinueWatching = ({ projects }) => {
       }}>
         Continue Watching - Featured Projects
       </h2>
+
+      {/* Filters */}
+      <div className="filters" style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+        {categories.map(cat => (
+          <button
+            key={cat}
+            onClick={() => setFilter(cat)}
+            className={filter === cat ? 'netflix-button primary-button' : 'netflix-button secondary-button'}
+            style={{
+              padding: '8px 16px',
+              fontSize: '0.9rem',
+              margin: 0,
+              backgroundColor: filter === cat ? '#E50914' : 'rgba(109, 109, 110, 0.4)',
+              border: filter === cat ? 'none' : '1px solid #808080',
+              cursor: 'pointer'
+            }}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       <div className="horizontal-scroll" style={{
         display: 'flex',
         overflowX: 'auto',
@@ -34,7 +75,7 @@ const ContinueWatching = ({ projects }) => {
         paddingBottom: '1rem',
         scrollbarWidth: 'thin'
       }}>
-        {projects.map(project => (
+        {filteredProjects.map(project => (
           <div
             key={project.id}
             className="card project-card"
@@ -185,6 +226,41 @@ const ContinueWatching = ({ projects }) => {
                     {sentence.trim()}{sentence.trim().endsWith('.') ? '' : '.'}
                   </p>
                 ))}
+              </div>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                {selectedProject.githubUrl && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="netflix-button secondary-button"
+                    style={{
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      backgroundColor: 'rgba(255,255,255,0.2)'
+                    }}
+                  >
+                    <i className="fa-brands fa-github"></i> GitHub
+                  </a>
+                )}
+                {selectedProject.demoUrl && (
+                  <a
+                    href={selectedProject.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="netflix-button primary-button"
+                    style={{
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem'
+                    }}
+                  >
+                    <i className="fa-solid fa-play"></i> Live Demo
+                  </a>
+                )}
               </div>
             </div>
           </div>

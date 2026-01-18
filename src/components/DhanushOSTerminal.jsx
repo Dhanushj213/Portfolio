@@ -10,11 +10,12 @@ const asciiArt = `
 `;
 
 const bootLines = [
-  'Initializing D-Kernel v2.6... OK',
+  'Initializing DHanush-Kernel v2.6... OK',
   'Loading system modules...',
   'Scanning for vulnerabilities... 0 found.',
   'Mounting user filesystems [/root, /usr, /home]...',
-  'Welcome to DhanushOS.',
+  'Welcome to DhanushPortfolio',
+  'Lets start with the command "help"',
 ];
 
 const helpText = [
@@ -38,8 +39,8 @@ const experience = [
 ];
 
 const education = [
-  'B.Tech Computer Science & Engineering (Cybersecurity), 2021-2025',
-  'Presidency University, Bengaluru',
+'B.E in Computer Science & Engineering with specialization in Cybersecurity, 2022-2026',
+'M.S.Ramaiah Institute of Technology, Bengaluru',
 ];
 
 const social = [

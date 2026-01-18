@@ -1,121 +1,86 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const ContactFooter = ({ contactInfo }) => {
   return (
-    <footer className="footer" style={{
-      padding: '3rem 4%',
-      backgroundColor: '#141414',
-      borderTop: '1px solid #333'
-    }}>
-      <h2 className="footer-title" style={{
-        fontFamily: "'Bebas Neue', sans-serif",
-        fontSize: '2rem',
-        marginBottom: '1.5rem',
-        color: '#FFFFFF',
-        textAlign: 'center'
-      }}>
-        What's Next? Let's Connect.
+    <footer className="py-16 px-[4%] bg-[#141414] border-t border-[#333] text-gray-400">
+      <h2 className="font-heading text-4xl mb-8 text-white">
+        Contact Me
       </h2>
-      <div className="contact-info" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '0.8rem',
-        marginBottom: '2rem',
-        alignItems: 'center'
-      }}>
-        <div className="contact-item" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          color: '#e5e5e5',
-          fontSize: '1rem'
-        }}>
-          <FaEnvelope />
-          <a href={`mailto:${contactInfo.email}`} style={{
-            color: 'inherit',
-            textDecoration: 'none'
-          }}>
-            {contactInfo.email}
-          </a>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Contact Info */}
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-2 hover:text-white transition-colors">
+            <i className="fas fa-envelope text-netflix-red"></i>
+            <a href={`mailto:${contactInfo.email}`} className="no-underline text-inherit">{contactInfo.email}</a>
+          </div>
+          <div className="flex items-center gap-2 hover:text-white transition-colors">
+            <i className="fas fa-phone text-netflix-red"></i>
+            <a href={`tel:${contactInfo.phone}`} className="no-underline text-inherit">{contactInfo.phone}</a>
+          </div>
+          <div className="flex items-center gap-2">
+            <i className="fas fa-map-marker-alt text-netflix-red"></i>
+            <span>{contactInfo.location}</span>
+          </div>
+
+          <div className="flex gap-6 mt-6">
+            <a
+              href={contactInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl text-gray-300 hover:text-netflix-red transition-colors"
+              aria-label="LinkedIn"
+            >
+              <i className="fab fa-linkedin"></i>
+            </a>
+            <a
+              href={contactInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl text-gray-300 hover:text-netflix-red transition-colors"
+              aria-label="GitHub"
+            >
+              <i className="fab fa-github"></i>
+            </a>
+          </div>
         </div>
-        <div className="contact-item" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          color: '#e5e5e5',
-          fontSize: '1rem'
-        }}>
-          <FaPhone />
-          <a href={`tel:${contactInfo.phone}`} style={{
-            color: 'inherit',
-            textDecoration: 'none'
-          }}>
-            {contactInfo.phone}
-          </a>
-        </div>
-        <div className="contact-item" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          color: '#e5e5e5',
-          fontSize: '1rem'
-        }}>
-          <FaMapMarkerAlt />
-          {contactInfo.location}
-        </div>
-        <div className="contact-item" style={{
-          color: '#e5e5e5',
-          fontSize: '1rem'
-        }}>
-          DOB: {contactInfo.dob}
+
+        {/* Contact Form */}
+        <div className="w-full">
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            alert('Message functionality would be connected to a backend service here. For now, please use the email link!');
+          }} className="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Name"
+              className="bg-[#333] border-none p-4 text-white rounded focus:outline-none focus:ring-2 focus:ring-netflix-red"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="bg-[#333] border-none p-4 text-white rounded focus:outline-none focus:ring-2 focus:ring-netflix-red"
+              required
+            />
+            <textarea
+              placeholder="Message"
+              rows="4"
+              className="bg-[#333] border-none p-4 text-white rounded resize-none focus:outline-none focus:ring-2 focus:ring-netflix-red"
+              required
+            ></textarea>
+            <button
+              type="submit"
+              className="bg-netflix-red text-white py-3 px-6 rounded font-bold hover:bg-red-700 transition w-fit"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
-      <div className="social-links" style={{
-        display: 'flex',
-        gap: '1.5rem',
-        justifyContent: 'center'
-      }}>
-        <a
-          href={contactInfo.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-link"
-          style={{
-            color: '#e5e5e5',
-            fontSize: '1.5rem',
-            transition: 'color 0.3s ease',
-            textDecoration: 'none'
-          }}
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href={contactInfo.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="social-link"
-          style={{
-            color: '#e5e5e5',
-            fontSize: '1.5rem',
-            transition: 'color 0.3s ease',
-            textDecoration: 'none'
-          }}
-        >
-          <FaGithub />
-        </a>
-        <a
-          href={`mailto:${contactInfo.email}`}
-          className="social-link"
-          style={{
-            color: '#e5e5e5',
-            fontSize: '1.5rem',
-            transition: 'color 0.3s ease',
-            textDecoration: 'none'
-          }}
-        >
-          <FaEnvelope />
-        </a>
+
+      <div className="mt-12 text-sm text-center">
+        <p>&copy; {new Date().getFullYear()} Dhanush J. All rights reserved.</p>
       </div>
     </footer>
   );

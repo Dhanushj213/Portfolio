@@ -1,4 +1,3 @@
-
 # PineappleOS Developer Portfolio
 
 A macOS-inspired developer portfolio built with React and Vite, featuring a custom windowing system, Dock, Finder, and interactive developer tools. Showcases your skills, projects, and apps in a unique desktop-like experience.
@@ -17,6 +16,12 @@ A macOS-inspired developer portfolio built with React and Vite, featuring a cust
 - Frosted glass effects, magnifying Dock icons, Pineapple branding
 - Responsive design for desktop and mobile
 - Vercel Speed Insights analytics integration
+
+---
+
+## 🖼️ Screenshots
+
+> Add screenshots of your UI, Dock, and apps here.
 
 ---
 
@@ -130,3 +135,5 @@ M.S.Ramaiah Institute of Technology, Bengaluru
 This project is licensed under the MIT License.
 
 ---
+
+Feel free to copy and customize this README.md for your project!
