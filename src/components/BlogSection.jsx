@@ -69,7 +69,7 @@ const BlogSection = () => {
                             cursor: 'pointer',
                             transition: 'transform 0.3s ease'
                         }}
-                        onClick={() => window.open('#', '_blank')} // Placeholder action
+                        onClick={() => window.open('https://www.techinsights.com/about-techinsights/overview/newsroom/news-articles', '_blank')}
                     >
                         <div className="card-img-container" style={{
                             height: '160px',
