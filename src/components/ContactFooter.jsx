@@ -214,13 +214,13 @@ const ContactFooter = ({ contactInfo }) => {
                       </div>
                     ))}
                   </div>
-                  <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.25rem' }}>{item.title}</h5>
-                  <p style={{ color: '#9CA3AF', fontSize: '0.9rem', fontWeight: '500', margin: 0, whiteSpace: 'nowrap' }}>{item.text}</p>
+                  <h5 className="card-title">{item.title}</h5>
+                  <p className="card-text">{item.text}</p>
                 </>
               ) : (
                 // STANDARD CARD
                 <>
-                  <div style={{
+                  <div className="icon-container" style={{
                     width: '4rem',
                     height: '4rem',
                     borderRadius: '50%',
@@ -231,11 +231,12 @@ const ContactFooter = ({ contactInfo }) => {
                     marginBottom: '1rem',
                     fontSize: '1.5rem',
                     background: 'rgba(255,255,255,0.05)',
-                    transition: 'all 0.3s ease'
-                  }} className="icon-container">
+                    transition: 'all 0.3s ease',
+                    color: 'white'
+                  }}>
                     <i className={item.icon}></i>
                   </div>
-                  <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
+                  <h5 className="card-title">{item.title}</h5>
 
                   {item.isButton ? (
                     <span
@@ -258,12 +259,8 @@ const ContactFooter = ({ contactInfo }) => {
                       {item.buttonText || 'View Profile'}
                     </span>
                   ) : (
-                    <p style={{
-                      color: '#9CA3AF',
-                      fontSize: '0.9rem',
-                      fontWeight: '500',
-                      margin: 0,
-                      whiteSpace: 'nowrap', // Force single line
+                    <p className="card-text" style={{
+                      whiteSpace: 'nowrap',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
                       maxWidth: '100%'
@@ -319,23 +316,51 @@ const ContactFooter = ({ contactInfo }) => {
           width: 100%; /* Ensure card takes full grid cell width */
           box-sizing: border-box; /* Include padding in width */
         }
+        
+        .card-title {
+            color: white;
+            font-weight: bold; 
+            font-size: 1.125rem; 
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+        
+        .card-text {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
 
         .contact-card:hover {
           transform: translateY(-8px);
-          background: rgba(255, 255, 255, 0.08); /* Fallback/overlay */
-          border-color: rgba(255, 255, 255, 0.3);
-          box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+          /* Keep granite background */
+          border-color: #E50914; /* Red border */
+          box-shadow: 0 0 25px rgba(229, 9, 20, 0.6); /* Red Glow */
+        }
+        
+        .contact-card:hover .card-title,
+        .contact-card:hover .card-text {
+            color: #E50914;
         }
 
         .contact-card:hover .icon-container {
-          background: white;
-          color: black;
-          border-color: white;
+          background: rgba(0,0,0,0.5); /* Slightly darker bg for contrast */
+          color: #E50914;
+          border-color: #E50914;
           transform: scale(1.1);
+        }
+        
+        /* Also target the search icons in the combined card */
+        .contact-card:hover .search-icon-hover {
+            color: #E50914;
+            border-color: #E50914;
         }
 
         .contact-card:hover .action-btn {
           transform: scale(1.05);
+          /* Optional: Make button red too? User didn't specify, but white stands out well. Keeping white for now. */
         }
 
         @media (max-width: 1024px) {
