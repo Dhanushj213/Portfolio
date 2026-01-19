@@ -181,12 +181,7 @@ const ContactFooter = ({ contactInfo }) => {
         </div>
 
         {/* RIGHT COLUMN: CONTACT DETAILS GRID */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)', // 2 columns within the right side
-          gap: '2rem',
-          alignContent: 'start'
-        }}>
+        <div className="contact-links-grid">
           {contactLinks.map((item) => (
             <div
               key={item.id}
@@ -236,8 +231,10 @@ const ContactFooter = ({ contactInfo }) => {
                   fontSize: '0.9rem',
                   fontWeight: '500',
                   margin: 0,
-                  wordBreak: 'break-word',
-                  lineHeight: '1.4'
+                  whiteSpace: 'nowrap', // Force single line
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '100%'
                 }}>
                   {item.text}
                 </p>
@@ -263,6 +260,13 @@ const ContactFooter = ({ contactInfo }) => {
       </div>
 
       <style>{`
+        .contact-links-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+          align-content: start;
+        }
+
         .contact-card {
           background: rgba(255, 255, 255, 0.03);
           backdrop-filter: blur(10px);
@@ -276,6 +280,7 @@ const ContactFooter = ({ contactInfo }) => {
           text-align: center;
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           cursor: pointer;
+          overflow: hidden; /* Ensure content stays inside */
         }
 
         .contact-card:hover {
@@ -299,6 +304,13 @@ const ContactFooter = ({ contactInfo }) => {
         @media (max-width: 1024px) {
           .contact-container {
             grid-template-columns: 1fr !important;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .contact-links-grid {
+            grid-template-columns: 1fr !important; /* Single column on mobile */
+            gap: 1.5rem;
           }
         }
       `}</style>
