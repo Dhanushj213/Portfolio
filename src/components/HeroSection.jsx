@@ -98,7 +98,7 @@ const HeroSection = () => {
                     flexWrap: 'wrap' // Allow wrapping on small screens
                 }}>
                     <a
-                        href="/resume.pdf"
+                        href="/Dhanush_J_Resume (6).pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
