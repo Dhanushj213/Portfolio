@@ -1,6 +1,19 @@
 import React from 'react';
 
 const ScrollingGallery = ({ items, title = "Gallery" }) => {
+    // Fisher-Yates shuffle algorithm
+    const shuffleArray = (array) => {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    };
+
+    // Memoize the shuffled items so they don't re-shuffle on every render, but only when items prop changes
+    const shuffledItems = React.useMemo(() => shuffleArray(items), [items]);
+
     return (
         <section style={{
             padding: '4rem 0',
@@ -33,7 +46,7 @@ const ScrollingGallery = ({ items, title = "Gallery" }) => {
                     animation: 'scroll 60s linear infinite' // Long duration for many images
                 }}>
                     {/* Render items twice to create seamless loop */}
-                    {[...items, ...items].map((src, index) => (
+                    {[...shuffledItems, ...shuffledItems].map((src, index) => (
                         <div
                             key={index}
                             style={{

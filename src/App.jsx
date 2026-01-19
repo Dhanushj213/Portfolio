@@ -205,6 +205,26 @@ const projects = [
   }
 ];
 
+const extraGalleryImages = [
+  "/extra/1003.JPG", "/extra/1015.JPG", "/extra/13689742_265434453848681_1500397308_n.jpg", "/extra/13714287_265434447182015_1995013426_n.jpg",
+  "/extra/20230704_121150.jpg", "/extra/20230806_141755(1).jpg", "/extra/20231207_170926.jpg", "/extra/20231207_171145.jpg",
+  "/extra/20231207_180911.jpg", "/extra/20231221_173236.jpg", "/extra/20240914_114748.jpg", "/extra/20240914_125109.jpg",
+  "/extra/20241020_121425.jpg", "/extra/20241020_123824.jpg", "/extra/20241118_214804.jpg", "/extra/20241121_130855.jpg",
+  "/extra/20241203_143756.jpg", "/extra/20241207_165727.jpg", "/extra/20241211_183318.jpg", "/extra/20241211_202127.jpg",
+  "/extra/20241217_201527.jpg", "/extra/20241218_112411.jpg", "/extra/20241218_182653.jpg", "/extra/20241219_184712.jpg",
+  "/extra/20241224_172810.jpg", "/extra/20251128_134543(1).jpg", "/extra/810.JPG", "/extra/825.JPG",
+  "/extra/DSCN0550.JPG", "/extra/DSCN0710.JPG", "/extra/DSCN0711.JPG", "/extra/DSCN3009.JPG", "/extra/DSCN3747.JPG",
+  "/extra/DSCN3771.JPG", "/extra/DSCN6830.JPG", "/extra/DSCN7306.JPG", "/extra/DSCN8125.JPG", "/extra/DSCN8580.JPG",
+  "/extra/DSCN8586.JPG", "/extra/DSCN9645.JPG", "/extra/DSCN9652.JPG", "/extra/DSC_3162.JPG", "/extra/DSC_3186.JPG",
+  "/extra/DSC_3192.JPG", "/extra/DSC_3199(1).jpg", "/extra/DSC_3316.JPG", "/extra/EOSR0131(1).jpg",
+  "/extra/IMG-20231219-WA0018.jpg", "/extra/IMG-20241119-WA0064.jpg", "/extra/IMG-20241121-WA0199.jpg",
+  "/extra/IMG-20241205-WA0026.jpg", "/extra/IMG-20241217-WA0025.jpg", "/extra/IMG-20241217-WA0035.jpg",
+  "/extra/IMG-20241225-WA0087.jpg", "/extra/IMG-20251122-WA1054.jpg", "/extra/IMG-20251206-WA0033.jpg",
+  "/extra/IMG_1761.jpg", "/extra/IMG_20140727_180816.jpg", "/extra/IMG_20230704_122043.jpg", "/extra/P6165223.JPG",
+  "/extra/_DSC0168.jpg", "/extra/a1.JPG", "/extra/a2.JPG", "/extra/a3.JPG", "/extra/a4.JPG",
+  "/extra/a5.JPG", "/extra/a6.JPG", "/extra/a7.JPG", "/extra/a8.JPG"
+];
+
 function App() {
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [showIntro, setShowIntro] = useState(true);
@@ -371,25 +391,7 @@ function App() {
               <Awards />
 
 
-              <ScrollingGallery title="Co-Curricular Highlights - Activities & Achievements" items={[
-                "/extra/1003.JPG", "/extra/1015.JPG", "/extra/13689742_265434453848681_1500397308_n.jpg", "/extra/13714287_265434447182015_1995013426_n.jpg",
-                "/extra/20230704_121150.jpg", "/extra/20230806_141755(1).jpg", "/extra/20231207_170926.jpg", "/extra/20231207_171145.jpg",
-                "/extra/20231207_180911.jpg", "/extra/20231221_173236.jpg", "/extra/20240914_114748.jpg", "/extra/20240914_125109.jpg",
-                "/extra/20241020_121425.jpg", "/extra/20241020_123824.jpg", "/extra/20241118_214804.jpg", "/extra/20241121_130855.jpg",
-                "/extra/20241203_143756.jpg", "/extra/20241207_165727.jpg", "/extra/20241211_183318.jpg", "/extra/20241211_202127.jpg",
-                "/extra/20241217_201527.jpg", "/extra/20241218_112411.jpg", "/extra/20241218_182653.jpg", "/extra/20241219_184712.jpg",
-                "/extra/20241224_172810.jpg", "/extra/20251128_134543(1).jpg", "/extra/810.JPG", "/extra/825.JPG",
-                "/extra/DSCN0550.JPG", "/extra/DSCN0710.JPG", "/extra/DSCN0711.JPG", "/extra/DSCN3009.JPG", "/extra/DSCN3747.JPG",
-                "/extra/DSCN3771.JPG", "/extra/DSCN6830.JPG", "/extra/DSCN7306.JPG", "/extra/DSCN8125.JPG", "/extra/DSCN8580.JPG",
-                "/extra/DSCN8586.JPG", "/extra/DSCN9645.JPG", "/extra/DSCN9652.JPG", "/extra/DSC_3162.JPG", "/extra/DSC_3186.JPG",
-                "/extra/DSC_3192.JPG", "/extra/DSC_3199(1).jpg", "/extra/DSC_3316.JPG", "/extra/EOSR0131(1).jpg",
-                "/extra/IMG-20231219-WA0018.jpg", "/extra/IMG-20241119-WA0064.jpg", "/extra/IMG-20241121-WA0199.jpg",
-                "/extra/IMG-20241205-WA0026.jpg", "/extra/IMG-20241217-WA0025.jpg", "/extra/IMG-20241217-WA0035.jpg",
-                "/extra/IMG-20241225-WA0087.jpg", "/extra/IMG-20251122-WA1054.jpg", "/extra/IMG-20251206-WA0033.jpg",
-                "/extra/IMG_1761.jpg", "/extra/IMG_20140727_180816.jpg", "/extra/IMG_20230704_122043.jpg", "/extra/P6165223.JPG",
-                "/extra/_DSC0168.jpg", "/extra/a1.JPG", "/extra/a2.JPG", "/extra/a3.JPG", "/extra/a4.JPG",
-                "/extra/a5.JPG", "/extra/a6.JPG", "/extra/a7.JPG", "/extra/a8.JPG"
-              ]} />
+              <ScrollingGallery title="Co-Curricular Highlights - Activities & Achievements" items={extraGalleryImages} />
 
               <div id="contactfooter">
                 <ContactFooter contactInfo={contactInfo} />
