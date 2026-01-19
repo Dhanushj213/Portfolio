@@ -46,9 +46,10 @@ const Awards = () => {
         Awards & Recognition
       </h2>
       <div className="awards-list" style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1.5rem'
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)', // Force 4 columns for horizontal alignment
+        gap: '1.5rem',
+        justifyContent: 'center'
       }}>
         {awards.map(award => (
           <div key={award.id} className="award-item" style={{
