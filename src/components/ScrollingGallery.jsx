@@ -21,7 +21,21 @@ const ScrollingGallery = ({ items, title = "Gallery" }) => {
             overflow: 'hidden',
             display: 'flex',
             flexDirection: 'column',
+            position: 'relative'
         }}>
+            {/* Background Glow */}
+            <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '100%',
+                height: '100%',
+                background: 'radial-gradient(circle at center, rgba(229, 9, 20, 0.2) 0%, rgba(20, 20, 20, 0) 70%)',
+                pointerEvents: 'none',
+                zIndex: 0
+            }} />
+
             <h2 style={{
                 fontFamily: "'Bebas Neue', sans-serif",
                 fontSize: '1.8rem',
@@ -29,7 +43,9 @@ const ScrollingGallery = ({ items, title = "Gallery" }) => {
                 color: '#FFFFFF',
                 paddingLeft: '4%',
                 textTransform: 'uppercase',
-                letterSpacing: '1px'
+                letterSpacing: '1px',
+                position: 'relative', // Ensure above glow
+                zIndex: 1
             }}>
                 {title}
             </h2>
@@ -38,7 +54,8 @@ const ScrollingGallery = ({ items, title = "Gallery" }) => {
                 width: '100%',
                 overflow: 'hidden',
                 whiteSpace: 'nowrap',
-                position: 'relative'
+                position: 'relative',
+                zIndex: 1
             }}>
                 <div className="marquee-content" style={{
                     display: 'inline-flex',
