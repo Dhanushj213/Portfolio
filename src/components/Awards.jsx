@@ -29,6 +29,13 @@ const Awards = () => {
       organization: 'AWS Academy Cloud Foundations',
       period: '2025',
       verificationLink: '#'
+    },
+    {
+      id: 5,
+      title: 'Centre for Resources and Training award',
+      organization: 'CCRT Scholarship Holder',
+      period: '2014',
+      verificationLink: '#'
     }
   ];
 
@@ -46,10 +53,10 @@ const Awards = () => {
         Awards & Recognition
       </h2>
       <div className="awards-list" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)', // Force 4 columns for horizontal alignment
-        gap: '1.5rem',
-        justifyContent: 'center'
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gap: '1.5rem'
       }}>
         {awards.map(award => (
           <div key={award.id} className="award-item" style={{
@@ -159,13 +166,15 @@ const Awards = () => {
       </div>
 
       <style>{`
-        .awards-list {
-           /* Responsive adjustments done via media query below */
+        .award-item {
+            flex: 1 1 250px; /* Grow, Shrink, Basis */
+            max-width: 300px; /* cap width */
+            
         }
         
-        @media (max-width: 1200px) {
-           .awards-list {
-             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; /* Stack or wrap on smaller screens */
+        @media (max-width: 768px) {
+           .award-item {
+             max-width: 100%; /* Full width on mobile */
            }
         }
 
