@@ -374,7 +374,7 @@ function App() {
               <div id="contactfooter">
                 <ContactFooter contactInfo={contactInfo} />
               </div>
-              <ScrollingGallery title="GALLERY" items={[
+              <ScrollingGallery title="Co-Curricular Highlights - Activities & Achievements" items={[
                 "/extra/1003.JPG", "/extra/1015.JPG", "/extra/13689742_265434453848681_1500397308_n.jpg", "/extra/13714287_265434447182015_1995013426_n.jpg",
                 "/extra/20230704_121150.jpg", "/extra/20230806_141755(1).jpg", "/extra/20231207_170926.jpg", "/extra/20231207_171145.jpg",
                 "/extra/20231207_180911.jpg", "/extra/20231221_173236.jpg", "/extra/20240914_114748.jpg", "/extra/20240914_125109.jpg",
