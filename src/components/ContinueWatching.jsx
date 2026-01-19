@@ -46,25 +46,31 @@ const ContinueWatching = ({ projects }) => {
         fontFamily: "'Bebas Neue', sans-serif",
         fontSize: '1.8rem',
         marginBottom: '1rem',
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        letterSpacing: '1px'
       }}>
-        Continue Watching - Featured Projects
+        FEATURED PROJECTS
       </h2>
 
       {/* Filters */}
-      <div className="filters" style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+      <div className="filters" style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
         {categories.map(cat => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
             className={filter === cat ? 'netflix-button primary-button' : 'netflix-button secondary-button'}
             style={{
-              padding: '8px 16px',
+              padding: '6px 20px',
               fontSize: '0.9rem',
               margin: 0,
-              backgroundColor: filter === cat ? '#E50914' : 'rgba(109, 109, 110, 0.4)',
-              border: filter === cat ? 'none' : '1px solid #808080',
-              cursor: 'pointer'
+              backgroundColor: filter === cat ? '#E50914' : 'rgba(255, 255, 255, 0.1)',
+              border: filter === cat ? '1px solid #E50914' : '1px solid rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              cursor: 'pointer',
+              borderRadius: '2px', // Netflix style boxy buttons
+              fontWeight: '500',
+              backdropFilter: 'blur(10px)',
+              transition: 'all 0.3s ease'
             }}
           >
             {cat}
@@ -75,68 +81,184 @@ const ContinueWatching = ({ projects }) => {
       <div className="horizontal-scroll" style={{
         display: 'flex',
         overflowX: 'auto',
-        gap: '1rem',
-        paddingBottom: '1rem',
-        scrollbarWidth: 'thin'
+        overflowY: 'hidden',
+        gap: '1.5rem',
+        paddingBottom: '2rem', // Space for hover expansion
+        scrollbarWidth: 'none', // Hide scrollbar for cleaner look
+        msOverflowStyle: 'none',
+        paddingLeft: '0.5rem'
       }}>
         {filteredProjects.map(project => (
           <div
             key={project.id}
             className="card project-card"
             onClick={() => openModal(project)}
-            style={{
-              minWidth: '250px',
-              backgroundColor: '#181818',
-              borderRadius: '4px',
-              overflow: 'hidden',
-              transition: 'transform 0.3s ease',
-              cursor: 'pointer'
-            }}
           >
-            <div className="project-image" style={{
-              width: '100%',
-              height: '140px',
-              backgroundColor: '#333',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#E50914',
-              fontSize: '2rem',
-              overflow: 'hidden'
-            }}>
+            <div className="project-image-container">
               <img
                 src={project.image}
                 alt={project.title}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
-                }}
+                className="project-img"
               />
+              <div className="hover-overlay">
+                <div className="play-icon-circle">
+                  <i className="fa-solid fa-play"></i>
+                </div>
+              </div>
             </div>
-            <div className="card-content" style={{
-              padding: '1rem'
-            }}>
-              <h3 className="card-title" style={{
-                fontWeight: 'bold',
-                marginBottom: '0.5rem',
-                color: '#FFFFFF',
-                fontSize: '1rem',
-                lineHeight: '1.3'
-              }}>
+            <div className="card-content">
+              <h3 className="card-title">
                 {project.title}
               </h3>
-              <p className="card-text" style={{
-                color: '#808080',
-                fontSize: '0.8rem',
-                margin: 0
-              }}>
-                {project.period}
-              </p>
+              <div className="card-meta">
+                <span className="match-score">98% Match</span>
+                <span className="age-rating">{project.period.split(' ')[0]}</span>
+                <span className="hd-badge">HD</span>
+              </div>
+              <div className="tech-tags">
+                {getCategories(project).slice(0, 3).map((cat, i) => (
+                  <span key={i} className="tech-tag">{cat}</span>
+                ))}
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      <style>{`
+        .horizontal-scroll::-webkit-scrollbar {
+          display: none;
+        }
+
+        .project-card {
+           min-width: 300px;
+           max-width: 300px;
+           background-color: #181818;
+           border-radius: 4px;
+           transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+           cursor: pointer;
+           position: relative;
+           overflow: hidden;
+           border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card:hover {
+           transform: scale(1.05) translateY(-5px);
+           z-index: 10;
+           box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 2px rgba(229, 9, 20, 0.8); /* Red glow border */
+           background-color: #222;
+        }
+
+        .project-image-container {
+           width: 100%;
+           height: 169px; /* 16:9 Aspect Ratio approx */
+           position: relative;
+           overflow: hidden;
+        }
+
+        .project-img {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+           filter: brightness(0.8);
+        }
+
+        .hover-overlay {
+           position: absolute;
+           inset: 0;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           opacity: 0;
+           transition: opacity 0.3s ease;
+           background: rgba(0,0,0,0.2);
+        }
+
+        .project-card:hover .hover-overlay {
+           opacity: 1;
+        }
+
+        .play-icon-circle {
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+           background: rgba(0,0,0,0.6);
+           border: 2px solid white;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           color: white;
+           font-size: 1.2rem;
+           transform: scale(0.8);
+           transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover .play-icon-circle {
+           transform: scale(1);
+           background: #E50914; /* Netflix Red */
+           border-color: #E50914;
+        }
+
+        .card-content {
+           padding: 1rem;
+        }
+
+        .card-title {
+           font-weight: bold;
+           color: white;
+           font-size: 1.1rem;
+           margin-bottom: 0.5rem;
+           white-space: nowrap;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           font-family: 'Bebas Neue', sans-serif;
+           letter-spacing: 0.5px;
+        }
+
+        .card-meta {
+           display: flex;
+           align-items: center;
+           gap: 0.8rem;
+           margin-bottom: 0.8rem;
+           font-size: 0.75rem;
+           color: #a3a3a3;
+           font-weight: 500;
+        }
+
+        .match-score {
+           color: #46d369; /* Netflix match score green */
+           font-weight: bold;
+        }
+
+        .hd-badge {
+           border: 1px solid rgba(255,255,255,0.4);
+           padding: 0 4px;
+           border-radius: 2px;
+           font-size: 0.65rem;
+        }
+
+        .tech-tags {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 0.5rem;
+        }
+
+        .tech-tag {
+           font-size: 0.7rem;
+           color: #e5e5e5;
+           position: relative;
+        }
+        
+        .tech-tag:not(:last-child)::after {
+           content: "•";
+           margin-left: 0.5rem;
+           color: #666;
+        }
+      `}</style>
 
       {/* Project Modal */}
       {showModal && selectedProject && (
