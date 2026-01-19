@@ -246,17 +246,24 @@ const ContactFooter = ({ contactInfo }) => {
                         display: 'inline-block',
                         marginTop: '0.5rem',
                         padding: '0.75rem 1.5rem',
-                        background: 'white',
+                        background: '#E50914',
                         borderRadius: '9999px',
-                        color: 'black',
+                        color: 'white',
                         fontSize: '0.875rem',
                         textDecoration: 'none',
                         fontWeight: 'bold',
                         cursor: 'pointer',
-                        transition: 'transform 0.2s',
+                        transition: 'transform 0.2s, background-color 0.2s',
                         whiteSpace: 'nowrap',
+                        boxShadow: '0 4px 6px rgba(0,0,0,0.3)'
                       }}
                       className="action-btn"
+                      onMouseOver={(e) => {
+                        e.target.style.background = '#b20710';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.background = '#E50914';
+                      }}
                     >
                       {item.buttonText || 'View Profile'}
                     </span>
