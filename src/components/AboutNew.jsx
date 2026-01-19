@@ -99,7 +99,9 @@ const AboutNew = () => {
                         fontSize: '1.1rem',
                         lineHeight: '1.8',
                         fontFamily: 'sans-serif',
-                        fontWeight: '300'
+                        fontWeight: '300',
+                        textAlign: 'justify',
+                        hyphens: 'auto'
                     }}>
                         <p style={{ marginBottom: '1.5rem' }}>
                             Cybersecurity-focused Computer Science Engineering student (Batch of 2026) specializing in Cybersecurity, with strong expertise in secure software development, penetration testing, cloud security, AI-driven systems, and blockchain-based solutions. Proficient in full-stack development, system design, and DevOps tools, with hands-on experience gained through multiple internships and real-world projects.
