@@ -3,9 +3,12 @@ import DhanushOSTerminal from './components/DhanushOSTerminal';
 import PineappleOS from './pineappleos/PineappleOS';
 import { useState } from 'react';
 import './App.css';
+import ErrorBoundary from './components/ErrorBoundary'; // Import ErrorBoundary
 import ProfileSelection from './components/ProfileSelection';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+
+
 import MyList from './components/MyList';
 import TrendingNow from './components/TrendingNow';
 import ContinueWatching from './components/ContinueWatching';
@@ -14,6 +17,7 @@ import Certifications from './components/AwardsCertifications';
 import Gallery from './components/Gallery';
 import Languages from './components/Languages';
 import Awards from './components/Awards';
+import AboutNew from './components/AboutNew';
 
 import ContactFooter from './components/ContactFooter';
 
@@ -119,6 +123,20 @@ const certifications = [
     organization: 'Udemy',
     date: 'December 2024 - February 2025',
     verificationLink: 'https://www.udemy.com/certificate/UC-e184a0c3-1ded-42fa-89a9-267f87aa39b9/'
+  },
+  {
+    id: 5,
+    title: 'Digital Forensics with Kali Linux',
+    organization: 'Infosys Springboard',
+    date: 'November 24, 2025',
+    verificationLink: 'https://verify.onwingspan.com/'
+  },
+  {
+    id: 6,
+    title: 'Lanquill Level 2 certification in English Language',
+    organization: 'Lanquill',
+    date: 'August 7, 2023',
+    verificationLink: '/c16.png'
   }
 ];
 
@@ -323,33 +341,40 @@ function App() {
     );
   }
 
-  if (['recruiter', 'manager', 'artist'].includes(selectedProfile)) {
+  if (['recruiter'].includes(selectedProfile)) {
     return (
       <>
-        <div className="app" style={{ height: '100vh', overflowY: 'auto', background: '#141414' }}>
-          <Navbar
-            onBackToProfile={() => {
-              setSelectedProfile(null);
-              setShowIntro(false);
-              setIntroPlayed(true);
-            }}
-          />
-          <HeroSection aboutContent={aboutContent} contactInfo={contactInfo} />
-          <MyList />
-          <SkillsLibrary skills={skills} />
-          <TrendingNow experiences={experiences} />
-          <ContinueWatching projects={projects} />
-          <Certifications certifications={certifications} />
-          <Gallery />
-          <Languages />
+        <ErrorBoundary>
+          <div className="app" style={{ height: '100vh', overflowY: 'auto', background: '#141414' }}>
+            <Navbar
+              onBackToProfile={() => {
+                setSelectedProfile(null);
+                setShowIntro(false);
+                setIntroPlayed(true);
+              }}
+            />
+            <HeroSection />
+            <AboutNew />
 
-          <Awards />
+            <div className="relative z-20 bg-[#141414]">
 
-          <BlogSection />
-          <div id="contactfooter">
-            <ContactFooter contactInfo={contactInfo} />
+              <MyList />
+              <SkillsLibrary skills={skills} />
+              <TrendingNow experiences={experiences} />
+              <ContinueWatching projects={projects} />
+              <Certifications certifications={certifications} />
+              <Gallery />
+              <Languages />
+
+              <Awards />
+
+              <BlogSection />
+              <div id="contactfooter">
+                <ContactFooter contactInfo={contactInfo} />
+              </div>
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
         <SpeedInsights />
       </>
     );
@@ -366,9 +391,11 @@ function App() {
         justifyContent: 'center',
         background: '#141414',
         color: '#fff',
-        fontSize: '2rem'
+        fontSize: '3rem',
+        fontFamily: "'Bebas Neue', sans-serif",
+        letterSpacing: '2px'
       }}>
-        <p>Profile view for "{selectedProfile}" is coming soon.</p>
+        <p>Coming Soon!!</p>
         <button
           onClick={() => {
             setSelectedProfile(null);

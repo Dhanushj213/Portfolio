@@ -213,7 +213,7 @@ const PineappleOS = ({ projects, skills, experiences, certifications, contactInf
             key={icon.id}
             draggable
             onDragStart={e => handleDragStart(e, icon.id)}
-            onClick={e => {
+            onClick={() => {
               if (!dragActive) {
                 icon.onClick();
               }

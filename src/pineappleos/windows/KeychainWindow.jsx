@@ -10,7 +10,7 @@ function sha256(str) {
   }
   return Promise.resolve('Not supported');
 }
-function md5(str) {
+function md5() {
   // Placeholder: MD5 not natively supported in browser
   return 'MD5 not supported in browser';
 }

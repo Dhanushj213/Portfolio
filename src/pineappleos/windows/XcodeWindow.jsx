@@ -7,10 +7,8 @@ const XcodeWindow = (props) => {
 
   const runCode = () => {
     try {
-      // eslint-disable-next-line no-eval
       const log = [];
       const customConsole = { log: (...args) => log.push(args.join(' ')) };
-      // eslint-disable-next-line no-new-func
       new Function('console', code)(customConsole);
       setOutput(log.join('\n'));
     } catch (e) {
