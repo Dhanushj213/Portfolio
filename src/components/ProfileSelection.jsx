@@ -38,12 +38,15 @@ const ProfileSelection = ({ onProfileSelect }) => {
   return (
     <div className="profile-selection" style={{
       backgroundColor: '#141414',
-      minHeight: '100vh',
+      minHeight: '100dvh', // Dynamic viewport height
+      height: 'auto',      // Allow growth
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: 'center', // Centered by default, but content flow handles overflow
       alignItems: 'center',
-      padding: '20px'
+      padding: 'max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom)) 20px',
+      overflowY: 'auto', // Ensure scrolling
+      WebkitOverflowScrolling: 'touch'
     }}>
       <h1 className="profile-title" style={{
         color: '#FFFFFF',
@@ -106,7 +109,16 @@ const ProfileSelection = ({ onProfileSelect }) => {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+      <style>{`
+        @media (max-height: 800px) {
+          .profile-selection {
+            justify-content: flex-start !important; /* Start from top on small screens/landscape to allow scrolling */
+            padding-top: 4rem !important;
+          }
+        }
+      `}</style>
+    </div >
   );
 };
 

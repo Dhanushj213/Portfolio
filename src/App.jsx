@@ -218,7 +218,7 @@ function App() {
           top: 0,
           left: 0,
           width: '100vw',
-          height: '100vh',
+          height: '100dvh', // Dynamic viewport height
           background: 'black',
           zIndex: 9999,
           display: 'flex',
@@ -236,7 +236,7 @@ function App() {
           autoPlay
           muted
           playsInline
-          style={{ width: '100vw', height: '100vh', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }} // Ensure full video is visible
           onEnded={() => {
             setShowIntro(false);
             setIntroPlayed(true);
@@ -250,8 +250,8 @@ function App() {
         <button
           style={{
             position: 'absolute',
-            bottom: '2rem',
-            right: '2rem',
+            bottom: 'max(2rem, env(safe-area-inset-bottom))', // Safe area respected
+            right: 'max(2rem, env(safe-area-inset-right))',
             padding: '10px 24px',
             background: 'rgba(229, 9, 20, 0.8)',
             color: 'white',
