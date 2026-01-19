@@ -54,6 +54,7 @@ const Awards = () => {
       </h2>
       <div className="awards-list" style={{
         display: 'flex',
+        flexDirection: 'row', // Explicitly override App.css column layout
         flexWrap: 'nowrap', // Prevent wrapping
         overflowX: 'auto',  // Enable horizontal scrolling
         gap: '1.5rem',
