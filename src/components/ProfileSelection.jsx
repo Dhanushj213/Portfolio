@@ -38,22 +38,24 @@ const ProfileSelection = ({ onProfileSelect }) => {
   return (
     <div className="profile-selection" style={{
       backgroundColor: '#141414',
-      minHeight: '100dvh', // Dynamic viewport height
-      height: 'auto',      // Allow growth
+      minHeight: '100dvh',
+      height: 'auto',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center', // Centered by default, but content flow handles overflow
+      justifyContent: 'flex-start', // Start from top to prevent cropping
       alignItems: 'center',
-      padding: 'max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom)) 20px',
-      overflowY: 'auto', // Ensure scrolling
+      padding: 'max(60px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom)) 20px', // More top padding for visual balance
+      overflowY: 'auto',
       WebkitOverflowScrolling: 'touch'
     }}>
       <h1 className="profile-title" style={{
         color: '#FFFFFF',
         fontSize: '3rem',
-        marginBottom: '50px',
+        marginBottom: '40px',
+        marginTop: '0', // Reset margin since we have container padding
         fontWeight: 'normal',
-        fontFamily: "'Bebas Neue', sans-serif"
+        fontFamily: "'Bebas Neue', sans-serif",
+        textAlign: 'center'
       }}>
         Who's Watching?
       </h1>
@@ -82,7 +84,7 @@ const ProfileSelection = ({ onProfileSelect }) => {
         fontSize: '0.8rem',
         letterSpacing: '2px',
         paddingTop: '2rem',
-        paddingBottom: '10px',
+        paddingBottom: 'max(10px, env(safe-area-inset-bottom))', // Respect safe area
         fontFamily: "'Bebas Neue', sans-serif",
         textAlign: 'center',
         width: '100%'
