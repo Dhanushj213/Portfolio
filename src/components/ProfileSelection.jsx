@@ -75,6 +75,16 @@ const ProfileSelection = ({ onProfileSelect }) => {
             </div>
           </div>
         ))}
+        <div style={{
+          marginTop: 'auto',
+          color: '#666',
+          fontSize: '0.8rem',
+          letterSpacing: '2px',
+          paddingTop: '2rem',
+          fontFamily: "'Bebas Neue', sans-serif"
+        }}>
+          BY DHANUSH J
+        </div>
       </div>
       <style>{`
         .profiles-container {
