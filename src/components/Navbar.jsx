@@ -36,7 +36,7 @@ const Navbar = (props) => {
       paddingTop: 'calc(1rem + var(--safe-area-top, 0px))', // Safe area padding
       background: scrolled
         ? 'linear-gradient(to bottom, rgba(20,20,20,0.95) 0%, rgba(20,20,20,0.9) 100%)'
-        : 'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)',
+        : 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%)',
       transition: 'background-color 0.3s ease',
       display: 'flex',
       justifyContent: 'space-between',
@@ -66,7 +66,6 @@ const Navbar = (props) => {
           @media (max-width: 768px) {
             .desktop-menu { display: none !important; }
             .mobile-menu-btn { display: block !important; }
-            .navbar { background: transparent !important; }
           }
           @media (min-width: 769px) {
             .mobile-menu-btn { display: none !important; }
