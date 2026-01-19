@@ -89,24 +89,32 @@ const Awards = () => {
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
+              flex: 1 // Allow details to fill functionality
             }}>
               <h3 className="award-title" style={{
                 fontWeight: '700',
                 fontSize: '1.2rem',
                 color: '#FFFFFF',
                 marginBottom: '0.5rem',
-                letterSpacing: '0.5px'
+                letterSpacing: '0.5px',
+                minHeight: '3rem', // Fixed height for alignment
+                display: 'flex',
+                alignItems: 'center'
               }}>
                 {award.title}
               </h3>
               <p className="award-organization" style={{
                 fontWeight: '600',
                 color: '#E50914',
-                fontSize: '1rem',
+                fontSize: '0.9rem', // Slightly smaller for better wrapping
                 marginBottom: '0.5rem',
                 textTransform: 'uppercase',
-                letterSpacing: '1px'
+                letterSpacing: '1px',
+                minHeight: '2.5rem', // Fixed height for alignment
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}>
                 {award.organization}
               </p>
@@ -127,7 +135,7 @@ const Awards = () => {
                     fontSize: '1rem',
                     padding: '10px 0',
                     width: '100%',
-                    maxWidth: '300px', // Limit button width for aesthetics
+                    maxWidth: '300px',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -138,7 +146,8 @@ const Awards = () => {
                     borderRadius: '4px',
                     fontWeight: 'bold',
                     transition: 'all 0.3s ease',
-                    boxShadow: '0 4px 6px rgba(0,0,0,0.3)'
+                    boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
+                    marginTop: 'auto' // Push to bottom
                   }}
                 >
                   <span>Verify Certificate</span>
