@@ -72,10 +72,9 @@ const ContactFooter = ({ contactInfo }) => {
       id: 5,
       icon: 'fas fa-map-marker-alt',
       title: 'Location',
-      text: 'Bengaluru, India',
+      text: 'Bengaluru, Karnataka, India',
       link: 'https://www.google.com/maps/place/Bengaluru,+Karnataka,+India',
-      isButton: true,
-      buttonText: 'View Map'
+      isButton: false
     }
   ];
 
