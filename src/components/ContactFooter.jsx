@@ -37,15 +37,15 @@ const ContactFooter = ({ contactInfo }) => {
   const contactLinks = [
     {
       id: 1,
-      icon: 'fa-phone-alt',
+      icon: 'fas fa-phone-alt',
       title: 'Phone Number',
-      text: '+918217471928',
+      text: '+91 82174 71928',
       link: 'tel:+918217471928',
       isButton: false
     },
     {
       id: 2,
-      icon: 'fa-envelope',
+      icon: 'fas fa-envelope',
       title: 'Email Address',
       text: 'jdhanush213@gmail.com',
       link: 'mailto:jdhanush213@gmail.com',
@@ -63,7 +63,7 @@ const ContactFooter = ({ contactInfo }) => {
       id: 4,
       icon: 'fa-brands fa-whatsapp',
       title: 'Whatsapp',
-      text: '+918217471928',
+      text: '+91 82174 71928',
       link: 'https://wa.me/918217471928',
       isButton: false
     },
@@ -77,9 +77,9 @@ const ContactFooter = ({ contactInfo }) => {
     },
     {
       id: 6,
-      icon: 'fa-map-marker-alt',
+      icon: 'fas fa-map-marker-alt',
       title: 'Location',
-      text: 'Bengaluru, Karnataka, India',
+      text: 'Bengaluru, India',
       link: null,
       isButton: false
     }
@@ -206,7 +206,7 @@ const ContactFooter = ({ contactInfo }) => {
                 background: 'rgba(255,255,255,0.05)',
                 transition: 'all 0.3s ease'
               }} className="icon-container">
-                <i className={`fas ${item.icon}`}></i>
+                <i className={item.icon}></i>
               </div>
               <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
 
@@ -215,7 +215,7 @@ const ContactFooter = ({ contactInfo }) => {
                   style={{
                     display: 'inline-block',
                     marginTop: '0.5rem',
-                    padding: '0.75rem 2rem',
+                    padding: '0.75rem 1.5rem',
                     background: 'white',
                     borderRadius: '9999px',
                     color: 'black',
@@ -224,13 +224,21 @@ const ContactFooter = ({ contactInfo }) => {
                     fontWeight: 'bold',
                     cursor: 'pointer',
                     transition: 'transform 0.2s',
+                    whiteSpace: 'nowrap',
                   }}
                   className="action-btn"
                 >
                   View Profile
                 </span>
               ) : (
-                <p style={{ color: '#9CA3AF', fontSize: '0.9rem', fontWeight: '500', margin: 0, wordBreak: 'break-word' }}>
+                <p style={{
+                  color: '#9CA3AF',
+                  fontSize: '0.9rem',
+                  fontWeight: '500',
+                  margin: 0,
+                  wordBreak: 'break-word',
+                  lineHeight: '1.4'
+                }}>
                   {item.text}
                 </p>
               )}
