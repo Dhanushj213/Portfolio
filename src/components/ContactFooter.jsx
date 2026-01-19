@@ -120,7 +120,7 @@ const ContactFooter = ({ contactInfo }) => {
           borderRadius: '1rem',
           border: '1px solid #222'
         }}>
-          <h4 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: 'white', marginBottom: '2rem' }}>
+          <h4 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#E50914', marginBottom: '2rem' }}>
             Get In Touch
           </h4>
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -147,24 +147,26 @@ const ContactFooter = ({ contactInfo }) => {
                 width: '100%',
                 padding: '1rem 0',
                 marginTop: '0.5rem',
-                border: '1px solid rgba(255,255,255,0.2)',
+                border: 'none',
+                background: '#E50914',
                 borderRadius: '9999px',
-                color: isSending ? '#888' : 'white',
+                color: 'white', // Text should be white on red
                 fontWeight: 'bold',
                 cursor: isSending ? 'not-allowed' : 'pointer',
                 transition: 'all 0.3s',
-                opacity: isSending ? 0.7 : 1
+                opacity: isSending ? 0.7 : 1,
+                boxShadow: '0 4px 6px rgba(0,0,0,0.3)'
               }}
               onMouseOver={(e) => {
                 if (!isSending) {
-                  e.target.style.background = 'white';
-                  e.target.style.color = 'black';
+                  e.target.style.background = '#b20710'; // Darker red on hover
+                  e.target.style.transform = 'scale(1.02)';
                 }
               }}
               onMouseOut={(e) => {
                 if (!isSending) {
-                  e.target.style.background = 'transparent';
-                  e.target.style.color = 'white';
+                  e.target.style.background = '#E50914';
+                  e.target.style.transform = 'scale(1)';
                 }
               }}
             >
