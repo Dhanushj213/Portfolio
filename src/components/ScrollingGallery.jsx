@@ -65,7 +65,7 @@ const ScrollingGallery = ({ items, title = "Gallery" }) => {
                                 style={{
                                     width: '100%',
                                     height: '100%',
-                                    objectFit: 'cover'
+                                    objectFit: 'contain'
                                 }}
                                 loading="lazy"
                             />
