@@ -54,9 +54,13 @@ const Awards = () => {
       </h2>
       <div className="awards-list" style={{
         display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: '1.5rem'
+        flexWrap: 'nowrap', // Prevent wrapping
+        overflowX: 'auto',  // Enable horizontal scrolling
+        gap: '1.5rem',
+        paddingBottom: '1rem', // Space for scrollbar
+        scrollbarWidth: 'none', // Hide scrollbar Firefox
+        msOverflowStyle: 'none', // Hide scrollbar IE/Edge
+        WebkitOverflowScrolling: 'touch' // Smooth scroll iOS
       }}>
         {awards.map(award => (
           <div key={award.id} className="award-item" style={{
@@ -166,15 +170,19 @@ const Awards = () => {
       </div>
 
       <style>{`
+        .awards-list::-webkit-scrollbar {
+          display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
         .award-item {
-            flex: 1 1 250px; /* Grow, Shrink, Basis */
-            max-width: 300px; /* cap width */
-            
+            flex: 0 0 300px; /* Fixed width, no grow/shrink */
+            max-width: 300px;
         }
         
         @media (max-width: 768px) {
            .award-item {
-             max-width: 100%; /* Full width on mobile */
+             flex: 0 0 280px; /* Slightly smaller on mobile */
+             max-width: 280px;
            }
         }
 
