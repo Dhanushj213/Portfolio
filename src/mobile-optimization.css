@@ -67,9 +67,36 @@
     }
 
     /* Fix Gallery Gap on Mobile */
+    /* Fix Gallery Gap on Mobile */
     .gallery-section {
-        height: 500px !important;
-        /* Override inline 800px style */
-        padding: 2rem 0 !important;
+        height: auto !important;
+        /* Let content dictate height */
+        min-height: 400px;
+        padding: 3rem 0 1rem 0 !important;
+        /* Reduced bottom padding */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+
+    .gallery-title {
+        position: relative !important;
+        /* No overlap */
+        top: 0 !important;
+        margin-bottom: 0rem !important;
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+
+    .gallery-perspective-container {
+        height: 250px !important;
+        /* drastically reduced for landscape cards */
+        margin-top: 1rem !important;
+    }
+
+    /* Adjust Card positioning within the smaller container */
+    .gallery-card {
+        margin-top: -50px !important;
+        /* Override the -200px desktop shift */
     }
 }
