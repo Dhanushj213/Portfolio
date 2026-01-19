@@ -109,7 +109,7 @@ const AboutNew = () => {
                         <p style={{ marginBottom: '1.5rem' }}>
                             Led and developed advanced systems such as <strong>CryptaNet</strong>, a privacy-preserving blockchain-based anomaly detection platform using explainable AI, and <strong>HoneyChain</strong>, an IoT honeypot with blockchain-verified threat intelligence. Recognized for technical excellence and creativity through international and national awards, including the India Book of Records.
                         </p>
-                        <p>
+                        <p style={{ color: '#E50914', fontWeight: '500' }}>
                             Seeking opportunities in software engineering and cybersecurity, specializing in secure cloud-native systems, ethical hacking, and intelligent, scalable software solutions.
                         </p>
                     </div>
