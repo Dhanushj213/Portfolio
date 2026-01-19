@@ -373,6 +373,7 @@ function App() {
               <div id="contactfooter">
                 <ContactFooter contactInfo={contactInfo} />
               </div>
+              <Gallery title="GALLERY" items={projects.map(p => ({ id: p.id, src: p.image, alt: p.title }))} />
             </div>
           </div>
         </ErrorBoundary>

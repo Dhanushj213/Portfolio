@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const Gallery = () => {
+const Gallery = ({ title = "Certificates Gallery", items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const galleryItems = [
+  const defaultItems = [
     { id: 1, src: '/c1.png', alt: 'Certificate 1' },
     { id: 2, src: '/c2.png', alt: 'Certificate 2' },
     { id: 3, src: '/c3.png', alt: 'Certificate 3' },
@@ -21,6 +21,8 @@ const Gallery = () => {
     { id: 15, src: '/c15.png', alt: 'Digital Forensics with Kali Linux' },
     { id: 16, src: '/c16.png', alt: 'Lanquill Level 2 Certification' },
   ];
+
+  const galleryItems = items || defaultItems;
 
   // Auto-scroll logic
   useEffect(() => {
@@ -88,7 +90,7 @@ const Gallery = () => {
         width: '100%',
         zIndex: 20
       }}>
-        Certificates Gallery
+        {title}
       </h2>
 
       <div className="gallery-perspective-container" style={{
