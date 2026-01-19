@@ -296,7 +296,7 @@ const ContactFooter = ({ contactInfo }) => {
       <style>{`
         .contact-links-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, minmax(0, 1fr)); /* Force equal width columns */
           gap: 2rem;
           align-content: start;
         }
@@ -316,11 +316,13 @@ const ContactFooter = ({ contactInfo }) => {
           transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
           cursor: pointer;
           overflow: hidden; /* Ensure content stays inside */
+          width: 100%; /* Ensure card takes full grid cell width */
+          box-sizing: border-box; /* Include padding in width */
         }
 
         .contact-card:hover {
           transform: translateY(-8px);
-          background: rgba(255, 255, 255, 0.08);
+          background: rgba(255, 255, 255, 0.08); /* Fallback/overlay */
           border-color: rgba(255, 255, 255, 0.3);
           box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
         }
@@ -340,12 +342,10 @@ const ContactFooter = ({ contactInfo }) => {
           .contact-container {
             grid-template-columns: 1fr !important;
           }
-        }
-        
-        @media (max-width: 768px) {
+           /* Stack cards on tablet/mobile earlier */
           .contact-links-grid {
-            grid-template-columns: 1fr !important; /* Single column on mobile */
-            gap: 1.5rem;
+             grid-template-columns: 1fr !important;
+             gap: 1.5rem;
           }
         }
       `}</style>
