@@ -18,8 +18,8 @@ const Awards = () => {
     },
     {
       id: 3,
-      title: 'State Award',
-      organization: 'Visual Art',
+      title: 'Bala Gowrava Prashasti',
+      organization: 'Karnataka State award',
       period: 'Winner',
       verificationLink: '#'
     },
