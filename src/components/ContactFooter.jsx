@@ -67,6 +67,15 @@ const ContactFooter = ({ contactInfo }) => {
       text: 'Visit Profile',
       link: 'https://www.linkedin.com/in/dhanush-j-a976ab26b',
       isButton: true
+    },
+    {
+      id: 5,
+      icon: 'fas fa-map-marker-alt',
+      title: 'Location',
+      text: 'Bengaluru, India',
+      link: 'https://www.google.com/maps/place/Bengaluru,+Karnataka,+India',
+      isButton: true,
+      buttonText: 'View Map'
     }
   ];
 
@@ -246,7 +255,7 @@ const ContactFooter = ({ contactInfo }) => {
                       }}
                       className="action-btn"
                     >
-                      View Profile
+                      {item.buttonText || 'View Profile'}
                     </span>
                   ) : (
                     <p style={{
