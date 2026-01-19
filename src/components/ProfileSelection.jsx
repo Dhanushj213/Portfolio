@@ -80,7 +80,7 @@ const ProfileSelection = ({ onProfileSelect }) => {
         ))}
       </div>
       <div style={{
-        marginTop: 'auto',
+        marginTop: '4rem', // Fixed gap instead of auto-push
         color: '#666',
         fontSize: '0.8rem',
         letterSpacing: '2px',
