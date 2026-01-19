@@ -14,21 +14,21 @@ const Awards = () => {
       title: 'India Book of Records',
       organization: 'World’s Largest and Fastest Painting',
       period: 'Record Holder',
-      verificationLink: null
+      verificationLink: '#'
     },
     {
       id: 3,
       title: 'State Award',
       organization: 'Visual Art',
       period: 'Winner',
-      verificationLink: null
+      verificationLink: '#'
     },
     {
       id: 4,
       title: 'AWS Academy Graduate',
       organization: 'AWS Academy Cloud Foundations',
       period: '2025',
-      verificationLink: null
+      verificationLink: '#'
     }
   ];
 
