@@ -185,12 +185,7 @@ const ProfileSelection = ({ onProfileSelect }) => {
             }
         }
         
-        @media (max-height: 800px) {
-          .profile-selection {
-            justify-content: flex-start !important; /* Start from top on small screens/landscape to allow scrolling */
-             padding-top: max(20px, env(safe-area-inset-top)) !important;
-          }
-        }
+
       `}</style>
     </div>
   );
