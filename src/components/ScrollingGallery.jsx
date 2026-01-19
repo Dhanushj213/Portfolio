@@ -60,7 +60,7 @@ const ScrollingGallery = ({ items, title = "Gallery" }) => {
                 <div className="marquee-content" style={{
                     display: 'inline-flex',
                     gap: '1rem',
-                    animation: 'scroll 60s linear infinite' // Long duration for many images
+                    animation: 'scroll 240s linear infinite' // Slower duration for many images
                 }}>
                     {/* Render items twice to create seamless loop */}
                     {[...shuffledItems, ...shuffledItems].map((src, index) => (
