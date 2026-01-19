@@ -149,6 +149,16 @@ const Awards = () => {
       </div>
 
       <style>{`
+        .awards-list {
+           /* Responsive adjustments done via media query below */
+        }
+        
+        @media (max-width: 1200px) {
+           .awards-list {
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; /* Stack or wrap on smaller screens */
+           }
+        }
+
         .award-item:hover {
           transform: translateY(-5px);
           background-color: rgba(255, 255, 255, 0.08) !important;
