@@ -109,7 +109,6 @@ const ProfileSelection = ({ onProfileSelect }) => {
           </div>
         ))}
       </div>
-      </div>
       <style>{`
         @media (max-height: 800px) {
           .profile-selection {
@@ -118,7 +117,7 @@ const ProfileSelection = ({ onProfileSelect }) => {
           }
         }
       `}</style>
-    </div >
+    </div>
   );
 };
 
