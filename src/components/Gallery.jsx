@@ -104,8 +104,8 @@ const Gallery = () => {
             className="gallery-card"
           >
             <div style={{
-              width: '500px', // Increased Card Width
-              height: '350px', // Increased Card Height
+              width: 'min(500px, 85vw)', // Responsive width
+              height: 'min(350px, 60vw)', // Responsive height
               borderRadius: '16px',
               overflow: 'hidden',
               background: '#222',

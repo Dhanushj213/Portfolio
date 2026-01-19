@@ -92,7 +92,7 @@ const ContactFooter = ({ contactInfo }) => {
       color: 'white',
       fontFamily: 'sans-serif',
       paddingTop: '6rem',
-      paddingBottom: '6rem',
+      paddingBottom: 'calc(6rem + var(--safe-area-bottom, 20px))', // Safe area padding
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center'
@@ -184,50 +184,53 @@ const ContactFooter = ({ contactInfo }) => {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)', // 2 columns within the right side
-          gap: '3rem 2rem',
+          gap: '2rem',
           alignContent: 'start'
         }}>
           {contactLinks.map((item) => (
-            <div key={item.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <div
+              key={item.id}
+              className="contact-card"
+              onClick={() => item.link && window.open(item.link, '_blank')}
+            >
               <div style={{
-                width: '3.5rem',
-                height: '3.5rem',
+                width: '4rem',
+                height: '4rem',
                 borderRadius: '50%',
-                border: '2px solid white',
+                border: '1px solid rgba(255,255,255,0.2)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginBottom: '1rem',
-                fontSize: '1.25rem'
-              }}>
+                fontSize: '1.5rem',
+                background: 'rgba(255,255,255,0.05)',
+                transition: 'all 0.3s ease'
+              }} className="icon-container">
                 <i className={`fas ${item.icon}`}></i>
               </div>
-              <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.25rem' }}>{item.title}</h5>
+              <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
 
               {item.isButton ? (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <span
                   style={{
                     display: 'inline-block',
                     marginTop: '0.5rem',
-                    padding: '0.5rem 1.5rem',
-                    border: '1px solid rgba(255,255,255,0.3)',
+                    padding: '0.75rem 2rem',
+                    background: 'white',
                     borderRadius: '9999px',
-                    color: 'white',
+                    color: 'black',
                     fontSize: '0.875rem',
                     textDecoration: 'none',
-                    fontWeight: '600',
-                    transition: 'all 0.3s'
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    transition: 'transform 0.2s',
                   }}
-                  onMouseOver={(e) => { e.target.style.background = 'white'; e.target.style.color = 'black'; }}
-                  onMouseOut={(e) => { e.target.style.background = 'transparent'; e.target.style.color = 'white'; }}
+                  className="action-btn"
                 >
                   View Profile
-                </a>
+                </span>
               ) : (
-                <p style={{ color: '#9CA3AF', fontSize: '0.875rem', fontWeight: '500', margin: 0 }}>
+                <p style={{ color: '#9CA3AF', fontSize: '0.9rem', fontWeight: '500', margin: 0, wordBreak: 'break-word' }}>
                   {item.text}
                 </p>
               )}
@@ -252,6 +255,39 @@ const ContactFooter = ({ contactInfo }) => {
       </div>
 
       <style>{`
+        .contact-card {
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 16px;
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+          cursor: pointer;
+        }
+
+        .contact-card:hover {
+          transform: translateY(-8px);
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 255, 255, 0.3);
+          box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        .contact-card:hover .icon-container {
+          background: white;
+          color: black;
+          border-color: white;
+          transform: scale(1.1);
+        }
+
+        .contact-card:hover .action-btn {
+          transform: scale(1.05);
+        }
+
         @media (max-width: 1024px) {
           .contact-container {
             grid-template-columns: 1fr !important;

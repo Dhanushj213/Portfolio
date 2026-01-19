@@ -1,0 +1,69 @@
+/* Mobile App Safe Areas & Optimization */
+:root {
+    --safe-area-top: env(safe-area-inset-top, 20px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 20px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
+}
+
+/* Strict Mobile Typography Scale */
+@media (max-width: 767px) {
+    html {
+        font-size: 14px;
+        /* Base scale down */
+    }
+
+    h1 {
+        font-size: clamp(2rem, 8vw, 2.5rem) !important;
+        line-height: 1.2 !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    p {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        max-width: 100% !important;
+    }
+
+    /* App-view container padding */
+    .app,
+    body {
+        padding-left: var(--safe-area-left);
+        padding-right: var(--safe-area-right);
+    }
+}
+
+/* Video Background Optimization for Mobile */
+@media (max-width: 767px) {
+    .video-background video {
+        opacity: 0.6;
+        /* Reduce visibility to save processing */
+    }
+
+    .video-background::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        /* Stronger overlay for text readability */
+        z-index: 1;
+    }
+}
+
+/* Touch Target Enforcement */
+@media (max-width: 767px) {
+
+    button,
+    a,
+    .nav-link,
+    .gallery-item,
+    .contact-card {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation;
+        /* Optimizes touch events delay */
+    }
+}
