@@ -302,9 +302,10 @@ const ContactFooter = ({ contactInfo }) => {
         }
 
         .contact-card {
-          background: rgba(255, 255, 255, 0.03);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
+          background: url('/granite.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 16px;
           padding: 2rem;
