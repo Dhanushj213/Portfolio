@@ -75,7 +75,7 @@ const Gallery = () => {
       flexDirection: 'column',
       justifyContent: 'center'
     }}>
-      <h2 className="row-title" style={{
+      <h2 className="row-title gallery-title" style={{
         fontFamily: "'Bebas Neue', sans-serif",
         fontSize: '1.8rem',
         marginBottom: '2rem',
@@ -91,7 +91,7 @@ const Gallery = () => {
         Certificates Gallery
       </h2>
 
-      <div style={{
+      <div className="gallery-perspective-container" style={{
         position: 'relative',
         width: '100%',
         height: '500px', // Increased Perspective Container Height
