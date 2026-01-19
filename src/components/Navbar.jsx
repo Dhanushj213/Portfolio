@@ -66,6 +66,7 @@ const Navbar = (props) => {
           @media (max-width: 768px) {
             .desktop-menu { display: none !important; }
             .mobile-menu-btn { display: block !important; }
+            .navbar { background: transparent !important; }
           }
           @media (min-width: 769px) {
             .mobile-menu-btn { display: none !important; }

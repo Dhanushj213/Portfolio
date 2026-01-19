@@ -179,7 +179,7 @@ const ContactFooter = ({ contactInfo }) => {
             <div
               key={item.id}
               className="contact-card"
-              style={item.id === 5 ? { gridColumn: 'span 2' } : {}}
+              style={item.id === 5 ? { gridColumn: '1 / -1' } : {}}
               onClick={() => !item.actions && item.link && window.open(item.link, '_blank')}
             >
               {item.actions ? (
@@ -314,6 +314,7 @@ const ContactFooter = ({ contactInfo }) => {
           cursor: pointer;
           overflow: hidden; /* Ensure content stays inside */
           width: 100%; /* Ensure card takes full grid cell width */
+          height: 100%; /* Ensure equal heights */
           box-sizing: border-box; /* Include padding in width */
         }
         
