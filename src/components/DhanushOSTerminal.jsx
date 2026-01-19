@@ -199,47 +199,52 @@ const DhanushOSTerminal = () => {
       boxSizing: 'border-box',
     }}>
       {/* Header image removed */}
-      <div style={{ padding: '2rem 1rem 5rem 1rem', maxWidth: 900, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
+      <div style={{ padding: '6rem 1rem 5rem 1rem', maxWidth: 900, margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
         {lines.map((line, idx) => (
-          <div key={idx} style={{ whiteSpace: 'pre', marginBottom: '0.2rem' }}>{line}</div>
+          // ASCII art detection (lines 4-10 in original file are ASCII) - apply specific class or style if needed, 
+          // but here we just check if it LOOKS like ASCII (contains pipe chars etc) or just rely on index.  
+          // Since booting lines are mixed, we'll just style the container to scroll for wide content.
+          <div key={idx} className="terminal-line" style={{ marginBottom: '0.2rem' }}>{line}</div>
         ))}
         {history.map((entry, idx) => (
           <div key={idx + 'h'}>
             <div style={{ color: '#39FF14' }}>DhanushOS:/home/guest$ <span style={{ color: '#39FF14' }}>{entry.cmd}</span></div>
             {entry.output.map((out, i) => (
-              <div key={i} style={{ color: out.startsWith('Unknown') ? '#008F11' : out.startsWith('Type') ? '#008F11' : '#39FF14', whiteSpace: 'pre' }}>{out}</div>
+              <div key={i} className="terminal-line" style={{ color: out.startsWith('Unknown') ? '#008F11' : out.startsWith('Type') ? '#008F11' : '#39FF14' }}>{out}</div>
             ))}
           </div>
         ))}
         {!booting && (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ color: '#39FF14' }}>DhanushOS:/home/guest$ </span>
-            <input
-              ref={inputRef}
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              style={{
-                background: 'transparent',
-                border: 'none',
+          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+            <span style={{ color: '#39FF14', marginRight: '0.5rem' }}>DhanushOS:/home/guest$ </span>
+            <div style={{ display: 'flex', alignItems: 'center', flex: 1, minWidth: '200px' }}>
+              <input
+                ref={inputRef}
+                value={input}
+                onChange={e => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#39FF14',
+                  fontFamily: 'inherit',
+                  fontSize: '1.35rem',
+                  outline: 'none',
+                  width: '100%',
+                  minWidth: '50px'
+                }}
+                autoFocus
+              />
+              <span className="blinking-cursor" style={{
+                background: '#39FF14',
                 color: '#39FF14',
-                fontFamily: 'inherit',
-                fontSize: '1.35rem',
-                outline: 'none',
-                width: '60vw',
-                maxWidth: '600px',
-              }}
-              autoFocus
-            />
-            <span className="blinking-cursor" style={{
-              background: '#39FF14',
-              color: '#39FF14',
-              marginLeft: '2px',
-              width: '12px',
-              height: '1.35rem',
-              display: 'inline-block',
-              animation: 'blink 1s steps(1) infinite',
-            }}>_</span>
+                marginLeft: '2px',
+                width: '12px',
+                height: '1.35rem',
+                display: 'inline-block',
+                animation: 'blink 1s steps(1) infinite',
+              }}>_</span>
+            </div>
           </div>
         )}
       </div>
@@ -252,6 +257,23 @@ const DhanushOSTerminal = () => {
           0% { opacity: 1; }
           50% { opacity: 0; }
           100% { opacity: 1; }
+        }
+        
+        .terminal-line {
+            white-space: pre-wrap; /* Wrap text on mobile */
+            word-break: break-all;
+        }
+
+        /* Target the ASCII art specifically if possible, or usually it is the first few lines after boot */
+        /* For now, just ensuring container is robust */
+        
+        @media (max-width: 600px) {
+           /* Scale down the ASCII art container logic if detected, or just allow scroll */
+           /* Simple fix: reduce font size on mobile to make ASCII fit better */
+           .terminal-line {
+               font-size: 1rem; 
+               line-height: 1.2;
+           }
         }
       `}</style>
     </div>

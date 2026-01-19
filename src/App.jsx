@@ -299,7 +299,8 @@ function App() {
             top: 24,
             left: 24,
             zIndex: 1000,
-            background: 'rgba(0,0,0,0.7)',
+            background: 'rgba(0, 0, 0, 0.8)', // Darker background
+            backdropFilter: 'blur(4px)', // Blur for readability
             color: '#39FF14',
             border: 'none',
             borderRadius: '8px',
