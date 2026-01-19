@@ -110,11 +110,6 @@ const ContinueWatching = ({ projects }) => {
               <h3 className="card-title">
                 {project.title}
               </h3>
-              <div className="card-meta">
-                <span className="match-score">98% Match</span>
-                <span className="age-rating">{project.period.split(' ')[0]}</span>
-                <span className="hd-badge">HD</span>
-              </div>
               <div className="tech-tags">
                 {getCategories(project).slice(0, 3).map((cat, i) => (
                   <span key={i} className="tech-tag">{cat}</span>
