@@ -21,7 +21,7 @@ import AboutNew from './components/AboutNew';
 
 import ContactFooter from './components/ContactFooter';
 
-import BlogSection from './components/BlogSection';
+
 
 const contactInfo = {
   email: 'jdhanush213@gmail.com',
@@ -369,7 +369,7 @@ function App() {
 
               <Awards />
 
-              <BlogSection />
+
               <div id="contactfooter">
                 <ContactFooter contactInfo={contactInfo} />
               </div>
