@@ -395,6 +395,7 @@ function App() {
                 <ContactFooter contactInfo={contactInfo} />
               </div>
             </div>
+          </div>
         </ErrorBoundary>
         <SpeedInsights />
       </>
