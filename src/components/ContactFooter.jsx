@@ -176,109 +176,110 @@ const ContactFooter = ({ contactInfo }) => {
         {/* RIGHT COLUMN: CONTACT DETAILS GRID */}
         <div className="contact-links-grid">
           {contactLinks.map((item) => (
-            key = { item.id }
-              className = "contact-card"
-              style = { item.id === 5 ? { gridColumn: 'span 2' } : {} }
-              onClick = {() => !item.actions && item.link && window.open(item.link, '_blank')}
+            <div
+              key={item.id}
+              className="contact-card"
+              style={item.id === 5 ? { gridColumn: 'span 2' } : {}}
+              onClick={() => !item.actions && item.link && window.open(item.link, '_blank')}
             >
-          {item.actions ? (
-            // COMBINED CARD (Phone + Whatsapp)
-            <>
-              <div style={{
-                display: 'flex',
-                gap: '1.5rem',
-                marginBottom: '1rem'
-              }}>
-                {item.actions.map((action, i) => (
-                  <div key={i} style={{
-                    width: '3.5rem',
-                    height: '3.5rem',
+              {item.actions ? (
+                // COMBINED CARD (Phone + Whatsapp)
+                <>
+                  <div style={{
+                    display: 'flex',
+                    gap: '1.5rem',
+                    marginBottom: '1rem'
+                  }}>
+                    {item.actions.map((action, i) => (
+                      <div key={i} style={{
+                        width: '3.5rem',
+                        height: '3.5rem',
+                        borderRadius: '50%',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.25rem',
+                        background: 'rgba(255,255,255,0.05)',
+                        cursor: 'pointer',
+                        marginBottom: 0
+                      }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(action.link, '_blank');
+                        }}
+                        className="search-icon-hover"
+                      >
+                        <i className={action.icon}></i>
+                      </div>
+                    ))}
+                  </div>
+                  <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.25rem' }}>{item.title}</h5>
+                  <p style={{ color: '#9CA3AF', fontSize: '0.9rem', fontWeight: '500', margin: 0, whiteSpace: 'nowrap' }}>{item.text}</p>
+                </>
+              ) : (
+                // STANDARD CARD
+                <>
+                  <div style={{
+                    width: '4rem',
+                    height: '4rem',
                     borderRadius: '50%',
                     border: '1px solid rgba(255,255,255,0.2)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                    fontSize: '1.5rem',
                     background: 'rgba(255,255,255,0.05)',
-                    cursor: 'pointer',
-                    marginBottom: 0
-                  }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(action.link, '_blank');
-                    }}
-                    className="search-icon-hover"
-                  >
-                    <i className={action.icon}></i>
+                    transition: 'all 0.3s ease'
+                  }} className="icon-container">
+                    <i className={item.icon}></i>
                   </div>
-                ))}
-              </div>
-              <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.25rem' }}>{item.title}</h5>
-              <p style={{ color: '#9CA3AF', fontSize: '0.9rem', fontWeight: '500', margin: 0, whiteSpace: 'nowrap' }}>{item.text}</p>
-            </>
-          ) : (
-            // STANDARD CARD
-            <>
-              <div style={{
-                width: '4rem',
-                height: '4rem',
-                borderRadius: '50%',
-                border: '1px solid rgba(255,255,255,0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '1rem',
-                fontSize: '1.5rem',
-                background: 'rgba(255,255,255,0.05)',
-                transition: 'all 0.3s ease'
-              }} className="icon-container">
-                <i className={item.icon}></i>
-              </div>
-              <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
+                  <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
 
-              {item.isButton ? (
-                <span
-                  style={{
-                    display: 'inline-block',
-                    marginTop: '0.5rem',
-                    padding: '0.75rem 1.5rem',
-                    background: 'white',
-                    borderRadius: '9999px',
-                    color: 'black',
-                    fontSize: '0.875rem',
-                    textDecoration: 'none',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    transition: 'transform 0.2s',
-                    whiteSpace: 'nowrap',
-                  }}
-                  className="action-btn"
-                >
-                  {item.buttonText || 'View Profile'}
-                </span>
-              ) : (
-                <p style={{
-                  color: '#9CA3AF',
-                  fontSize: '0.9rem',
-                  fontWeight: '500',
-                  margin: 0,
-                  whiteSpace: 'nowrap', // Force single line
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '100%'
-                }}>
-                  {item.text}
-                </p>
+                  {item.isButton ? (
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        marginTop: '0.5rem',
+                        padding: '0.75rem 1.5rem',
+                        background: 'white',
+                        borderRadius: '9999px',
+                        color: 'black',
+                        fontSize: '0.875rem',
+                        textDecoration: 'none',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        transition: 'transform 0.2s',
+                        whiteSpace: 'nowrap',
+                      }}
+                      className="action-btn"
+                    >
+                      {item.buttonText || 'View Profile'}
+                    </span>
+                  ) : (
+                    <p style={{
+                      color: '#9CA3AF',
+                      fontSize: '0.9rem',
+                      fontWeight: '500',
+                      margin: 0,
+                      whiteSpace: 'nowrap', // Force single line
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      maxWidth: '100%'
+                    }}>
+                      {item.text}
+                    </p>
+                  )}
+                </>
               )}
-            </>
-          )}
-        </div>
+            </div>
           ))}
+        </div>
+
       </div>
 
-    </div>
-
-      {/* Copyright */ }
+      {/* Copyright */}
       <div style={{
         textAlign: 'center',
         marginTop: '8rem',
