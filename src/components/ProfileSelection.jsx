@@ -75,16 +75,19 @@ const ProfileSelection = ({ onProfileSelect }) => {
             </div>
           </div>
         ))}
-        <div style={{
-          marginTop: 'auto',
-          color: '#666',
-          fontSize: '0.8rem',
-          letterSpacing: '2px',
-          paddingTop: '2rem',
-          fontFamily: "'Bebas Neue', sans-serif"
-        }}>
-          BY DHANUSH J
-        </div>
+      </div>
+      <div style={{
+        marginTop: 'auto',
+        color: '#666',
+        fontSize: '0.8rem',
+        letterSpacing: '2px',
+        paddingTop: '2rem',
+        paddingBottom: '10px',
+        fontFamily: "'Bebas Neue', sans-serif",
+        textAlign: 'center',
+        width: '100%'
+      }}>
+        BY DHANUSH J
       </div>
       <style>{`
         .profiles-container {
@@ -182,16 +185,8 @@ const ProfileSelection = ({ onProfileSelect }) => {
         
         @media (max-height: 800px) {
           .profile-selection {
-            justify-content: center !important; /* Revert to center if we fit content better */
-             padding-top: max(20px, env(safe-area-inset-top)) !important;
-          }
-        }
-      `}</style>
-      <style>{`
-        @media (max-height: 800px) {
-          .profile-selection {
             justify-content: flex-start !important; /* Start from top on small screens/landscape to allow scrolling */
-            padding-top: 4rem !important;
+             padding-top: max(20px, env(safe-area-inset-top)) !important;
           }
         }
       `}</style>
