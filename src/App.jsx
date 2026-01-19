@@ -371,9 +371,6 @@ function App() {
               <Awards />
 
 
-              <div id="contactfooter">
-                <ContactFooter contactInfo={contactInfo} />
-              </div>
               <ScrollingGallery title="Co-Curricular Highlights - Activities & Achievements" items={[
                 "/extra/1003.JPG", "/extra/1015.JPG", "/extra/13689742_265434453848681_1500397308_n.jpg", "/extra/13714287_265434447182015_1995013426_n.jpg",
                 "/extra/20230704_121150.jpg", "/extra/20230806_141755(1).jpg", "/extra/20231207_170926.jpg", "/extra/20231207_171145.jpg",
@@ -393,8 +390,11 @@ function App() {
                 "/extra/_DSC0168.jpg", "/extra/a1.JPG", "/extra/a2.JPG", "/extra/a3.JPG", "/extra/a4.JPG",
                 "/extra/a5.JPG", "/extra/a6.JPG", "/extra/a7.JPG", "/extra/a8.JPG"
               ]} />
+
+              <div id="contactfooter">
+                <ContactFooter contactInfo={contactInfo} />
+              </div>
             </div>
-          </div>
         </ErrorBoundary>
         <SpeedInsights />
       </>
