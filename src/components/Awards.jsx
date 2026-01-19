@@ -50,7 +50,8 @@ const Awards = () => {
               </div>
             </div>
             <div className="award-details" style={{
-              flex: 1
+              flex: 1,
+              textAlign: 'left' // Force left alignment
             }}>
               <h3 className="award-title" style={{
                 fontWeight: '600',
@@ -82,10 +83,12 @@ const Awards = () => {
                   rel="noopener noreferrer"
                   className="netflix-button secondary-button verify-button"
                   style={{
-                    fontSize: '0.8rem',
-                    padding: '4px 8px',
+                    fontSize: '0.9rem',
+                    padding: '8px 0', // Vertical padding only
                     marginTop: '8px',
-                    display: 'inline-flex',
+                    display: 'flex', // Flex to center content
+                    width: '100%', // Full width
+                    justifyContent: 'center',
                     alignItems: 'center',
                     gap: '0.5rem',
                     backgroundColor: '#E50914',
@@ -93,11 +96,11 @@ const Awards = () => {
                     color: '#FFFFFF',
                     textDecoration: 'none',
                     borderRadius: '4px',
+                    fontWeight: 'bold',
                     transition: 'all 0.3s ease'
                   }}
                 >
                   <span>Verify</span>
-                  <span style={{ fontSize: '0.7rem' }}></span>
                 </a>
               )}
             </div>
