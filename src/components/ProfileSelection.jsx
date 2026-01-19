@@ -42,9 +42,10 @@ const ProfileSelection = ({ onProfileSelect }) => {
       height: 'auto',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'flex-start', // Start from top to prevent cropping
+      justifyContent: 'center', // Center by default (Desktop)
       alignItems: 'center',
-      padding: 'max(60px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom)) 20px', // More top padding for visual balance
+      padding: '20px',
+      overflowY: 'auto',
       overflowY: 'auto',
       WebkitOverflowScrolling: 'touch'
     }}>
@@ -149,13 +150,20 @@ const ProfileSelection = ({ onProfileSelect }) => {
             transform: scale(1.05);
         }
 
-        @media (max-width: 768px) {
+        /* Mobile Layout Overrides - Target width AND height to catch phones */
+        @media (max-width: 768px), (max-height: 600px) {
+            .profile-selection {
+                justify-content: flex-start !important; /* Force top alignment for scrolling */
+                padding-top: max(60px, env(safe-area-inset-top)) !important;
+            }
+
             .profiles-container {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr); /* 2 Columns on mobile */
                 gap: 15px;
                 padding: 0 10px;
             }
+
 
             .profile-card {
                 width: 100%; /* Full width of grid cell */
