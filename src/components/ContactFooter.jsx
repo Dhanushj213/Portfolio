@@ -37,11 +37,12 @@ const ContactFooter = ({ contactInfo }) => {
   const contactLinks = [
     {
       id: 1,
-      icon: 'fas fa-phone-alt',
-      title: 'Phone Number',
+      title: 'Mobile & Chat',
       text: '+91 82174 71928',
-      link: 'tel:+918217471928',
-      isButton: false
+      actions: [
+        { icon: 'fas fa-phone-alt', link: 'tel:+918217471928', label: 'Call' },
+        { icon: 'fa-brands fa-whatsapp', link: 'https://wa.me/918217471928', label: 'Chat' }
+      ]
     },
     {
       id: 2,
@@ -61,27 +62,11 @@ const ContactFooter = ({ contactInfo }) => {
     },
     {
       id: 4,
-      icon: 'fa-brands fa-whatsapp',
-      title: 'Whatsapp',
-      text: '+91 82174 71928',
-      link: 'https://wa.me/918217471928',
-      isButton: false
-    },
-    {
-      id: 5,
       icon: 'fa-brands fa-linkedin-in',
       title: 'LinkedIn',
       text: 'Visit Profile',
       link: 'https://www.linkedin.com/in/dhanush-j-a976ab26b',
       isButton: true
-    },
-    {
-      id: 6,
-      icon: 'fas fa-map-marker-alt',
-      title: 'Location',
-      text: 'Bengaluru, India',
-      link: null,
-      isButton: false
     }
   ];
 
@@ -186,58 +171,98 @@ const ContactFooter = ({ contactInfo }) => {
             <div
               key={item.id}
               className="contact-card"
-              onClick={() => item.link && window.open(item.link, '_blank')}
+              onClick={() => !item.actions && item.link && window.open(item.link, '_blank')}
             >
-              <div style={{
-                width: '4rem',
-                height: '4rem',
-                borderRadius: '50%',
-                border: '1px solid rgba(255,255,255,0.2)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '1rem',
-                fontSize: '1.5rem',
-                background: 'rgba(255,255,255,0.05)',
-                transition: 'all 0.3s ease'
-              }} className="icon-container">
-                <i className={item.icon}></i>
-              </div>
-              <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
-
-              {item.isButton ? (
-                <span
-                  style={{
-                    display: 'inline-block',
-                    marginTop: '0.5rem',
-                    padding: '0.75rem 1.5rem',
-                    background: 'white',
-                    borderRadius: '9999px',
-                    color: 'black',
-                    fontSize: '0.875rem',
-                    textDecoration: 'none',
-                    fontWeight: 'bold',
-                    cursor: 'pointer',
-                    transition: 'transform 0.2s',
-                    whiteSpace: 'nowrap',
-                  }}
-                  className="action-btn"
-                >
-                  View Profile
-                </span>
+              {item.actions ? (
+                // COMBINED CARD (Phone + Whatsapp)
+                <>
+                  <div style={{
+                    display: 'flex',
+                    gap: '1.5rem',
+                    marginBottom: '1rem'
+                  }}>
+                    {item.actions.map((action, i) => (
+                      <div key={i} style={{
+                        width: '3.5rem',
+                        height: '3.5rem',
+                        borderRadius: '50%',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.25rem',
+                        background: 'rgba(255,255,255,0.05)',
+                        cursor: 'pointer',
+                        marginBottom: 0
+                      }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(action.link, '_blank');
+                        }}
+                        className="search-icon-hover"
+                      >
+                        <i className={action.icon}></i>
+                      </div>
+                    ))}
+                  </div>
+                  <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.25rem' }}>{item.title}</h5>
+                  <p style={{ color: '#9CA3AF', fontSize: '0.9rem', fontWeight: '500', margin: 0, whiteSpace: 'nowrap' }}>{item.text}</p>
+                </>
               ) : (
-                <p style={{
-                  color: '#9CA3AF',
-                  fontSize: '0.9rem',
-                  fontWeight: '500',
-                  margin: 0,
-                  whiteSpace: 'nowrap', // Force single line
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '100%'
-                }}>
-                  {item.text}
-                </p>
+                // STANDARD CARD
+                <>
+                  <div style={{
+                    width: '4rem',
+                    height: '4rem',
+                    borderRadius: '50%',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '1rem',
+                    fontSize: '1.5rem',
+                    background: 'rgba(255,255,255,0.05)',
+                    transition: 'all 0.3s ease'
+                  }} className="icon-container">
+                    <i className={item.icon}></i>
+                  </div>
+                  <h5 style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem', marginBottom: '0.5rem' }}>{item.title}</h5>
+
+                  {item.isButton ? (
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        marginTop: '0.5rem',
+                        padding: '0.75rem 1.5rem',
+                        background: 'white',
+                        borderRadius: '9999px',
+                        color: 'black',
+                        fontSize: '0.875rem',
+                        textDecoration: 'none',
+                        fontWeight: 'bold',
+                        cursor: 'pointer',
+                        transition: 'transform 0.2s',
+                        whiteSpace: 'nowrap',
+                      }}
+                      className="action-btn"
+                    >
+                      View Profile
+                    </span>
+                  ) : (
+                    <p style={{
+                      color: '#9CA3AF',
+                      fontSize: '0.9rem',
+                      fontWeight: '500',
+                      margin: 0,
+                      whiteSpace: 'nowrap', // Force single line
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      maxWidth: '100%'
+                    }}>
+                      {item.text}
+                    </p>
+                  )}
+                </>
               )}
             </div>
           ))}
