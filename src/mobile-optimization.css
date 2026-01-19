@@ -61,9 +61,15 @@
     .nav-link,
     .gallery-item,
     .contact-card {
-        min-height: 44px;
         min-width: 44px;
         touch-action: manipulation;
         /* Optimizes touch events delay */
+    }
+
+    /* Fix Gallery Gap on Mobile */
+    .gallery-section {
+        height: 500px !important;
+        /* Override inline 800px style */
+        padding: 2rem 0 !important;
     }
 }
