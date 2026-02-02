@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import './CybersecurityView.css';
 
 const contactInfo = {
   email: 'jdhanush213@gmail.com',
@@ -10,104 +11,60 @@ const contactInfo = {
   dob: 'January 2nd, 2003'
 };
 
-const CybersecurityView = () => {
+const CybersecurityView = ({ onBack }) => {
   return (
-    <div className="app" style={{ backgroundColor: '#141414', minHeight: '100vh' }}>
+    <div className="cybersecurity-view">
       {/* Background Video */}
       <div className="video-background">
-        <video className="background-video" autoPlay muted loop>
+        <video className="background-video" autoPlay muted loop playsInline>
           <source src="/background-video.mp4" type="video/mp4" />
-          <div className="video-fallback" style={{
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(45deg, #141414, #1a1a1a, #141414)',
-            backgroundSize: '400% 400%',
-            animation: 'gradientShift 8s ease infinite'
-          }}></div>
+          <div className="video-fallback"></div>
         </video>
         <div className="video-overlay"></div>
       </div>
 
-      <Navbar />
-      <div style={{ padding: '2rem 4%', color: 'white' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '3rem',
-            marginBottom: '2rem',
-            color: '#00ff88'
-          }}>
+      <Navbar onBackToProfile={onBack} />
+
+      <div className="cyber-content">
+        <div className="cyber-hero">
+          <h1 className="cyber-title">
             Cybersecurity Analyst
           </h1>
-          <p style={{
-            fontSize: '1.2rem',
-            marginBottom: '2rem',
-            color: '#e5e5e5',
-            lineHeight: '1.6'
-          }}>
+          <p className="cyber-subtitle">
             Security-focused portfolio highlighting penetration testing, threat analysis, and defensive security expertise
           </p>
         </div>
 
         {/* Security Domains */}
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <h2 style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '2rem',
-            marginBottom: '1.5rem',
-            color: '#FFFFFF',
-            textAlign: 'center'
-          }}>
+          <h2 className="section-title">
             Security Domains
           </h2>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem',
-            marginBottom: '3rem'
-          }}>
-            <div style={{
-              backgroundColor: '#181818',
-              padding: '2rem',
-              borderRadius: '8px',
-              textAlign: 'center',
-              border: '2px solid #00ff88'
-            }}>
-              <h3 style={{ color: '#00ff88', fontSize: '1.5rem', marginBottom: '1rem' }}>
+          <div className="domains-grid">
+            <div className="cyber-card">
+              <h3 className="card-title">
                 Offensive Security
               </h3>
-              <p style={{ color: '#e5e5e5', lineHeight: '1.6' }}>
+              <p className="card-text">
                 Penetration testing, vulnerability assessment, exploit development, and red team operations
               </p>
             </div>
 
-            <div style={{
-              backgroundColor: '#181818',
-              padding: '2rem',
-              borderRadius: '8px',
-              textAlign: 'center',
-              border: '2px solid #00ff88'
-            }}>
-              <h3 style={{ color: '#00ff88', fontSize: '1.5rem', marginBottom: '1rem' }}>
+            <div className="cyber-card">
+              <h3 className="card-title">
                 Defensive Security
               </h3>
-              <p style={{ color: '#e5e5e5', lineHeight: '1.6' }}>
+              <p className="card-text">
                 Security monitoring, incident response, threat hunting, and security architecture design
               </p>
             </div>
 
-            <div style={{
-              backgroundColor: '#181818',
-              padding: '2rem',
-              borderRadius: '8px',
-              textAlign: 'center',
-              border: '2px solid #00ff88'
-            }}>
-              <h3 style={{ color: '#00ff88', fontSize: '1.5rem', marginBottom: '1rem' }}>
+            <div className="cyber-card">
+              <h3 className="card-title">
                 Cloud Security
               </h3>
-              <p style={{ color: '#e5e5e5', lineHeight: '1.6' }}>
+              <p className="card-text">
                 AWS security, container security, IAM, compliance frameworks, and secure cloud architecture
               </p>
             </div>
@@ -115,36 +72,16 @@ const CybersecurityView = () => {
 
           {/* Security Tools & Technologies */}
           <div style={{ marginBottom: '3rem' }}>
-            <h3 style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: '1.8rem',
-              marginBottom: '1.5rem',
-              color: '#FFFFFF',
-              textAlign: 'center'
-            }}>
+            <h3 className="section-title">
               Security Tools & Technologies
             </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1rem',
-              maxWidth: '800px',
-              margin: '0 auto'
-            }}>
+            <div className="tools-grid">
               {[
                 'Burp Suite', 'Metasploit', 'Wireshark', 'Nmap', 'Nessus',
                 'SIEM Tools', 'ELK Stack', 'Snort', 'OSSEC', 'AWS Security',
                 'Docker Security', 'Kubernetes Security', 'Python', 'Bash'
               ].map((tool, index) => (
-                <div key={index} style={{
-                  backgroundColor: 'rgba(0, 255, 136, 0.1)',
-                  padding: '0.8rem 1rem',
-                  borderRadius: '4px',
-                  textAlign: 'center',
-                  border: '1px solid #00ff88',
-                  color: '#00ff88',
-                  fontSize: '0.9rem'
-                }}>
+                <div key={index} className="tool-item">
                   {tool}
                 </div>
               ))}
@@ -153,30 +90,15 @@ const CybersecurityView = () => {
 
           {/* Security Projects */}
           <div style={{ marginBottom: '3rem' }}>
-            <h3 style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: '1.8rem',
-              marginBottom: '1.5rem',
-              color: '#FFFFFF',
-              textAlign: 'center'
-            }}>
+            <h3 className="section-title">
               Security Projects
             </h3>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '2rem'
-            }}>
-              <div style={{
-                backgroundColor: '#181818',
-                padding: '2rem',
-                borderRadius: '8px',
-                border: '2px solid #00ff88'
-              }}>
-                <h4 style={{ color: '#00ff88', fontSize: '1.3rem', marginBottom: '1rem' }}>
+            <div className="projects-grid">
+              <div className="cyber-card">
+                <h4 className="card-title">
                   Web Application Security Testing
                 </h4>
-                <p style={{ color: '#e5e5e5', lineHeight: '1.6', marginBottom: '1rem' }}>
+                <p className="card-text" style={{ marginBottom: '1rem' }}>
                   Comprehensive security assessment of web applications including SQL injection, XSS, CSRF, and authentication bypass testing.
                 </p>
                 <div style={{ fontSize: '0.9rem', color: '#888' }}>
@@ -184,16 +106,11 @@ const CybersecurityView = () => {
                 </div>
               </div>
 
-              <div style={{
-                backgroundColor: '#181818',
-                padding: '2rem',
-                borderRadius: '8px',
-                border: '2px solid #00ff88'
-              }}>
-                <h4 style={{ color: '#00ff88', fontSize: '1.3rem', marginBottom: '1rem' }}>
+              <div className="cyber-card">
+                <h4 className="card-title">
                   Network Security Analysis
                 </h4>
-                <p style={{ color: '#e5e5e5', lineHeight: '1.6', marginBottom: '1rem' }}>
+                <p className="card-text" style={{ marginBottom: '1rem' }}>
                   Network traffic analysis, intrusion detection system implementation, and firewall rule optimization.
                 </p>
                 <div style={{ fontSize: '0.9rem', color: '#888' }}>
@@ -204,19 +121,8 @@ const CybersecurityView = () => {
           </div>
 
           {/* Contact Information */}
-          <div style={{
-            backgroundColor: '#181818',
-            padding: '2rem',
-            borderRadius: '8px',
-            textAlign: 'center',
-            border: '2px solid #00ff88'
-          }}>
-            <h3 style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: '1.8rem',
-              marginBottom: '1.5rem',
-              color: '#00ff88'
-            }}>
+          <div className="cyber-card" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <h3 className="section-title" style={{ marginBottom: '1rem', color: '#00ff88' }}>
               Contact for Security Opportunities
             </h3>
             <div style={{

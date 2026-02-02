@@ -5,6 +5,7 @@ import { useState } from 'react';
 import './App.css';
 import ErrorBoundary from './components/ErrorBoundary'; // Import ErrorBoundary
 import ProfileSelection from './components/ProfileSelection';
+import ArtistProfile from './components/ArtistProfile';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 
@@ -308,36 +309,21 @@ function App() {
 
   if (selectedProfile === 'cybersecurity') {
     return (
-      <div>
-        <button
-          onClick={() => {
+      <>
+        <DhanushOSTerminal
+          onBack={() => {
             setSelectedProfile(null);
             setShowIntro(false);
             setIntroPlayed(true);
           }}
-          style={{
-            position: 'fixed',
-            top: 24,
-            left: 24,
-            zIndex: 1000,
-            background: 'rgba(0, 0, 0, 0.8)', // Darker background
-            backdropFilter: 'blur(4px)', // Blur for readability
-            color: '#39FF14',
-            border: 'none',
-            borderRadius: '8px',
-            padding: '0.75rem 1.5rem',
-            fontSize: '1.1rem',
-            fontFamily: 'inherit',
-            cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-            transition: 'background 0.2s',
-          }}
-        >
-          &#8592; Back to Profile
-        </button>
-        <DhanushOSTerminal />
+          projects={projects}
+          skills={skills}
+          experiences={experiences}
+          certifications={certifications}
+          contactInfo={contactInfo}
+        />
         <SpeedInsights />
-      </div>
+      </>
     );
   }
 
@@ -397,6 +383,28 @@ function App() {
             </div>
           </div>
         </ErrorBoundary>
+        <SpeedInsights />
+      </>
+    );
+  }
+
+  if (selectedProfile === 'artist') {
+    return (
+      <>
+        <ArtistProfile
+          projects={projects}
+          skills={skills}
+          experiences={experiences}
+          certifications={certifications}
+          contactInfo={contactInfo}
+          aboutContent={aboutContent}
+          extraGalleryImages={extraGalleryImages}
+          onBack={() => {
+            setSelectedProfile(null);
+            setShowIntro(false);
+            setIntroPlayed(true);
+          }}
+        />
         <SpeedInsights />
       </>
     );

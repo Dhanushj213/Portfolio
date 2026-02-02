@@ -1,0 +1,183 @@
+/* CybersecurityView.css */
+
+.cybersecurity-view {
+    background-color: #141414;
+    min-height: 100vh;
+    color: white;
+    padding-bottom: 4rem;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* Adjust overlay opacity */
+}
+
+/* Fallback for video */
+.video-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #141414, #1a1a1a, #141414);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.cyber-content {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 4% 2rem;
+    /* Top padding to account for fixed Navbar */
+}
+
+.cyber-hero {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cyber-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #00ff88;
+}
+
+.cyber-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #e5e5e5;
+    line-height: 1.6;
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.domains-grid,
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Default desktop */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.cyber-card {
+    background-color: #181818;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #00ff88;
+    height: 100%;
+    /* Equal height cards */
+}
+
+.card-title {
+    color: #00ff88;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #e5e5e5;
+    line-height: 1.6;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tool-item {
+    background-color: rgba(0, 255, 136, 0.1);
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    font-size: 0.9rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .cyber-content {
+        padding: 5rem 1rem 2rem;
+        /* Less side padding on mobile */
+    }
+
+    .cyber-title {
+        font-size: 2.2rem;
+        /* Smaller title */
+        margin-bottom: 1rem;
+    }
+
+    .cyber-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .domains-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        /* Stack vertically on mobile */
+        gap: 1.5rem;
+    }
+
+    .cyber-card {
+        padding: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for tools on mobile */
+    }
+}
