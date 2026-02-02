@@ -1,6 +1,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import DhanushOSTerminal from './components/DhanushOSTerminal';
-import PineappleOS from './pineappleos/PineappleOS';
+import DevToolsProfile from './components/DevToolsProfile';
 import { useState } from 'react';
 import './App.css';
 import ErrorBoundary from './components/ErrorBoundary'; // Import ErrorBoundary
@@ -341,21 +341,19 @@ function App() {
     );
   }
 
-  if (selectedProfile === 'developer') {
+  if (['developer'].includes(selectedProfile)) {
     return (
       <>
-        <PineappleOS
+        <DevToolsProfile
           projects={projects}
           skills={skills}
           experiences={experiences}
           certifications={certifications}
           contactInfo={contactInfo}
-          menuBarProps={{
-            onBackToProfile: () => {
-              setSelectedProfile(null);
-              setShowIntro(false);
-              setIntroPlayed(true);
-            }
+          onBack={() => {
+            setSelectedProfile(null);
+            setShowIntro(false);
+            setIntroPlayed(true);
           }}
         />
         <SpeedInsights />

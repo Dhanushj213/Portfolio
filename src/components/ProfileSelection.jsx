@@ -46,7 +46,6 @@ const ProfileSelection = ({ onProfileSelect }) => {
       alignItems: 'center',
       padding: '20px',
       overflowY: 'auto',
-      overflowY: 'auto',
       WebkitOverflowScrolling: 'touch'
     }}>
       <h1 className="profile-title" style={{
