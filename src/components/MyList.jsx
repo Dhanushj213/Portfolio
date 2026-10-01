@@ -1,34 +1,34 @@
 import React from 'react';
-import { FaShieldAlt, FaCode, FaCloud, FaRobot } from 'react-icons/fa';
+import { FaRobot, FaBrain, FaCode, FaShieldAlt } from 'react-icons/fa';
 
 const MyList = () => {
   const myListItems = [
     {
       id: 1,
-      title: 'Cybersecurity',
-      icon: <FaShieldAlt />,
-      description: 'Penetration Testing, Network Security, Cryptography, Firewalls & Intrusion Detection Systems',
+      title: 'AI & INTELLIGENT SYSTEMS',
+      icon: <FaRobot />,
+      description: 'Machine Learning, Generative AI, LLMs, Explainable AI, Computer Vision',
       color: '#E50914'
     },
     {
       id: 2,
-      title: 'Full-Stack Development',
-      icon: <FaCode />,
-      description: 'MERN Stack, LAMP Stack, RESTful API development, React.js, Node.js',
+      title: 'NEUROMORPHIC COMPUTING',
+      icon: <FaBrain />,
+      description: 'Spiking Neural Networks, Neuromorphic AI, Multi-Modal Analysis',
       color: '#00D4AA'
     },
     {
       id: 3,
-      title: 'Cloud & DevOps',
-      icon: <FaCloud />,
-      description: 'AWS (EC2, S3, Lambda), Docker, Cloud Infrastructure Management',
+      title: 'SOFTWARE ENGINEERING',
+      icon: <FaCode />,
+      description: 'Full-Stack Development, React.js, Node.js, Flask, REST APIs',
       color: '#FF9500'
     },
     {
       id: 4,
-      title: 'Machine Learning',
-      icon: <FaRobot />,
-      description: 'Python, TensorFlow, Data Science, AI Model Development',
+      title: 'CLOUD, DATA & SECURITY',
+      icon: <FaShieldAlt />,
+      description: 'AWS, Docker, Data Technologies, Cybersecurity, Cryptography, Blockchain',
       color: '#007AFF'
     }
   ];
@@ -44,7 +44,7 @@ const MyList = () => {
         marginBottom: '1rem',
         color: '#FFFFFF'
       }}>
-        My List
+        AREAS OF EXPERTISE
       </h2>
       <div className="horizontal-scroll" style={{
         display: 'flex',
