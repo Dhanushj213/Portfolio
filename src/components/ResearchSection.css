@@ -31,6 +31,28 @@
 }
 
 /* --------------------------------------------------------------------------
+   Experience & Timeline: Desktop Default (Side-by-Side 2-Column Grid)
+   -------------------------------------------------------------------------- */
+.experience-timeline-crawler {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.experience-timeline-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.experience-timeline-footer {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
    Mobile & Tablet Vertical / Portrait View (<= 1024px)
    Converts the stacked vertical cards into a silky-smooth horizontal crawler.
    -------------------------------------------------------------------------- */
@@ -68,7 +90,7 @@
     box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
   }
 
-  /* Horizontal Crawler Track */
+  /* Horizontal Crawler Track (Honors) */
   .recognitions-crawler-grid {
     display: flex !important;
     flex-direction: row !important;
@@ -90,7 +112,7 @@
     display: none !important; /* Chrome / Safari / Edge */
   }
 
-  /* Crawler Cards */
+  /* Crawler Cards (Honors) */
   .recognitions-crawler-grid .recognition-card-item {
     flex: 0 0 auto !important;
     scroll-snap-align: center !important;
@@ -140,15 +162,92 @@
     text-transform: uppercase;
     font-weight: 600;
   }
+
+  /* ------------------------------------------------------------------------
+     Horizontal Crawler Track (Experience & Timeline Area)
+     ------------------------------------------------------------------------ */
+  .experience-timeline-crawler {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    gap: 1.5rem !important;
+    padding: 0.5rem 0.25rem 1.25rem 0.25rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    align-items: stretch !important;
+    touch-action: pan-x pan-y !important;
+  }
+
+  .experience-timeline-crawler::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .experience-timeline-card {
+    flex: 0 0 auto !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: normal !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+  }
+
+  .experience-timeline-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .experience-timeline-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .experience-timeline-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: manipulation;
+  }
+
+  .experience-timeline-dot.active {
+    width: 26px;
+    background: #E50914;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
+  }
+
+  .experience-timeline-swipe-hint {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
 }
 
 /* --------------------------------------------------------------------------
    Tablet Vertical / Portrait View (641px - 1024px)
-   Optimal 2-card peek width for iPads and mid-sized tablets
+   Optimal card width for iPads and mid-sized tablets
    -------------------------------------------------------------------------- */
 @media (min-width: 641px) and (max-width: 1024px) {
   .recognitions-crawler-grid .recognition-card-item {
     width: clamp(340px, 46vw, 420px) !important;
+  }
+
+  .experience-timeline-card {
+    width: clamp(380px, 68vw, 520px) !important;
   }
 }
 
@@ -175,6 +274,28 @@
   }
 
   .recognitions-crawler-swipe-hint {
+    font-size: 0.72rem;
+  }
+
+  /* Experience & Timeline Mobile */
+  .experience-timeline-crawler {
+    padding: 0.5rem 1rem 1.25rem 1rem !important;
+    margin: 0 -1rem !important;
+  }
+
+  .experience-timeline-card {
+    width: calc(100vw - 3.5rem) !important;
+    max-width: 380px !important;
+    min-width: 285px !important;
+    padding: 1.6rem !important;
+    scroll-snap-align: center !important;
+  }
+
+  .experience-timeline-footer {
+    padding: 0 0.25rem;
+  }
+
+  .experience-timeline-swipe-hint {
     font-size: 0.72rem;
   }
 }

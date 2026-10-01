@@ -59,6 +59,29 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
     }
   };
 
+  // Crawler ref and tracking for Experience & Timeline cards
+  const experienceTimelineCrawlerRef = useRef(null);
+  const [activeExpTimelineIndex, setActiveExpTimelineIndex] = useState(0);
+
+  const handleExpTimelineScroll = () => {
+    if (!experienceTimelineCrawlerRef.current) return;
+    const container = experienceTimelineCrawlerRef.current;
+    const card = container.firstElementChild;
+    const cardWidth = card ? card.offsetWidth + 24 : 340;
+    const index = Math.round(container.scrollLeft / cardWidth);
+    setActiveExpTimelineIndex(Math.min(1, Math.max(0, index)));
+  };
+
+  const scrollToExpTimelineCard = (index) => {
+    if (!experienceTimelineCrawlerRef.current) return;
+    const container = experienceTimelineCrawlerRef.current;
+    const cards = container.children;
+    if (cards[index]) {
+      cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      setActiveExpTimelineIndex(index);
+    }
+  };
+
   const openEvidence = (tab = 'certificate') => {
     setModalTab(tab);
     setModalOpen(true);
@@ -986,21 +1009,20 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
         </motion.div>
 
         {/* Two-Column Experience & Timeline Area */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '2.5rem',
-            alignItems: 'stretch'
-          }}
-        >
-          {/* Conference Experience Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            style={{
+        <div style={{ marginBottom: '4rem' }}>
+          <div
+            ref={experienceTimelineCrawlerRef}
+            onScroll={handleExpTimelineScroll}
+            className="experience-timeline-crawler"
+          >
+            {/* Conference Experience Card */}
+            <motion.div
+              className="experience-timeline-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px 100px 0px 100px" }}
+              transition={{ duration: 0.7 }}
+              style={{
               background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(18, 18, 18, 0.9) 100%)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
               borderRadius: '16px',
@@ -1142,9 +1164,10 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
 
           {/* Research Timeline Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            className="experience-timeline-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "0px 100px 0px 100px" }}
             transition={{ duration: 0.7 }}
             style={{
               background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(18, 18, 18, 0.9) 100%)',
@@ -1290,7 +1313,31 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
             </div>
           </motion.div>
         </div>
+
+        {/* Crawler Indicators for Experience & Timeline (visible on mobile / tablet) */}
+        <div className="experience-timeline-footer">
+          <div className="experience-timeline-dots">
+            <button
+              type="button"
+              onClick={() => scrollToExpTimelineCard(0)}
+              className={`experience-timeline-dot ${activeExpTimelineIndex === 0 ? 'active' : ''}`}
+              aria-label="Conference Experience & Oral Defense"
+              title="Conference Experience & Oral Defense"
+            />
+            <button
+              type="button"
+              onClick={() => scrollToExpTimelineCard(1)}
+              className={`experience-timeline-dot ${activeExpTimelineIndex === 1 ? 'active' : ''}`}
+              aria-label="Research Progress Timeline"
+              title="Research Progress Timeline"
+            />
+          </div>
+          <span className="experience-timeline-swipe-hint">
+            {activeExpTimelineIndex + 1} / 2 &bull; {activeExpTimelineIndex === 0 ? 'Conference Defense' : 'Milestone Roadmap'}
+          </span>
+        </div>
       </div>
+    </div>
 
       {/* Interactive Evidence Lightbox Modal */}
       <ResearchEvidenceModal
