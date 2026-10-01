@@ -77,8 +77,23 @@ const ResearchPage = ({ onBackToPortfolio, contactInfo }) => {
           {
             "@type": "Event",
             "name": "4th International Conference on Networks, Multimedia, and Information Technology (NMITCON 2026)",
+            "description": "4th International Conference on Networks, Multimedia, and Information Technology (NMITCON 2026), hosted by Nitte Meenakshi Institute of Technology, Bengaluru, co-sponsored by IEEE Bangalore Section and AICTE.",
+            "image": "https://dhanushj.vercel.app/og-image.png",
             "startDate": "2026-09-24",
             "endDate": "2026-09-25",
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "performer": {
+              "@type": "Person",
+              "name": "Dhanush J"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://dhanushj.vercel.app/research"
+            },
             "location": {
               "@type": "Place",
               "name": "Nitte Meenakshi Institute of Technology",
