@@ -5,8 +5,7 @@ import './OpeningIntro.css';
  * OpeningIntro Component
  *
  * Lightweight, native SVG + CSS opening brand animation.
- * Replaces the previous video intro with a minimalist, high-precision
- * hand-drawn bow and arrow symbol.
+ * Features the official bow-and-arrow mark progressively drawn on screen.
  *
  * Timeline:
  *  - 0.0s–0.4s: Pure black screen (#000000)
@@ -57,7 +56,7 @@ const OpeningIntro = ({ onComplete }) => {
     >
       <div className="opening-logo-container">
         <svg
-          viewBox="0 0 1024 935"
+          viewBox="0 0 1024 1024"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="opening-logo-svg"
@@ -66,19 +65,19 @@ const OpeningIntro = ({ onComplete }) => {
           {/* Bow: One continuous stroke (Limb + String) */}
           <path
             className="opening-bow-path"
-            d="M 185 28 C 130 35 90 70 88 110 C 86 150 120 180 165 200 C 260 235 420 250 550 315 C 610 345 640 380 625 435 C 610 490 580 505 620 535 C 700 560 820 600 875 680 C 905 725 900 810 865 870 C 855 890 875 918 920 918 C 960 918 970 880 965 865 L 875 915 L 355 755 L 320 675 L 105 175"
+            d="M 208 58 C 150 67 115 105 116 145 C 117 185 150 215 195 235 C 290 270 450 285 580 350 C 640 380 670 415 655 470 C 640 525 610 540 650 570 C 730 595 850 635 905 715 C 935 760 930 845 895 905 C 885 925 905 950 950 950 C 990 950 1000 915 995 900 L 905 949 L 385 790 L 350 710 L 135 210"
           />
 
           {/* Arrow: One continuous stroke pointing ~45 degrees toward upper-right */}
           <path
             className="opening-arrow-path"
-            d="M 260 765 C 235 745 235 715 260 695 C 285 715 310 740 330 760 L 850 230"
+            d="M 290 800 C 265 780 265 750 290 730 C 315 750 340 775 360 795 L 850 265"
           />
 
           {/* Arrowhead: Razor-sharp swept-back arrowhead completed in portfolio red (#E50914) */}
           <path
             className="opening-arrowhead-path"
-            d="M 988 74 L 950 118 L 927 154 L 912 187 L 904 210 L 904 213 L 901 219 L 897 235 L 883 270 L 865 300 L 851 317 L 846 321 L 860 302 L 872 280 L 882 253 L 884 241 L 886 236 L 890 202 L 896 178 L 896 173 L 891 167 L 877 168 L 839 183 L 843 184 L 849 182 L 868 182 L 872 184 L 876 189 L 876 197 L 873 203 L 868 210 L 852 227 L 850 225 L 842 223 L 865 202 L 868 198 L 869 192 L 866 188 L 862 186 L 851 185 L 826 190 L 795 204 L 775 217 L 761 228 L 751 238 L 748 240 L 749 238 L 766 221 L 795 198 L 823 180 L 890 143 L 931 118 L 958 99 L 987 75 Z"
+            d="M 971 120 L 942 152 L 914 191 L 898 219 L 898 221 L 889 237 L 883 252 L 864 291 L 862 293 L 861 297 L 839 331 L 815 357 L 834 330 L 846 305 L 855 276 L 856 268 L 859 261 L 863 235 L 865 230 L 865 226 L 869 217 L 870 207 L 869 206 L 856 206 L 843 209 L 823 216 L 811 222 L 814 223 L 820 220 L 830 218 L 846 217 L 854 221 L 856 224 L 856 232 L 848 244 L 785 303 L 813 275 L 812 274 L 808 275 L 808 269 L 807 268 L 805 269 L 793 281 L 778 293 L 842 234 L 843 230 L 840 227 L 835 225 L 823 226 L 810 230 L 806 230 L 779 239 L 774 242 L 771 242 L 753 252 L 737 264 L 731 270 L 729 271 L 735 264 L 764 238 L 804 211 L 843 189 L 893 164 L 895 162 L 899 161 L 912 153 L 916 152 L 970 121 Z"
           />
         </svg>
       </div>

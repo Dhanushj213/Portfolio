@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Opening Intro Animation — Minimal SVG/CSS Bow & Arrow Brand Mark
+   Opening Intro Animation — Official Bow & Arrow Brand Mark
    ========================================================================== */
 
 .opening-intro-overlay {
@@ -76,8 +76,8 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: #E50914;
-  stroke-dasharray: 1150;
-  stroke-dashoffset: 1150;
+  stroke-dasharray: 1350;
+  stroke-dashoffset: 1350;
   fill-opacity: 0;
   opacity: 0;
   animation: drawArrowHead 0.3s cubic-bezier(0.2, 0, 0.2, 1) 2.3s forwards;
@@ -117,7 +117,7 @@
 
 @keyframes drawArrowHead {
   0% {
-    stroke-dashoffset: 1150;
+    stroke-dashoffset: 1350;
     fill-opacity: 0;
     opacity: 0;
   }

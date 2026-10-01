@@ -30,8 +30,8 @@ const MenuBar = ({ activeApp, onBackToProfile }) => {
       justifyContent: 'space-between',
     }}>
       <div className="menu-left" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-        <span className="logo" style={{ fontSize: 20, marginRight: 8 }}>
-          <img src="/favicon.svg" alt="Pineapple" style={{ width: 22, height: 22, verticalAlign: 'middle', filter: 'drop-shadow(0 0 4px #E50914)' }} />
+        <span className="logo" style={{ fontSize: 20, marginRight: 8, display: 'inline-flex', alignItems: 'center' }}>
+          <img src="/brand/favicon.svg" alt="Logo" style={{ width: 22, height: 22, verticalAlign: 'middle' }} />
         </span>
         <button
           onClick={handleBack}
@@ -117,9 +117,8 @@ const MenuBar = ({ activeApp, onBackToProfile }) => {
           {/* Control center icon */}
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="7" y="7" width="10" height="10" rx="2" /><rect x="3" y="3" width="4" height="4" rx="1" /><rect x="17" y="3" width="4" height="4" rx="1" /><rect x="3" y="17" width="4" height="4" rx="1" /><rect x="17" y="17" width="4" height="4" rx="1" /></svg>
         </span>
-        <span style={{ marginRight: 6 }}>
-          {/* Pineapple logo (color) */}
-          <img src="/favicon.svg" alt="Pineapple" style={{ width: 20, height: 20, verticalAlign: 'middle', borderRadius: '50%' }} />
+        <span style={{ marginRight: 6, display: 'inline-flex', alignItems: 'center' }}>
+          <img src="/brand/favicon.svg" alt="Logo" style={{ width: 20, height: 20, verticalAlign: 'middle' }} />
         </span>
         <span style={{ marginRight: 6, fontWeight: 600, color: '#fff', fontSize: '1.02rem' }}>Mon Sep 22</span>
         <span style={{ fontWeight: 600, color: '#fff', fontSize: '1.02rem' }}>1:04 AM</span>
