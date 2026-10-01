@@ -19,6 +19,13 @@ const ResearchPage = ({ onBackToPortfolio, contactInfo }) => {
       );
     }
 
+    // Dynamic Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    const originalCanonical = canonical ? canonical.getAttribute('href') : 'https://dhanushj.vercel.app/';
+    if (canonical) {
+      canonical.setAttribute('href', 'https://dhanushj.vercel.app/research');
+    }
+
     // Dynamic JSON-LD Structured Data
     const scriptId = 'research-jsonld-schema';
     let scriptTag = document.getElementById(scriptId);
@@ -122,6 +129,9 @@ const ResearchPage = ({ onBackToPortfolio, contactInfo }) => {
       document.title = originalTitle;
       if (metaDesc) {
         metaDesc.setAttribute('content', originalDesc);
+      }
+      if (canonical) {
+        canonical.setAttribute('href', originalCanonical);
       }
       const existingScript = document.getElementById(scriptId);
       if (existingScript) {

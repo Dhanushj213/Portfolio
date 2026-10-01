@@ -40,7 +40,7 @@ const AboutNew = () => {
                 >
                     <img
                         src="/profile-picture.png"
-                        alt="Dhanush J"
+                        alt="Dhanush J profile photograph"
                         style={{
                             width: '100%',
                             height: 'auto',

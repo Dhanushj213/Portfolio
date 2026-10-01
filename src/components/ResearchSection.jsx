@@ -1104,7 +1104,7 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <img
                   src={evidence.presentationPhotoUrl}
-                  alt="Ceremony Preview"
+                  alt="Research presentation at NMITCON 2026"
                   style={{
                     width: '60px',
                     height: '42px',
