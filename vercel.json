@@ -1,11 +1,37 @@
 {
+  "cleanUrls": false,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/google0b922f7bfbeb0154.html",
+      "destination": "/google0b922f7bfbeb0154.html"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/((?!.*\\.(?:html|xml|txt|png|svg|ico|jpg|jpeg|json|webmanifest|mp4|pdf|css|js)$).*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
+    {
+      "source": "/google0b922f7bfbeb0154.html",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
     {
       "source": "/robots.txt",
       "headers": [
