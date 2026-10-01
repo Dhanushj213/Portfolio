@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { 
   FaAward, 
@@ -12,17 +12,52 @@ import {
   FaUserCheck, 
   FaCamera, 
   FaCheckCircle,
-  FaFileAlt
+  FaFileAlt,
+  FaChevronLeft,
+  FaChevronRight
 } from 'react-icons/fa';
 import { researchData } from '../data/researchData';
 import ResearchEvidenceModal from './ResearchEvidenceModal';
+import './ResearchSection.css';
 
 const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTab, setModalTab] = useState('certificate');
   const [copiedCitation, setCopiedCitation] = useState(false);
 
+  // Crawler ref and tracking state for mobile & vertical tablet view
+  const recognitionsCrawlerRef = useRef(null);
+  const [activeRecognitionIndex, setActiveRecognitionIndex] = useState(0);
+
   const { conference, paper, recognitions, conferenceExperience, timeline, evidence } = researchData;
+
+  const handleCrawlerScroll = () => {
+    if (!recognitionsCrawlerRef.current) return;
+    const container = recognitionsCrawlerRef.current;
+    const card = container.firstElementChild;
+    const cardWidth = card ? card.offsetWidth + 20 : 320;
+    const index = Math.round(container.scrollLeft / cardWidth);
+    setActiveRecognitionIndex(Math.min(recognitions.length - 1, Math.max(0, index)));
+  };
+
+  const scrollCrawler = (direction) => {
+    if (!recognitionsCrawlerRef.current) return;
+    const container = recognitionsCrawlerRef.current;
+    const card = container.firstElementChild;
+    const cardWidth = card ? card.offsetWidth + 20 : 320;
+    const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  const scrollToRecognitionCard = (index) => {
+    if (!recognitionsCrawlerRef.current) return;
+    const container = recognitionsCrawlerRef.current;
+    const cards = container.children;
+    if (cards[index]) {
+      cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      setActiveRecognitionIndex(index);
+    }
+  };
 
   const openEvidence = (tab = 'certificate') => {
     setModalTab(tab);
@@ -319,23 +354,43 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
                 background: 'linear-gradient(to right, rgba(229, 9, 20, 0.6), transparent)'
               }}
             />
+            {/* Header Crawler Controls (visible on tablet vertical view & mobile) */}
+            <div className="recognitions-crawler-header-actions">
+              <button
+                type="button"
+                onClick={() => scrollCrawler('left')}
+                className="recognitions-crawler-btn"
+                aria-label="Previous honors recognition"
+                title="Previous"
+              >
+                <FaChevronLeft />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollCrawler('right')}
+                className="recognitions-crawler-btn"
+                aria-label="Next honors recognition"
+                title="Next"
+              >
+                <FaChevronRight />
+              </button>
+            </div>
           </div>
 
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '1.75rem'
-            }}
+            ref={recognitionsCrawlerRef}
+            onScroll={handleCrawlerScroll}
+            className="recognitions-crawler-grid"
           >
             {recognitions.map((item, index) => {
               const isPresenterAward = item.id === 'best-presenter';
               return (
                 <motion.div
                   key={item.id}
+                  className="recognition-card-item"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "0px 100px 0px 100px" }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   whileHover={{
                     y: -6,
@@ -552,6 +607,25 @@ const ResearchSection = ({ isStandalone = false, onNavigateHome = null }) => {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Crawler Indicators (visible on tablet vertical view & mobile) */}
+          <div className="recognitions-crawler-footer">
+            <div className="recognitions-crawler-dots">
+              {recognitions.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToRecognitionCard(index)}
+                  className={`recognitions-crawler-dot ${activeRecognitionIndex === index ? 'active' : ''}`}
+                  aria-label={`Go to ${item.title}`}
+                  title={item.title}
+                />
+              ))}
+            </div>
+            <span className="recognitions-crawler-swipe-hint">
+              {activeRecognitionIndex + 1} / {recognitions.length} &bull; Swipe to explore
+            </span>
           </div>
         </div>
 

@@ -1,0 +1,180 @@
+/* ==========================================================================
+   ResearchSection.css — Honors & Research Recognition Responsive Crawler
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Desktop & Laptop Default View (> 1024px)
+   Maintains the original 3-column side-by-side grid layout exactly.
+   -------------------------------------------------------------------------- */
+.recognitions-crawler-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.recognitions-crawler-grid .recognition-card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Crawler Navigation Controls & Dots are hidden on Desktop */
+.recognitions-crawler-header-actions {
+  display: none;
+}
+
+.recognitions-crawler-footer {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile & Tablet Vertical / Portrait View (<= 1024px)
+   Converts the stacked vertical cards into a silky-smooth horizontal crawler.
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* Reveal Header Crawler Arrows */
+  .recognitions-crawler-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .recognitions-crawler-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: manipulation;
+  }
+
+  .recognitions-crawler-btn:hover,
+  .recognitions-crawler-btn:active {
+    background: #E50914;
+    border-color: #E50914;
+    color: #ffffff;
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.4);
+  }
+
+  /* Horizontal Crawler Track */
+  .recognitions-crawler-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+    gap: 1.25rem !important;
+    padding: 0.5rem 0.25rem 1.25rem 0.25rem !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE / Edge */
+    align-items: stretch !important;
+    touch-action: pan-x pan-y !important;
+  }
+
+  .recognitions-crawler-grid::-webkit-scrollbar {
+    display: none !important; /* Chrome / Safari / Edge */
+  }
+
+  /* Crawler Cards */
+  .recognitions-crawler-grid .recognition-card-item {
+    flex: 0 0 auto !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: normal !important;
+    align-self: stretch !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Crawler Footer (Indicators + Swipe Hint) */
+  .recognitions-crawler-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    padding: 0 0.5rem;
+  }
+
+  .recognitions-crawler-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .recognitions-crawler-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    touch-action: manipulation;
+  }
+
+  .recognitions-crawler-dot.active {
+    width: 26px;
+    background: #E50914;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.6);
+  }
+
+  .recognitions-crawler-swipe-hint {
+    font-size: 0.78rem;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablet Vertical / Portrait View (641px - 1024px)
+   Optimal 2-card peek width for iPads and mid-sized tablets
+   -------------------------------------------------------------------------- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .recognitions-crawler-grid .recognition-card-item {
+    width: clamp(340px, 46vw, 420px) !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile View (<= 640px)
+   Single prominent card with right-edge peek preview (~15% of next card visible)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .recognitions-crawler-grid {
+    padding: 0.5rem 1rem 1.25rem 1rem !important;
+    margin: 0 -1rem !important;
+  }
+
+  .recognitions-crawler-grid .recognition-card-item {
+    width: calc(100vw - 3.75rem) !important;
+    max-width: 350px !important;
+    min-width: 285px !important;
+    padding: 1.5rem !important;
+    scroll-snap-align: center !important;
+  }
+
+  .recognitions-crawler-footer {
+    padding: 0 0.25rem;
+  }
+
+  .recognitions-crawler-swipe-hint {
+    font-size: 0.72rem;
+  }
+}
