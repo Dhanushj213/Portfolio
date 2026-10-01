@@ -1,7 +1,7 @@
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import DhanushOSTerminal from './components/DhanushOSTerminal';
 import DevToolsProfile from './components/DevToolsProfile';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import ErrorBoundary from './components/ErrorBoundary'; // Import ErrorBoundary
 import ProfileSelection from './components/ProfileSelection';
@@ -19,6 +19,8 @@ import Gallery from './components/Gallery';
 import Languages from './components/Languages';
 import Awards from './components/Awards';
 import AboutNew from './components/AboutNew';
+import ResearchSection from './components/ResearchSection';
+import ResearchPage from './components/ResearchPage';
 
 import ContactFooter from './components/ContactFooter';
 import ScrollingGallery from './components/ScrollingGallery';
@@ -168,6 +170,91 @@ const experiences = [
 
 const projects = [
   {
+    id: 6,
+    title: 'Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks with AI Content Identification and News Verification',
+    shortTitle: 'Neuromorphic Multi-Modal Fake Media Detection',
+    image: '/P6.png',
+    period: '2025 - 2026',
+    category: 'AI/ML • Neuromorphic Computing • Deepfake Detection • Multi-Modal AI • Spiking Neural Networks • Content Verification',
+    categories: ['ML', 'Cybersecurity', 'Web'],
+    overview: 'A multi-modal AI system designed to identify manipulated and synthetic media across images, videos, and news content using Spiking Neural Networks and intelligent content verification techniques.',
+    description: 'A multi-modal AI system designed to identify manipulated and synthetic media across images, videos, and news content using Spiking Neural Networks and intelligent content verification techniques. The system focuses on multi-modal fake media detection, deepfake identification, visual artifact analysis, AI-generated synthetic content detection, and automated news verification pipelines. Built on neuromorphic computing principles, the architecture utilizes event-driven Spiking Neural Networks to analyze complex temporal audio-visual patterns and cross-modal synchronization. The platform integrates image analysis, video frame forensics, and news text verification to detect subtle manipulation cues and evaluate source credibility.',
+    keyCapabilities: [
+      'Multi-modal fake media detection',
+      'Image analysis and synthetic artifact detection',
+      'Video analysis with temporal consensus tracking',
+      'AI-generated and manipulated content identification',
+      'News and content verification with source credibility evaluation',
+      'Spiking Neural Network-based temporal analysis',
+      'Neuromorphic computing approach for event-driven evaluation'
+    ],
+    technologies: [
+      'Python',
+      'PyTorch',
+      'snnTorch',
+      'Norse',
+      'Spiking Neural Networks',
+      'Machine Learning',
+      'Deep Learning',
+      'Multi-Modal AI',
+      'AWS EC2',
+      'TenSEAL'
+    ],
+    images: [
+      {
+        src: '/projects/neuromorphic/neuromorphic-detection-verdict.png',
+        alt: 'Neuromorphic detection system interface displaying source image analysis, AI-generated verdict, and multi-signal forensic summary',
+        caption: 'Source Image Analysis & AI-Generated Verdict with Multi-Signal Forensic Summary'
+      },
+      {
+        src: '/projects/neuromorphic/video-deepfake-snn-analysis.png',
+        alt: 'Video deepfake detection interface analyzing synthetic video frames with Neuromorphic SNN engine showing 91% confidence',
+        caption: 'Video Deepfake Detection — Neuromorphic SNN Analysis & Synthetic Media Identification'
+      },
+      {
+        src: '/projects/neuromorphic/truth-lens-news-verification.png',
+        alt: 'Truth Lens multi-layer forensics interface for text, URL, and news verification showing credibility verdict and domain trust',
+        caption: 'Truth Lens — Multi-Layer News Forensics, Entity Analysis & Source Credibility Verification'
+      },
+      {
+        src: '/projects/neuromorphic/global-verdict-multimodal-fusion.png',
+        alt: 'Global verdict and multi-modal fusion panel displaying verdict confidence gauge, relative signal contribution, and model attribution radar',
+        caption: 'Global Verdict & Multi-Modal Fusion — Signal Contribution & Model Attribution Radar'
+      },
+      {
+        src: '/projects/neuromorphic/snn-spiking-dynamics.png',
+        alt: 'Neuromorphic spiking dynamics panel showing spike raster plot, density estimation, membrane potential trace, and SNN energy consumption log',
+        caption: 'Neuromorphic Spiking Dynamics (SNN) — Spike Raster Plot, Density Estimation & Membrane Potential'
+      },
+      {
+        src: '/projects/neuromorphic/frequency-statistical-artifacts.png',
+        alt: 'Frequency and statistical artifacts panel showing FFT spectrum, frequency artifact heatmap, and pixel distribution histogram',
+        caption: 'Frequency & Statistical Forensics — FFT Spectrum, Artifact Heatmap & Texture Repetition Analysis'
+      },
+      {
+        src: '/projects/neuromorphic/raw-forensic-evidence.png',
+        alt: 'Raw forensic evidence table detailing multi-signal metrics, SNN efficiency in picojoules per spike, and consistency verification checks',
+        caption: 'Raw Forensic Evidence — Multi-Signal Numerical Metrics & SNN Efficiency (100.00 pJ/spike)'
+      },
+      {
+        src: '/projects/neuromorphic/synthid-chain-of-custody.png',
+        alt: 'SynthID digital watermark verification, metadata anomaly analysis, and cryptographic chain-of-custody session hashes',
+        caption: 'SynthID Verification, Metadata Anomaly Analysis & Cryptographic Chain of Custody'
+      },
+      {
+        src: '/projects/neuromorphic/forensic-methodology-pipeline.png',
+        alt: 'Forensic analysis methodology pipeline detailing image ingestion, ResNet-50 CNN, SNN spike-train encoding, and FFT frequency analysis',
+        caption: 'Forensic Analysis Methodology — Ingestion, Custom CNN, Neuromorphic SNN & FFT Stages'
+      },
+      {
+        src: '/projects/neuromorphic/forensic-reporting-suite.png',
+        alt: 'Forensic reporting suite generating court-admissible ISO-standard PDF analysis documents and immutable shareable links',
+        caption: 'Forensic Reporting Suite — ISO-Standard PDF Export & Immutable Shareable Audit Links'
+      }
+    ],
+    demoUrl: 'https://neuromorphic-fake-media-detection-s.vercel.app/'
+  },
+  {
     id: 1,
     title: 'CryptaNet: Privacy-Preserving Explainable AI for Supply Chain Anomaly Detection on a Permissioned Blockchain',
     image: '/P1.png',
@@ -230,6 +317,38 @@ function App() {
   const [selectedProfile, setSelectedProfile] = useState(null);
   const [showIntro, setShowIntro] = useState(true);
   const [introPlayed, setIntroPlayed] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
+
+  // Dedicated /research page direct access
+  if (currentPath === '/research' || window.location.hash === '#/research') {
+    return (
+      <>
+        <ResearchPage
+          onBackToPortfolio={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentPath('/');
+            setSelectedProfile('recruiter');
+            setShowIntro(false);
+            setIntroPlayed(true);
+          }}
+          contactInfo={contactInfo}
+        />
+        <SpeedInsights />
+      </>
+    );
+  }
 
   // Show intro video overlay before profile selection
   if (showIntro && !introPlayed) {
@@ -363,9 +482,12 @@ function App() {
             <AboutNew />
 
             <div className="relative z-20 bg-[#141414]">
-
               <MyList />
               <SkillsLibrary skills={skills} />
+
+              {/* Featured Research & Conference Achievement Section */}
+              <ResearchSection />
+
               <TrendingNow experiences={experiences} />
               <ContinueWatching projects={projects} />
               <Certifications certifications={certifications} />

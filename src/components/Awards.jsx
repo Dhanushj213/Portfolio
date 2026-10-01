@@ -3,6 +3,13 @@ import React from 'react';
 const Awards = () => {
   const awards = [
     {
+      id: 'nmitcon-2026',
+      title: 'Best Paper Presenter & Research Honors',
+      organization: 'NMITCON 2026 (IEEE & AICTE Co-Sponsored)',
+      period: 'September 2026',
+      verificationLink: '#research'
+    },
+    {
       id: 1,
       title: 'Star Performer Award',
       organization: 'OASIS INFOBYTES Internship',
@@ -140,8 +147,15 @@ const Awards = () => {
               {award.verificationLink && (
                 <a
                   href={award.verificationLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={award.verificationLink.startsWith('#') ? '_self' : '_blank'}
+                  rel={award.verificationLink.startsWith('#') ? '' : 'noopener noreferrer'}
+                  onClick={(e) => {
+                    if (award.verificationLink.startsWith('#')) {
+                      e.preventDefault();
+                      const target = document.querySelector(award.verificationLink);
+                      if (target) target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="netflix-button secondary-button verify-button"
                   style={{
                     fontSize: '1rem',
@@ -162,7 +176,7 @@ const Awards = () => {
                     marginTop: 'auto' // Push to bottom
                   }}
                 >
-                  <span>Verify Certificate</span>
+                  <span>{award.verificationLink.startsWith('#') ? 'View Research Milestone' : 'Verify Certificate'}</span>
                 </a>
               )}
             </div>

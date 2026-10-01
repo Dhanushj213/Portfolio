@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaCode, FaFolder, FaSearch, FaGithub, FaCog, FaReact, FaJs, FaHtml5, FaCss3, FaTerminal, FaDownload } from 'react-icons/fa';
 import { VscJson, VscMarkdown, VscFiles, VscSearch, VscSourceControl, VscDebugAlt, VscExtensions, VscAccount, VscSettingsGear, VscChevronRight, VscChevronDown, VscHome } from 'react-icons/vsc';
 import './DevToolsProfile.css';
+import { researchData } from '../data/researchData';
 
 const DevToolsProfile = ({ projects, skills, experiences, certifications, contactInfo, onBack }) => {
     const [activeFile, setActiveFile] = useState('portfolio.config.json');
@@ -168,18 +169,36 @@ const DevToolsProfile = ({ projects, skills, experiences, certifications, contac
     };
 
 
-    // Duplicate data from Recruiter View
+    // Synchronized data with Recruiter View
     const aboutData = {
         name: "Dhanush J",
-        role: "Computer Science Engineering Student",
+        role: "Computer Science Engineer",
         batch: "2026",
-        specialization: "Cybersecurity",
-        summary: "Specializing in secure software development, penetration testing, cloud security, AI-driven systems, and blockchain-based solutions.",
-        key_achievements: [
-            "CryptaNet: Privacy-preserving blockchain-based anomaly detection",
-            "HoneyChain: IoT honeypot with blockchain-verified threat intelligence",
-            "India Book of Records holder"
-        ]
+        domains: [
+            "Artificial Intelligence & Machine Learning",
+            "Intelligent Systems",
+            "Software Engineering",
+            "Cloud & Data Technologies",
+            "Cybersecurity",
+            "Research"
+        ],
+        summary: "I'm a Computer Science Engineer with experience across artificial intelligence and machine learning, intelligent systems, software engineering, cloud and data technologies, cybersecurity, and research. I enjoy building practical, technology-driven solutions that combine software engineering, intelligent systems, and emerging technologies.",
+        key_projects: [
+            "Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks",
+            "CryptaNet: Privacy-Preserving Explainable AI for Supply Chain Anomaly Detection",
+            "HoneyChain: IoT Honeypot with Blockchain-Verified Threat Intelligence",
+            "Permutation Engine: Multi-Algorithm Solver with 3D Rendering"
+        ],
+        research_and_recognition: {
+            conference: "4th International Conference on Networks, Multimedia, and Information Technology (NMITCON 2026)",
+            host: "Nitte Meenakshi Institute of Technology, Bengaluru",
+            dates: "September 24–25, 2026",
+            awards: ["Best Research Paper", "Best Paper Presenter (Oral Defense)"],
+            paper_id: "3111",
+            paper_title: "Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks with AI Content Identification and News Verification",
+            sponsorship: "AICTE Sponsored • Technically Co-Sponsored by IEEE Bangalore Section & IEEE ComSoc",
+            status: "Presented (IEEE Xplore publication pending)"
+        }
     };
 
     const myListData = [
@@ -198,6 +217,7 @@ const DevToolsProfile = ({ projects, skills, experiences, certifications, contac
     const files = {
         'portfolio.config.json': { content: aboutData, language: 'json' },
         'projects.json': { content: projects, language: 'json' },
+        'research.json': { content: researchData, language: 'json' },
         'experience.json': { content: experiences, language: 'json' },
         'skills.json': { content: skills, language: 'json' },
         'certifications.json': { content: certifications, language: 'json' },
@@ -228,13 +248,16 @@ const DevToolsProfile = ({ projects, skills, experiences, certifications, contac
             <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '2rem' }}>
                 <div style={{ flex: 1, minWidth: '280px' }}>
                     <p style={{ marginBottom: '1rem', color: '#d4d4d4', lineHeight: '1.6' }}>
-                        Computer Science Engineering student (Batch of 2026) specializing in Cybersecurity, with strong expertise in secure software development, penetration testing, cloud security, AI-driven systems, and blockchain-based solutions. Proficient in full-stack development, system design, and DevOps tools, with hands-on experience gained through multiple internships and real-world projects.
+                        I'm a Computer Science Engineer with experience across artificial intelligence and machine learning, intelligent systems, software engineering, cloud and data technologies, cybersecurity, and research. I enjoy building practical, technology-driven solutions that combine software engineering, intelligent systems, and emerging technologies.
                     </p>
                     <p style={{ marginBottom: '1rem', color: '#d4d4d4', lineHeight: '1.6' }}>
-                        Led and developed advanced systems such as <strong>CryptaNet</strong>, a privacy-preserving blockchain-based anomaly detection platform using explainable AI, and <strong>HoneyChain</strong>, an IoT honeypot with blockchain-verified threat intelligence. Recognized for technical excellence and creativity through international and national awards, including the India Book of Records.
+                        Through academic, research, internship, and project-based experience, I've worked on systems spanning AI/ML, full-stack development, cybersecurity, blockchain, cloud technologies, and intelligent computing. My projects include CryptaNet, HoneyChain, and a Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks for AI content identification and media analysis.
+                    </p>
+                    <p style={{ marginBottom: '1rem', color: '#d4d4d4', lineHeight: '1.6' }}>
+                        My work also extends into research, where I explore the application of intelligent and emerging technologies to real-world problems. I presented my research at NMITCON 2026 and received recognition for my research and presentation. My research portfolio includes work involving neuromorphic computing, AI-driven systems, and multi-modal content analysis.
                     </p>
                     <p style={{ marginBottom: '1.5rem', color: '#E50914', lineHeight: '1.6', fontWeight: '500' }}>
-                        Seeking opportunities in software engineering and cybersecurity, specializing in secure cloud-native systems, ethical hacking, and intelligent, scalable software solutions.
+                        I'm interested in opportunities across software engineering, AI/ML, intelligent systems, cloud technologies, cybersecurity, and research, where I can build secure, scalable, and innovative technology solutions.
                     </p>
 
                     <a
@@ -272,13 +295,34 @@ const DevToolsProfile = ({ projects, skills, experiences, certifications, contac
             </div>
 
             <h2 style={{ fontSize: '1.5em', borderBottom: '1px solid #333', paddingBottom: '0.3rem', marginTop: '2rem', marginBottom: '1rem', color: '#d4d4d4' }}>
-                About
+                Key Highlights
             </h2>
             <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: '#cccccc' }}>
-                {aboutData.key_achievements.map((item, index) => (
+                {aboutData.key_projects.map((item, index) => (
                     <li key={index} style={{ marginBottom: '0.5rem' }}>{item}</li>
                 ))}
             </ul>
+
+            <h2 style={{ fontSize: '1.5em', borderBottom: '1px solid #333', paddingBottom: '0.3rem', marginTop: '2rem', marginBottom: '1rem', color: '#d4d4d4' }}>
+                Research & Recognition
+            </h2>
+            <div style={{ marginBottom: '1.5rem', background: 'rgba(255,255,255,0.03)', padding: '1rem', borderRadius: '4px', borderLeft: '3px solid #E50914' }}>
+                <h3 style={{ fontSize: '1.1em', fontWeight: 'bold', color: '#fff', margin: '0 0 0.4rem 0' }}>
+                    4th International Conference on Networks, Multimedia, and Information Technology (NMITCON 2026)
+                </h3>
+                <p style={{ fontStyle: 'italic', marginBottom: '0.4rem', color: '#888', fontSize: '0.85rem' }}>
+                    September 24–25, 2026 • Nitte Meenakshi Institute of Technology (NMIT), Bengaluru
+                </p>
+                <div style={{ display: 'inline-block', backgroundColor: 'rgba(229, 9, 20, 0.15)', color: '#E50914', border: '1px solid rgba(229, 9, 20, 0.3)', padding: '2px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '0.6rem' }}>
+                    🏆 Best Paper Presenter &bull; Best Research Paper
+                </div>
+                <p style={{ color: '#ccc', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
+                    <strong>Paper ID 3111:</strong> Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks with AI Content Identification and News Verification
+                </p>
+                <p style={{ color: '#888', fontSize: '0.85rem', margin: 0 }}>
+                    AICTE-sponsored, in association with IEEE Bangalore Section & IEEE Communications Society. Oral presentation delivered. (Presented — IEEE Xplore publication pending).
+                </p>
+            </div>
 
             <h2 style={{ fontSize: '1.5em', borderBottom: '1px solid #333', paddingBottom: '0.3rem', marginTop: '2rem', marginBottom: '1rem', color: '#d4d4d4' }}>
                 Experience
@@ -297,8 +341,20 @@ const DevToolsProfile = ({ projects, skills, experiences, certifications, contac
             {projects.map((proj, index) => (
                 <div key={index} style={{ marginBottom: '1.5rem' }}>
                     <h3 style={{ fontSize: '1.1em', fontWeight: 'bold', color: '#E50914' }}>{proj.title}</h3>
-                    <p style={{ fontStyle: 'italic', marginBottom: '0.25rem' }}>{proj.period}</p>
-                    <p style={{ color: '#aaa' }}>{proj.description}</p>
+                    <p style={{ fontStyle: 'italic', marginBottom: '0.25rem', color: '#888' }}>{proj.period}</p>
+                    <p style={{ color: '#aaa', lineHeight: '1.5' }}>{proj.description}</p>
+                    {proj.technologies && proj.technologies.length > 0 && (
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.5rem' }}>
+                            {proj.technologies.map((t, tidx) => (
+                                <span key={tidx} style={{ fontSize: '0.75rem', background: 'rgba(255,255,255,0.06)', padding: '2px 6px', borderRadius: '3px', color: '#00D4AA' }}>{t}</span>
+                            ))}
+                        </div>
+                    )}
+                    {proj.demoUrl && (
+                        <p style={{ marginTop: '0.4rem' }}>
+                            <a href={proj.demoUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#4fc1ff', textDecoration: 'underline', fontSize: '0.85rem' }}>Live Demo &rarr;</a>
+                        </p>
+                    )}
                 </div>
             ))}
 

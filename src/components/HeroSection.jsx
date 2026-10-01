@@ -91,6 +91,50 @@ const HeroSection = () => {
                     Computer Science Engineering student specializing in Cybersecurity with a passion for developing secure and innovative solutions.
                 </p>
 
+                {/* Featured Research Recognition Pill */}
+                <a
+                    href="#research"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        const el = document.getElementById('research');
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            window.location.href = '/research';
+                        }
+                    }}
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.6rem',
+                        padding: '8px 18px',
+                        backgroundColor: 'rgba(229, 9, 20, 0.15)',
+                        border: '1px solid rgba(229, 9, 20, 0.45)',
+                        borderRadius: '999px',
+                        color: '#ffffff',
+                        fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)',
+                        fontWeight: '700',
+                        marginBottom: '1.25rem',
+                        width: 'fit-content',
+                        textDecoration: 'none',
+                        boxShadow: '0 0 20px rgba(229, 9, 20, 0.25)',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease'
+                    }}
+                    onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = 'rgba(229, 9, 20, 0.3)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = 'rgba(229, 9, 20, 0.15)';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                    }}
+                >
+                    <span style={{ fontSize: '1.1rem' }}>🏆</span>
+                    <span>Best Paper Presenter &bull; NMITCON 2026</span>
+                    <span style={{ color: '#E50914', fontSize: '1rem' }}>&darr;</span>
+                </a>
+
                 <div style={{
                     display: 'flex',
                     gap: '1rem',

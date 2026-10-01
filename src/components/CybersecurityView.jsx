@@ -88,33 +88,68 @@ const CybersecurityView = ({ onBack }) => {
             </div>
           </div>
 
+          {/* Research & Conference Achievement */}
+          <div style={{ marginBottom: '3rem' }}>
+            <h3 className="section-title">
+              Research & Conference Achievement
+            </h3>
+            <div className="cyber-card" style={{ borderLeft: '4px solid #00ff88' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <h4 className="card-title" style={{ color: '#00ff88' }}>
+                  4th Edition of the International Conference on Networks, Multimedia, and Information Technology (NMITCON 2026)
+                </h4>
+                <span style={{ backgroundColor: 'rgba(0, 255, 136, 0.15)', color: '#00ff88', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 'bold' }}>
+                  🏆 Best Research Paper & Best Paper Presenter
+                </span>
+              </div>
+              <p className="card-text" style={{ marginBottom: '0.75rem', color: '#e5e5e5' }}>
+                Paper ID 3111: "Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks with AI Content Identification and News Verification"
+              </p>
+              <div style={{ fontSize: '0.85rem', color: '#888' }}>
+                <strong>Host:</strong> Nitte Meenakshi Institute of Technology (NMIT), Bengaluru • <strong>Dates:</strong> September 24–25, 2026 • AICTE-sponsored, technically co-sponsored by IEEE Bangalore Section & IEEE Communications Society. (Presented — IEEE Xplore publication pending).
+              </div>
+            </div>
+          </div>
+
           {/* Security Projects */}
           <div style={{ marginBottom: '3rem' }}>
             <h3 className="section-title">
-              Security Projects
+              Featured Security & Intelligence Projects
             </h3>
             <div className="projects-grid">
               <div className="cyber-card">
                 <h4 className="card-title">
-                  Web Application Security Testing
+                  Neuromorphic Multi-Modal Fake Media Detection System
                 </h4>
                 <p className="card-text" style={{ marginBottom: '1rem' }}>
-                  Comprehensive security assessment of web applications including SQL injection, XSS, CSRF, and authentication bypass testing.
+                  Multi-modal AI and cybersecurity system using neuromorphic computing and event-driven Spiking Neural Networks to detect deepfakes, synthetic artifacts, manipulated media, and unverified news.
                 </p>
                 <div style={{ fontSize: '0.9rem', color: '#888' }}>
-                  <strong>Technologies:</strong> OWASP ZAP, SQLMap, Burp Suite
+                  <strong>Technologies:</strong> Python, PyTorch, snnTorch, Spiking Neural Networks, Multi-Modal AI, AWS EC2, TenSEAL
                 </div>
               </div>
 
               <div className="cyber-card">
                 <h4 className="card-title">
-                  Network Security Analysis
+                  HoneyChain: IoT Honeypot with Blockchain Intelligence
                 </h4>
                 <p className="card-text" style={{ marginBottom: '1rem' }}>
-                  Network traffic analysis, intrusion detection system implementation, and firewall rule optimization.
+                  Built distributed IoT honeypot network using ESP32 devices to emulate vulnerable IoT devices. Captured real-time attack vectors with 85% classification accuracy and blockchain-verified tamper-proof logging.
                 </p>
                 <div style={{ fontSize: '0.9rem', color: '#888' }}>
-                  <strong>Technologies:</strong> Wireshark, Snort, pfSense
+                  <strong>Technologies:</strong> ESP32, Python, TensorFlow, Blockchain, Threat Pattern Analysis
+                </div>
+              </div>
+
+              <div className="cyber-card">
+                <h4 className="card-title">
+                  CryptaNet: Privacy-Preserving AI Anomaly Detection
+                </h4>
+                <p className="card-text" style={{ marginBottom: '1rem' }}>
+                  Secure supply chain monitoring system using Hyperledger Fabric permissioned blockchain with Isolation Forest ML anomaly detection and SHAP-based explainable AI layer with AES/SHA-256 cryptography.
+                </p>
+                <div style={{ fontSize: '0.9rem', color: '#888' }}>
+                  <strong>Technologies:</strong> Hyperledger Fabric, Python/Flask, React.js, Go Smart Contracts, AES, SHA-256
                 </div>
               </div>
             </div>

@@ -104,13 +104,16 @@ const AboutNew = () => {
                         hyphens: 'auto'
                     }}>
                         <p style={{ marginBottom: '1.5rem' }}>
-                            Computer Science Engineering student (Batch of 2026) specializing in Cybersecurity, with strong expertise in secure software development, penetration testing, cloud security, AI-driven systems, and blockchain-based solutions. Proficient in full-stack development, system design, and DevOps tools, with hands-on experience gained through multiple internships and real-world projects.
+                            I'm a Computer Science Engineer with experience across artificial intelligence and machine learning, intelligent systems, software engineering, cloud and data technologies, cybersecurity, and research. I enjoy building practical, technology-driven solutions that combine software engineering, intelligent systems, and emerging technologies.
                         </p>
                         <p style={{ marginBottom: '1.5rem' }}>
-                            Led and developed advanced systems such as <strong>CryptaNet</strong>, a privacy-preserving blockchain-based anomaly detection platform using explainable AI, and <strong>HoneyChain</strong>, an IoT honeypot with blockchain-verified threat intelligence. Recognized for technical excellence and creativity through international and national awards, including the India Book of Records.
+                            Through academic, research, internship, and project-based experience, I've worked on systems spanning AI/ML, full-stack development, cybersecurity, blockchain, cloud technologies, and intelligent computing. My projects include CryptaNet, HoneyChain, and a Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks for AI content identification and media analysis.
+                        </p>
+                        <p style={{ marginBottom: '1.5rem' }}>
+                            My work also extends into research, where I explore the application of intelligent and emerging technologies to real-world problems. I presented my research at <a href="#research" style={{ color: '#E50914', textDecoration: 'none', fontWeight: '500', borderBottom: '1px solid rgba(229, 9, 20, 0.4)', transition: 'border-color 0.2s ease' }} onMouseOver={(e) => e.currentTarget.style.borderBottomColor = '#ffffff'} onMouseOut={(e) => e.currentTarget.style.borderBottomColor = 'rgba(229, 9, 20, 0.4)'}>NMITCON 2026</a> and received recognition for my research and presentation. My research portfolio includes work involving neuromorphic computing, AI-driven systems, and multi-modal content analysis.
                         </p>
                         <p style={{ color: '#E50914', fontWeight: '500' }}>
-                            Seeking opportunities in software engineering and cybersecurity, specializing in secure cloud-native systems, ethical hacking, and intelligent, scalable software solutions.
+                            I'm interested in opportunities across software engineering, AI/ML, intelligent systems, cloud technologies, cybersecurity, and research, where I can build secure, scalable, and innovative technology solutions.
                         </p>
                     </div>
                 </motion.div>

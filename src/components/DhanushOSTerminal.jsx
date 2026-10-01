@@ -29,6 +29,7 @@ const helpText = [
   'about      - Show about info',
   'skills     - List key skills',
   'projects   - Show projects',
+  'research   - Research & conference achievements (NMITCON 2026)',
   'certs      - List certifications',
   'experience - Show work experience',
   'education  - Show education',
@@ -61,7 +62,7 @@ const motivate = [
   '"Stay curious. Hack the planet!"',
 ];
 
-const about = 'Dhanush J is a Cybersecurity Analyst passionate about defending digital assets and building secure systems.';
+const about = "I'm a Computer Science Engineer with experience across artificial intelligence and machine learning, intelligent systems, software engineering, cloud and data technologies, cybersecurity, and research. I enjoy building practical, technology-driven solutions that combine software engineering, intelligent systems, and emerging technologies.";
 const skills = [
   'Penetration Testing',
   'Network Security',
@@ -81,6 +82,7 @@ const certs = [
   'Udemy - Spark SQL & Hadoop for Data Science',
 ];
 const projects = [
+  'Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural Networks',
   'CryptaNet: Privacy-Preserving Explainable AI for Supply Chain Anomaly Detection',
   'HoneyChain: IoT Honeypot with Blockchain-Verified Threat Intelligence',
   'Intelligent Driver Monitoring System',
@@ -296,6 +298,24 @@ const DhanushOSTerminal = ({ projects = [], skills = [], experiences = [], certi
         break;
       case 'projects':
         output = [{ type: 'project-list', data: projects }];
+        break;
+      case 'research':
+      case 'publications':
+        output = [
+          '🏆 RESEARCH & CONFERENCE RECOGNITION (NMITCON 2026)',
+          '====================================================',
+          'Conference:  4th Edition of the International Conference on Networks, Multimedia,',
+          '             and Information Technology (NMITCON 2026)',
+          'Hosted by:   Nitte Meenakshi Institute of Technology (NMIT), Bengaluru',
+          'Dates:       September 24–25, 2026',
+          'Sponsorship: AICTE-sponsored • Technically co-sponsored by IEEE Bangalore Section & IEEE ComSoc',
+          'Honors:      ★ Best Research Paper Award',
+          '             ★ Best Paper Presenter Award (Oral Defense)',
+          'Paper ID:    3111',
+          'Title:       Neuromorphic Multi-Modal Fake Media Detection System using Spiking Neural',
+          '             Networks with AI Content Identification and News Verification',
+          'Status:      Presented (IEEE Xplore publication pending)'
+        ];
         break;
       case 'certs':
       case 'certifications':
