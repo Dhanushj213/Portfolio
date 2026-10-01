@@ -65,7 +65,7 @@ const ContactFooter = ({ contactInfo }) => {
       icon: 'fa-brands fa-linkedin-in',
       title: 'LinkedIn',
       text: 'Visit Profile',
-      link: 'https://www.linkedin.com/in/dhanush-j-a976ab26b',
+      link: 'https://www.linkedin.com/in/dhanush-jagadeesh/',
       isButton: true
     },
     {

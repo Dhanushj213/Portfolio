@@ -31,9 +31,10 @@ const contactInfo = {
   email: 'jdhanush213@gmail.com',
   phone: '+918217471928',
   location: 'Bengaluru, Karnataka, India',
-  linkedin: 'https://www.linkedin.com/in/dhanush-j-a976ab26b',
+  linkedin: 'https://www.linkedin.com/in/dhanush-jagadeesh/',
   github: 'https://github.com/dhanushj213',
-  dob: 'January 2nd, 2003'
+  dob: 'January 2nd, 2003',
+  resume: 'https://drive.google.com/file/d/1tqq1up0lBEt9R5qRmbRKn-FzGjVlfRvP/view?usp=drive_link'
 };
 
 const aboutContent = {

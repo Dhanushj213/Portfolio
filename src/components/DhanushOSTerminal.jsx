@@ -51,7 +51,7 @@ const education = [
 ];
 
 const social = [
-  'LinkedIn: linkedin.com/in/dhanush-j-a976ab26b',
+  'LinkedIn: linkedin.com/in/dhanush-jagadeesh/',
   'GitHub: github.com/dhanushj213',
   'Twitter: twitter.com/dhanushj213',
 ];
@@ -91,7 +91,7 @@ const projects = [
 ];
 const contact = [
   'Email: jdhanush213@gmail.com',
-  'LinkedIn: linkedin.com/in/dhanush-j-a976ab26b',
+  'LinkedIn: linkedin.com/in/dhanush-jagadeesh/',
   'GitHub: github.com/dhanushj213',
 ];
 

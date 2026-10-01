@@ -38,7 +38,7 @@ const ResearchPage = ({ onBackToPortfolio, contactInfo }) => {
                 "@type": "Person",
                 "name": "Dhanush J",
                 "jobTitle": "Computer Science Engineer & Cybersecurity Researcher",
-                "sameAs": "https://www.linkedin.com/in/dhanush-j-a976ab26b"
+                "sameAs": "https://www.linkedin.com/in/dhanush-jagadeesh/"
               }
             ],
             "description": researchData.paper.abstract,

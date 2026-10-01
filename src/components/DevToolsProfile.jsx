@@ -261,8 +261,9 @@ const DevToolsProfile = ({ projects, skills, experiences, certifications, contac
                     </p>
 
                     <a
-                        href="/Resume.pdf"
-                        download
+                        href="https://drive.google.com/file/d/1tqq1up0lBEt9R5qRmbRKn-FzGjVlfRvP/view?usp=drive_link"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',

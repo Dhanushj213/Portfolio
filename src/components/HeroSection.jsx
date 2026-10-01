@@ -142,7 +142,7 @@ const HeroSection = () => {
                     flexWrap: 'wrap' // Allow wrapping on small screens
                 }}>
                     <a
-                        href="/Dhanush_J_Resume (6).pdf"
+                        href="https://drive.google.com/file/d/1tqq1up0lBEt9R5qRmbRKn-FzGjVlfRvP/view?usp=drive_link"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
@@ -169,7 +169,7 @@ const HeroSection = () => {
                     </a>
 
                     <a
-                        href="https://www.linkedin.com/in/dhanush-j-a976ab26b"
+                        href="https://www.linkedin.com/in/dhanush-jagadeesh/"
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{

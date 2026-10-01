@@ -76,7 +76,7 @@ const CybersecurityAnalystProfile = () => {
         <div style={{ marginTop: '2rem' }}>
           <h3 style={{ color: '#0f0', fontSize: '1.4rem', marginBottom: '1rem', textShadow: '0 0 6px #0f0' }}>Contact & Social</h3>
           <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="https://www.linkedin.com/in/dhanush-j-a976ab26b" target="_blank" rel="noopener noreferrer" style={{ color: '#0f0', fontWeight: 500, textShadow: '0 0 6px #0f0' }}>LinkedIn</a>
+            <a href="https://www.linkedin.com/in/dhanush-jagadeesh/" target="_blank" rel="noopener noreferrer" style={{ color: '#0f0', fontWeight: 500, textShadow: '0 0 6px #0f0' }}>LinkedIn</a>
             <a href="https://github.com/dhanushj213" target="_blank" rel="noopener noreferrer" style={{ color: '#0f0', fontWeight: 500, textShadow: '0 0 6px #0f0' }}>GitHub</a>
           </div>
         </div>

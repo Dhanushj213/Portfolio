@@ -49,8 +49,8 @@ const PineappleOS = ({ projects, skills, experiences, certifications, contactInf
     const allMobileApps = [
       ...systemApps,
       // Contact Apps
-      { id: 'resume', label: 'Resume', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#E50914" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">CV</text></svg>, onClick: () => window.open('https://drive.google.com/file/d/1E6HM8pHJJhxsQgzSjMN0gL-IG6SREJA_/view?usp=drive_link', '_blank') },
-      { id: 'linkedin', label: 'LinkedIn', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#0077b5" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">in</text></svg>, onClick: () => window.open('https://www.linkedin.com/in/dhanush-j-a976ab26b', '_blank') },
+      { id: 'resume', label: 'Resume', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#E50914" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">CV</text></svg>, onClick: () => window.open('https://drive.google.com/file/d/1tqq1up0lBEt9R5qRmbRKn-FzGjVlfRvP/view?usp=drive_link', '_blank') },
+      { id: 'linkedin', label: 'LinkedIn', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#0077b5" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">in</text></svg>, onClick: () => window.open('https://www.linkedin.com/in/dhanush-jagadeesh/', '_blank') },
       { id: 'github', label: 'GitHub', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#222" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">GH</text></svg>, onClick: () => window.open('https://github.com/dhanushj213', '_blank') },
       { id: 'mail', label: 'Mail', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#222" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">@</text></svg>, onClick: () => window.open('mailto:jdhanush213@gmail.com', '_blank') },
       { id: 'call', label: 'Call', icon: <svg width="60" height="60" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#27c93f" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">📞</text></svg>, onClick: () => window.open('tel:+918217471928', '_blank') },
@@ -103,7 +103,7 @@ const PineappleOS = ({ projects, skills, experiences, certifications, contactInf
       icon: <svg width="56" height="56" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#E50914" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">CV</text></svg>,
       x: 32,
       y: 140,
-      onClick: () => window.open('https://drive.google.com/file/d/1E6HM8pHJJhxsQgzSjMN0gL-IG6SREJA_/view?usp=drive_link', '_blank')
+      onClick: () => window.open('https://drive.google.com/file/d/1tqq1up0lBEt9R5qRmbRKn-FzGjVlfRvP/view?usp=drive_link', '_blank')
     },
     {
       id: 'linkedin',
@@ -111,7 +111,7 @@ const PineappleOS = ({ projects, skills, experiences, certifications, contactInf
       icon: <svg width="56" height="56" viewBox="0 0 56 56"><rect width="56" height="56" rx="12" fill="#0077b5" /><text x="8" y="40" fontSize="16" fontWeight="bold" fill="#fff">in</text></svg>,
       x: 100,
       y: 140,
-      onClick: () => window.open('https://www.linkedin.com/in/dhanush-j-a976ab26b', '_blank')
+      onClick: () => window.open('https://www.linkedin.com/in/dhanush-jagadeesh/', '_blank')
     },
     {
       id: 'mail',
