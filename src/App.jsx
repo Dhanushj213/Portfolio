@@ -8,6 +8,7 @@ import ProfileSelection from './components/ProfileSelection';
 import ArtistProfile from './components/ArtistProfile';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
+import OpeningIntro from './components/OpeningIntro';
 
 
 import MyList from './components/MyList';
@@ -351,72 +352,15 @@ function App() {
     );
   }
 
-  // Show intro video overlay before profile selection
+  // Show native SVG/CSS opening intro animation before profile selection
   if (showIntro && !introPlayed) {
     return (
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100dvh', // Dynamic viewport height
-          background: 'black',
-          zIndex: 9999,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer'
-        }}
-        onClick={() => {
+      <OpeningIntro
+        onComplete={() => {
           setShowIntro(false);
           setIntroPlayed(true);
         }}
-      >
-        <video
-          src="/video.mp4"
-          autoPlay
-          muted
-          playsInline
-          style={{ width: '100%', height: '100%', objectFit: 'contain' }} // Ensure full video is visible
-          onEnded={() => {
-            setShowIntro(false);
-            setIntroPlayed(true);
-          }}
-          onError={() => {
-            console.error("Video failed to play");
-            setShowIntro(false);
-            setIntroPlayed(true);
-          }}
-        />
-        <button
-          style={{
-            position: 'absolute',
-            bottom: 'max(2rem, env(safe-area-inset-bottom))', // Safe area respected
-            right: 'max(2rem, env(safe-area-inset-right))',
-            padding: '10px 24px',
-            background: 'rgba(229, 9, 20, 0.8)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            fontSize: '1rem',
-            fontWeight: 'bold',
-            cursor: 'pointer',
-            zIndex: 10000,
-            backdropFilter: 'blur(4px)',
-            transition: 'background 0.2s'
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowIntro(false);
-            setIntroPlayed(true);
-          }}
-          onMouseEnter={(e) => e.target.style.background = '#E50914'}
-          onMouseLeave={(e) => e.target.style.background = 'rgba(229, 9, 20, 0.8)'}
-        >
-          Skip Intro &rarr;
-        </button>
-      </div>
+      />
     );
   }
 
